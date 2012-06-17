@@ -1,0 +1,1179 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     48622,       1170]
+NotebookOptionsPosition[     47442,       1128]
+NotebookOutlinePosition[     47902,       1146]
+CellTagsIndexPosition[     47859,       1143]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Monte Carlo Example with Varying Kurtosis\
+\>", "Title",
+ CellChangeTimes->{{3.509878610879393*^9, 3.509878630688354*^9}, 
+   3.509878935646997*^9, {3.521538467554421*^9, 3.521538476375638*^9}}],
+
+Cell[BoxData[{
+ FormBox[
+  StyleBox[
+   RowBox[{
+   "Consider", " ", "the", " ", "test", " ", "function", " ", "given", " ", 
+    "by"}],
+   FontSize->18], TraditionalForm], "\n", 
+ FormBox[
+  StyleBox[
+   FormBox[
+    RowBox[{
+     RowBox[{"g", 
+      RowBox[{"(", "x", ")"}]}], "=", 
+     RowBox[{"\[Mu]", "+", 
+      FractionBox[
+       RowBox[{"\[Sigma]", "(", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"c", " ", "x"}], " ", "-", " ", 
+           RowBox[{
+            SuperscriptBox["c", "2"], "/", "2"}]}]], "-", "1"}], ")"}], 
+       SqrtBox[
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          SuperscriptBox["c", "2"]], "-", "1"}]]]}]}],
+    TraditionalForm],
+   FontSize->18], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{
+    "We", " ", "will", " ", "explore", " ", "how", " ", "well", " ", "this", 
+     " ", "function", " ", "is", " ", "integrated", " ", "by", " ", "Monte", 
+     " ", "Carlo", " ", 
+     RowBox[{"methods", ".", "Note"}], " ", "that", " ", 
+     StyleBox[
+      RowBox[{"if", 
+       StyleBox["X", "InlineFormula",
+        FontSlant->"Italic"], "is"}]], " ", "a", " ", "standard", " ", 
+     "Gaussian", " ", "random", " ", "variable"}], ",", "then"}],
+   FontSize->18], TraditionalForm], "\n", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     StyleBox["E", "DisplayFormula"], 
+     StyleBox["[", "DisplayFormula"], 
+     StyleBox[
+      RowBox[{"g", 
+       RowBox[{"(", 
+        StyleBox["X",
+         FontSlant->"Italic"], ")"}]}], "DisplayFormula"], 
+     StyleBox["]", "DisplayFormula"]}], 
+    StyleBox[" ", "DisplayFormula"], 
+    StyleBox["=", "DisplayFormula"], 
+    StyleBox[" ", "DisplayFormula"], "\[Mu]"}],
+   FontSize->18], TraditionalForm], "\n", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{"var", "(", 
+     RowBox[{"g", "(", "X", ")"}], ")"}], " ", "=", " ", 
+    SuperscriptBox["\[Sigma]", "2"]}],
+   FontSize->18], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{"kurt", "(", 
+     RowBox[{"g", "(", "X", ")"}], ")"}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{"-", "3"}], " ", "+", " ", 
+     RowBox[{"3", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"2", 
+        SuperscriptBox["c", "2"]}]]}], "+", 
+     RowBox[{"2", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"3", 
+        SuperscriptBox["c", "2"]}]]}], "+", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"4", 
+       SuperscriptBox["c", "2"]}]]}]}],
+   FontSize->18], TraditionalForm], "\[IndentingNewLine]"
+ FormBox[
+  StyleBox[,
+   FontSize->18], TraditionalForm]}], "Text",
+ CellChangeTimes->{{3.521537456247007*^9, 3.5215375140116243`*^9}, {
+  3.5215375521683283`*^9, 3.521537893358967*^9}, {3.521537961953452*^9, 
+  3.521537967530925*^9}, {3.521537998350768*^9, 3.5215381092903557`*^9}, {
+  3.521538144373726*^9, 3.521538157200899*^9}, {3.521538200217133*^9, 
+  3.5215383993323183`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"x_", ",", "mu_", ",", "sigma_", ",", "c_"}], "]"}], ":=", " ", 
+   RowBox[{"mu", " ", "-", " ", 
+    RowBox[{"sigma", "/", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"Exp", "[", 
+        RowBox[{"c", "^", "2"}], "]"}], "-", "1"}], "]"}]}], " ", "+", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"sigma", "/", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{
+         RowBox[{"Exp", "[", 
+          RowBox[{"c", "^", "2"}], "]"}], "-", "1"}], "]"}]}], ")"}], 
+     RowBox[{"Exp", "[", 
+      RowBox[{
+       RowBox[{"c", " ", "x"}], " ", "-", " ", 
+       RowBox[{
+        RowBox[{"c", "^", "2"}], "/", "2"}]}], "]"}]}]}]}], 
+  "DisplayFormula"]], "Input",
+ CellChangeTimes->{{3.5098786581541653`*^9, 3.509878852005125*^9}, {
+  3.509879107873777*^9, 3.509879108826363*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"meang", "=", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"g", "[", 
+      RowBox[{"x", ",", "mu", ",", "sigma", ",", "c"}], "]"}], "*", 
+     RowBox[{"PDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", "]"}], ",", "x"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.509879846394885*^9, 3.509879953650223*^9}, {
+  3.509880048427726*^9, 3.50988005268367*^9}, {3.521385350186384*^9, 
+  3.521385358658115*^9}}],
+
+Cell[BoxData["mu"], "Output",
+ CellChangeTimes->{3.509879925172254*^9, 3.509880006917571*^9, 
+  3.509880069759597*^9, 3.521384794610116*^9, 3.521385248313581*^9, 
+  3.52138569051084*^9, 3.521395511079772*^9, 3.52139720625877*^9, 
+  3.52142396960573*^9, 3.524305686489244*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"varg", "=", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"g", "[", 
+         RowBox[{"x", ",", "mu", ",", "sigma", ",", "c"}], "]"}], "-", 
+        "meang"}], ")"}], "^", "2"}], "*", 
+     RowBox[{"PDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", "]"}], ",", "x"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.509900200028038*^9, 3.509900222768681*^9}, 
+   3.521385363891399*^9, {3.5213994864445477`*^9, 3.52139949083311*^9}}],
+
+Cell[BoxData[
+ SuperscriptBox["sigma", "2"]], "Output",
+ CellChangeTimes->{3.5099002271721773`*^9, 3.521384797546466*^9, 
+  3.5213852490627117`*^9, 3.52138569130748*^9, 3.5213955116787443`*^9, 
+  3.521397242961038*^9, 3.521399494931836*^9, 3.521423970286817*^9, 
+  3.524305688531258*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"kurtg", "=", 
+  RowBox[{"Expand", "[", 
+   RowBox[{
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"g", "[", 
+           RowBox[{"x", ",", "mu", ",", "sigma", ",", "c"}], "]"}], "-", 
+          "meang"}], ")"}], "^", "4"}], "*", 
+       RowBox[{"PDF", "[", 
+        RowBox[{
+         RowBox[{"NormalDistribution", "[", "]"}], ",", "x"}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}], "/", 
+    RowBox[{"sigma", "^", "4"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.509900245362206*^9, 3.50990028636729*^9}, {
+   3.521385295692074*^9, 3.5213853344663963`*^9}, {3.5213853690902042`*^9, 
+   3.521385369617062*^9}, 3.521399499353282*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "3"}], "+", 
+  RowBox[{"3", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"2", " ", 
+     SuperscriptBox["c", "2"]}]]}], "+", 
+  RowBox[{"2", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"3", " ", 
+     SuperscriptBox["c", "2"]}]]}], "+", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"4", " ", 
+    SuperscriptBox["c", "2"]}]]}]], "Output",
+ CellChangeTimes->{{3.509900260173305*^9, 3.5099002876026487`*^9}, 
+   3.521384802427195*^9, 3.5213852505004387`*^9, {3.521385314343684*^9, 
+   3.521385337581355*^9}, 3.521385371693481*^9, 3.521385692732642*^9, 
+   3.52139551277433*^9, 3.521397367670456*^9, 3.521399502346525*^9, 
+   3.5214239713828373`*^9, 3.52430569173387*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"g0", "[", "x_", "]"}], "=", 
+     RowBox[{"g", "[", 
+      RowBox[{"x", ",", "mu0", ",", "sig0", ",", "c0"}], "]"}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "function", " ", "to", " ", "be", " ", "integrated", " ", "with", " ", 
+      "parameters", " ", "fixed"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"g0p", "[", "x_", "]"}], "=", 
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"g0", "[", "x", "]"}], ",", "x"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"kurtg0", "=", 
+     RowBox[{"N", "[", 
+      RowBox[{
+       RowBox[{"-", "3"}], "+", 
+       RowBox[{"3", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"2", " ", 
+          SuperscriptBox["c0", "2"]}]]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"3", " ", 
+          SuperscriptBox["c0", "2"]}]]}], "+", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"4", " ", 
+         SuperscriptBox["c0", "2"]}]]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"n0", "<=", "100000"}], ",", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "largest", " ", "initial", " ", "sample", " ", "size", " ", 
+        "allowed"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"x0sample", "=", 
+        RowBox[{"RandomVariate", "[", 
+         RowBox[{
+          RowBox[{"NormalDistribution", "[", "]"}], ",", "n0"}], "]"}]}], ";",
+        " ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "initial", " ", "sample", " ", "to", " ", "estimate", " ", "the", " ",
+          "variance"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"y0sample", "=", 
+        RowBox[{"g0", "[", "x0sample", "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "evaluate", " ", "the", " ", "function", " ", "at", " ", "thie", " ", 
+         "initial", " ", "sample"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"sigmahat0", "=", 
+        RowBox[{"StandardDeviation", "[", "y0sample", "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "estimate", " ", "of", " ", "the", " ", "standard", " ", 
+         "deviation"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"n1", "=", 
+        RowBox[{"Switch", "[", 
+         RowBox[{"whichci", ",", "\[IndentingNewLine]", "\"\<CLT\>\"", ",", 
+          RowBox[{"Ceiling", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"InverseCDF", "[", 
+               RowBox[{
+                RowBox[{"NormalDistribution", "[", "]"}], ",", 
+                RowBox[{"1", "-", 
+                 RowBox[{"uncertainty", "/", "2"}]}]}], "]"}], "*", 
+              RowBox[{"sigmahat0", "/", "tolerance"}]}], ")"}], "^", "2"}], 
+           "]"}], ",", "\[IndentingNewLine]", "\"\<CLTFudge\>\"", ",", 
+          RowBox[{"Ceiling", "[", 
+           RowBox[{"1.2", "*", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"InverseCDF", "[", 
+                RowBox[{
+                 RowBox[{"NormalDistribution", "[", "]"}], ",", 
+                 RowBox[{"1", "-", 
+                  RowBox[{"uncertainty", "/", "2"}]}]}], "]"}], "*", 
+               RowBox[{"sigmahat0", "/", "tolerance"}]}], ")"}], "^", "2"}]}],
+            "]"}]}], "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "sample", " ", "size", " ", "for", " ", "computing", " ", 
+         "approximate", " ", "integral"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"n1", " ", "\[LessEqual]", " ", "1000001"}], ",", " ", 
+         RowBox[{"(*", 
+          RowBox[{
+          "largest", " ", "final", " ", "sample", " ", "size", " ", 
+           "allowed"}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"x1sample", "=", 
+           RowBox[{"RandomVariate", "[", 
+            RowBox[{
+             RowBox[{"NormalDistribution", "[", "]"}], ",", "n1"}], "]"}]}], 
+          ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "sample", " ", "to", " ", "estimate", " ", "the", " ", 
+            "integral"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"y1sample", "=", 
+           RowBox[{"g0", "[", "x1sample", "]"}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{"sample", " ", "the", " ", "function"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"muhat1", "=", " ", 
+           RowBox[{"Mean", "[", "y1sample", "]"}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{"estimated", " ", "integral"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"sigmahat1", "=", " ", 
+           RowBox[{"StandardDeviation", "[", "y1sample", "]"}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "new", " ", "estimated", " ", "standard", " ", "deviation"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"kurthat1", "=", 
+           RowBox[{"Kurtosis", "[", "y1sample", "]"}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{"estimated", " ", "kurtosis"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"ciwidth", "=", 
+           RowBox[{
+            RowBox[{"InverseCDF", "[", 
+             RowBox[{
+              RowBox[{"NormalDistribution", "[", "]"}], ",", 
+              RowBox[{"1", "-", 
+               RowBox[{"uncertainty", "/", "2"}]}]}], "]"}], "*", 
+            RowBox[{"sigmahat0", "/", 
+             RowBox[{"Sqrt", "[", "n1", "]"}]}]}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "width", " ", "of", " ", "the", " ", "confidence", " ", 
+            "interval"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"ypdfyplotdata0", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"g0", "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"PDF", "[", 
+                 RowBox[{
+                  RowBox[{"NormalDistribution", "[", "]"}], ",", "t"}], "]"}],
+                 "/", 
+                RowBox[{"g0p", "[", "t", "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"-", "4"}], ",", "4", ",", "0.002"}], "}"}]}], "]"}]}],
+           ";", "\[IndentingNewLine]", 
+          RowBox[{"ypdfyplotdata1", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"g0", "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"PDF", "[", 
+                 RowBox[{
+                  RowBox[{"NormalDistribution", "[", "]"}], ",", "t"}], "]"}],
+                 "/", 
+                RowBox[{"g0p", "[", "t", "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"-", "4"}], ",", "4", ",", "0.002"}], "}"}]}], "]"}]}],
+           ";", "\[IndentingNewLine]", 
+          RowBox[{"ypdfyplotdata0", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"g0", "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"PDF", "[", 
+                 RowBox[{
+                  RowBox[{"NormalDistribution", "[", "]"}], ",", "t"}], "]"}],
+                 "/", 
+                RowBox[{"g0p", "[", "t", "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"Min", "[", "x0sample", "]"}], ",", 
+               RowBox[{"Max", "[", "x0sample", "]"}], ",", "0.002"}], "}"}]}],
+             "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ypdfyplotdata1", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"g0", "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"PDF", "[", 
+                 RowBox[{
+                  RowBox[{"NormalDistribution", "[", "]"}], ",", "t"}], "]"}],
+                 "/", 
+                RowBox[{"g0p", "[", "t", "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"Min", "[", "x1sample", "]"}], ",", 
+               RowBox[{"Max", "[", "x1sample", "]"}], ",", "0.002"}], "}"}]}],
+             "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"distrib0", "=", 
+           RowBox[{"HistogramDistribution", "[", "y0sample", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"distrib0", "=", 
+           RowBox[{"HistogramDistribution", "[", "y1sample", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"showint", "==", "\"\<Yes\>\""}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Column", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Show", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"Histogram", "[", 
+                  RowBox[{
+                  "y0sample", ",", "Automatic", ",", "\"\<PDF\>\"", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ScalingFunctions", "\[Rule]", "\"\<Log\>\""}], 
+                    "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ImageSize", "\[Rule]", "Medium"}], "}"}]}], 
+                  "]"}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"ListLinePlot", "[", 
+                  RowBox[{"ypdfyplotdata0", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ScalingFunctions", "\[Rule]", "\"\<Log\>\""}], 
+                    "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ImageSize", "\[Rule]", "Medium"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"PlotStyle", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"Thick", ",", "Red"}], "}"}]}], "}"}]}], "]"}]}], 
+                "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Show", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"Histogram", "[", 
+                  RowBox[{
+                  "y1sample", ",", "Automatic", ",", "\"\<PDF\>\"", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ScalingFunctions", "\[Rule]", "\"\<Log\>\""}], 
+                    "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ImageSize", "\[Rule]", "Medium"}], "}"}]}], 
+                  "]"}], ",", 
+                 RowBox[{"ListLinePlot", "[", 
+                  RowBox[{"ypdfyplotdata1", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ScalingFunctions", "\[Rule]", "\"\<Log\>\""}], 
+                    "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ImageSize", "\[Rule]", "Medium"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"PlotStyle", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"Thick", ",", "Red"}], "}"}]}], "}"}]}], "]"}]}], 
+                "]"}]}], "\[IndentingNewLine]", "}"}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Column", "[", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Histogram", "[", 
+                RowBox[{"y0sample", ",", "Automatic", ",", "\"\<PDF\>\"", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"ScalingFunctions", "\[Rule]", "\"\<Log\>\""}], 
+                  "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"ImageSize", "\[Rule]", "Medium"}], "}"}]}], "]"}], 
+               ",", "\[IndentingNewLine]", 
+               RowBox[{"Histogram", "[", 
+                RowBox[{"y1sample", ",", "Automatic", ",", "\"\<PDF\>\"", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"ScalingFunctions", "\[Rule]", "\"\<Log\>\""}], 
+                  "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"ImageSize", "\[Rule]", "Medium"}], "}"}]}], 
+                "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<Error: Final sample size is too large!\>\"", ",", "18", ",", 
+           "Bold", ",", 
+           RowBox[{"FontColor", "\[Rule]", "Red"}]}], "]"}]}], "]"}]}], ",", 
+      " ", 
+      RowBox[{"(*", 
+       RowBox[{"n1", " ", "is", " ", "too", " ", "large"}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"Style", "[", 
+       RowBox[{
+       "\"\<Error: Initial sample size is too large!\>\"", ",", "18", ",", 
+        "Bold", ",", 
+        RowBox[{"FontColor", "\[Rule]", "Red"}]}], "]"}]}], "]"}]}], ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"n0", " ", "is", " ", "too", " ", "large"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Integrand Specifications\>\"", ",", "12", ",", "Bold"}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"showint", "\[Equal]", "\"\<Yes\>\""}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{"g0", "[", "x", "]"}], ",", "12"}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"\"\<\>\"", ",", "12"}], "]"}]}], "]"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"mu0", ",", "1", ",", "\"\<True mean, \[Mu]\>\""}], "}"}], "}"}],
+    ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"sig0", ",", "1", ",", "\"\<True \[Sigma] > 0\>\""}], "}"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"c0", ",", "0.1", ",", "\"\<Parameter > 0\>\""}], "}"}], "}"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"showint", ",", "\"\<No\>\"", ",", "\"\<Show Integrand\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Yes\>\"", ",", "\"\<No\>\""}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"showint", "\[Equal]", "\"\<Yes\>\""}], ",", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<True kurtosis is \>\"", ",", "kurtg0"}], "}"}], "]"}], 
+      ",", 
+      RowBox[{"Style", "[", "\"\<\>\"", "]"}]}], "]"}], "]"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Approximation Scheme\>\"", ",", "12", ",", "Bold"}], "]"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+     "tolerance", ",", "0.01", ",", "\"\<Tolerance, \[Epsilon] > 0\>\""}], 
+     "}"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+     "uncertainty", ",", "0.05", ",", 
+      "\"\<Uncertainty, 0 < \[Alpha] <1\>\""}], "}"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"n0", ",", "100", ",", "\"\<Initial Sample Size\>\""}], "}"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"whichci", ",", "\"\<CLT\>\"", ",", "\"\<Scheme\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<CLT\>\"", ",", "\"\<CLTFudge\>\"", ",", "\"\<BE\>\""}], 
+      "}"}]}], "}"}], ",", "\[IndentingNewLine]", "Delimiter", ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Numerical Results\>\"", ",", "12", ",", "Bold"}], "]"}], ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Initial Stage\>\"", ",", "11", ",", "Italic"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Initially estimated \[Sigma] is \>\"", ",", "sigmahat0"}], 
+      "}"}], "]"}], "]"}], ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"initial", " ", "standard", " ", "deviation"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Final sample size is \>\"", ",", "n1"}], "}"}], "]"}], 
+    "]"}], ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"final", " ", "sample", " ", "size"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Final Stage\>\"", ",", "11", ",", "Italic"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Estimated \[Mu] is \>\"", ",", 
+       RowBox[{"muhat1", " ", 
+        RowBox[{"PlusMinus", "[", "ciwidth", "]"}]}]}], "}"}], "]"}], "]"}], 
+   ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"sample", " ", "mean"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Finally estimated \[Sigma] is \>\"", ",", "sigmahat1"}], 
+      "}"}], "]"}], "]"}], ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"initial", " ", "standard", " ", "deviation"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"showint", "\[Equal]", "\"\<Yes\>\""}], ",", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Estimated kurtosis is \>\"", ",", "kurthat1"}], "}"}], 
+       "]"}], ",", 
+      RowBox[{"Style", "[", "\"\<\>\"", "]"}]}], "]"}], "]"}], ",", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Scorecard\>\"", ",", "11", ",", "Italic"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Estimated \[Mu] is \>\"", ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"mu0", "-", "muhat1"}], "]"}], "<", "tolerance"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<within\>\"", ",", 
+           RowBox[{"FontColor", "\[Rule]", 
+            RowBox[{"RGBColor", "[", 
+             RowBox[{"0", ",", "0.75", ",", "0"}], "]"}]}]}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<outside\>\"", ",", 
+           RowBox[{"FontColor", "\[Rule]", "Red"}]}], "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", " ", "\"\< tolerance\>\""}], "}"}], "]"}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ContinuousAction", "\[Rule]", "None"}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.521385021422003*^9, 3.5213850226328497`*^9}, {
+   3.521386348446597*^9, 3.52138665942282*^9}, {3.5213867053352537`*^9, 
+   3.521386746020262*^9}, {3.5213867795089006`*^9, 3.5213868234982357`*^9}, {
+   3.521386870875348*^9, 3.521386910368088*^9}, {3.52138695373608*^9, 
+   3.521387031332963*^9}, {3.521387084677002*^9, 3.5213871142046328`*^9}, {
+   3.5213871592536907`*^9, 3.521387202332255*^9}, {3.521387296673111*^9, 
+   3.521387379483624*^9}, {3.521387615897938*^9, 3.521387633792831*^9}, {
+   3.521387698258691*^9, 3.521387855936001*^9}, {3.5213879453121033`*^9, 
+   3.521388014939989*^9}, {3.52138888566089*^9, 3.521388928345991*^9}, {
+   3.521388965698162*^9, 3.521389126062318*^9}, {3.521389384088846*^9, 
+   3.521389419537546*^9}, {3.5213894923309813`*^9, 3.521389511987598*^9}, {
+   3.5213895598323183`*^9, 3.521389634909276*^9}, {3.5213896737691402`*^9, 
+   3.521389780961609*^9}, {3.521389871769938*^9, 3.5213899076990128`*^9}, {
+   3.521389940749824*^9, 3.521390001209426*^9}, {3.521390065563198*^9, 
+   3.5213901030897503`*^9}, {3.521390150369722*^9, 3.521390282378641*^9}, {
+   3.5213904039623413`*^9, 3.521390405121153*^9}, {3.5213905484308243`*^9, 
+   3.5213906767199163`*^9}, {3.5213907429672813`*^9, 
+   3.5213907669761457`*^9}, {3.521390855656528*^9, 3.5213908804071712`*^9}, {
+   3.521390922391246*^9, 3.521391002119652*^9}, {3.52139103854056*^9, 
+   3.5213910605927753`*^9}, {3.521391187222142*^9, 3.521391340567294*^9}, {
+   3.5213914203901033`*^9, 3.521391422699174*^9}, {3.5213914741930523`*^9, 
+   3.521391548267064*^9}, {3.5213918392595367`*^9, 3.5213918396607037`*^9}, {
+   3.521391926918042*^9, 3.5213919478540573`*^9}, {3.521392048571868*^9, 
+   3.5213920644572487`*^9}, {3.521392103282387*^9, 3.521392104182362*^9}, {
+   3.5213921770199614`*^9, 3.5213921771229677`*^9}, {3.521392284727149*^9, 
+   3.521392360817749*^9}, {3.521392432965129*^9, 3.5213924490207443`*^9}, {
+   3.521392991656845*^9, 3.521393095386454*^9}, {3.521393246680294*^9, 
+   3.52139327626799*^9}, {3.521393353443511*^9, 3.521393410310959*^9}, {
+   3.521393527414503*^9, 3.521393600484996*^9}, {3.521393645272793*^9, 
+   3.521393723446838*^9}, {3.5213940013433657`*^9, 3.521394048789688*^9}, {
+   3.521394085467373*^9, 3.521394148736437*^9}, {3.5213942119085627`*^9, 
+   3.521394214485392*^9}, {3.521394370557156*^9, 3.5213944194474983`*^9}, {
+   3.5213944685785637`*^9, 3.521394598499277*^9}, {3.5213947252482862`*^9, 
+   3.5213947623661947`*^9}, {3.521394793849102*^9, 3.5213948023967037`*^9}, {
+   3.521394933817561*^9, 3.52139497302641*^9}, {3.52139500869806*^9, 
+   3.521395173565485*^9}, {3.521395211198587*^9, 3.52139523881769*^9}, {
+   3.521395291612916*^9, 3.521395325364654*^9}, {3.5213953639438457`*^9, 
+   3.5213953738795347`*^9}, 3.521395408805977*^9, {3.5213956963235197`*^9, 
+   3.52139570779313*^9}, {3.5213959844440193`*^9, 3.521396002125505*^9}, {
+   3.5213960624877663`*^9, 3.521396062776307*^9}, {3.5213960966190243`*^9, 
+   3.521396158873433*^9}, {3.521397387360025*^9, 3.5213973909980717`*^9}, {
+   3.521397424320716*^9, 3.521397499384753*^9}, {3.521397532647319*^9, 
+   3.521397694782391*^9}, {3.5213977347081833`*^9, 3.52139796179613*^9}, {
+   3.521398036240888*^9, 3.521398072075428*^9}, {3.521398108763297*^9, 
+   3.521398133703483*^9}, {3.521398169134799*^9, 3.521398216460998*^9}, {
+   3.521398383934033*^9, 3.521398456338228*^9}, {3.521398490563394*^9, 
+   3.521398535731032*^9}, {3.521398645859297*^9, 3.521398720795529*^9}, {
+   3.521409436314641*^9, 3.521409437279995*^9}, {3.521409538370879*^9, 
+   3.52140956236298*^9}, {3.521409614771625*^9, 3.521409633339196*^9}, {
+   3.521411238437819*^9, 3.521411242359473*^9}, {3.52142037973938*^9, 
+   3.521420386673936*^9}, {3.521420465251569*^9, 3.5214206671414557`*^9}, {
+   3.521420703797682*^9, 3.5214207461601954`*^9}, {3.521421028785077*^9, 
+   3.521421028958686*^9}, {3.5214214522462683`*^9, 3.521421468383099*^9}, {
+   3.521421512527459*^9, 3.52142151287004*^9}, {3.5214215438883123`*^9, 
+   3.521421545911433*^9}, {3.5214216941766157`*^9, 3.521421725780973*^9}, {
+   3.5214218539769087`*^9, 3.521421881361377*^9}, {3.5214219142462482`*^9, 
+   3.521421931711659*^9}, {3.521422051365843*^9, 3.521422064090735*^9}, {
+   3.521422163536005*^9, 3.521422197859058*^9}, {3.521422248756988*^9, 
+   3.5214222539470577`*^9}, {3.5214223812254963`*^9, 3.521422425638125*^9}, {
+   3.521422465854927*^9, 3.521422467143125*^9}, {3.521422582430941*^9, 
+   3.521422589508195*^9}, {3.521422880608726*^9, 3.521423015327289*^9}, {
+   3.521423049313538*^9, 3.521423060410522*^9}, {3.521423183914302*^9, 
+   3.5214232346660547`*^9}, {3.521423378835452*^9, 3.521423417697832*^9}, {
+   3.521423449126132*^9, 3.5214234611859293`*^9}, {3.5214234960580597`*^9, 
+   3.521423498884087*^9}, {3.5214235317819777`*^9, 3.521423643530953*^9}, {
+   3.5214237054913397`*^9, 3.521423726684391*^9}, {3.521423777758039*^9, 
+   3.521423819484157*^9}, {3.5214241197172403`*^9, 3.521424245461779*^9}, 
+   3.521424287301242*^9, {3.521424516025689*^9, 3.521424593651667*^9}, {
+   3.521424770232581*^9, 3.5214247735437527`*^9}, {3.5214248239246902`*^9, 
+   3.521424825161951*^9}, {3.52142489031293*^9, 3.5214249142857924`*^9}, {
+   3.521425114165357*^9, 3.521425118720714*^9}, {3.521536487836574*^9, 
+   3.5215365306179037`*^9}, {3.521536736505*^9, 3.521536757966881*^9}, {
+   3.5215368202631063`*^9, 3.521536832239709*^9}, {3.5215368776174726`*^9, 
+   3.521536896672267*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c0$$ = 3, $CellContext`mu0$$ = 
+    1, $CellContext`n0$$ = 100, $CellContext`showint$$ = 
+    "No", $CellContext`sig0$$ = 1, $CellContext`tolerance$$ = 
+    0.01, $CellContext`uncertainty$$ = 0.05, $CellContext`whichci$$ = 
+    "CLTFudge", Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Integrand Specifications", 12, Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        If[$CellContext`showint$$ == "Yes", 
+         Style[
+          $CellContext`g0[$CellContext`x], 12], 
+         Style["", 12]]]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`mu0$$], 1, "True mean, \[Mu]"}}, {{
+       Hold[$CellContext`sig0$$], 1, "True \[Sigma] > 0"}}, {{
+       Hold[$CellContext`c0$$], 0.1, "Parameter > 0"}}, {{
+       Hold[$CellContext`showint$$], "No", "Show Integrand"}, {"Yes", "No"}}, {
+      Hold[
+       Row[{}]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        If[$CellContext`showint$$ == "Yes", 
+         Row[{"True kurtosis is ", $CellContext`kurtg0}], 
+         Style[""]]]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["Approximation Scheme", 12, Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`tolerance$$], 0.01, "Tolerance, \[Epsilon] > 0"}}, {{
+      
+       Hold[$CellContext`uncertainty$$], 0.05, 
+       "Uncertainty, 0 < \[Alpha] <1"}}, {{
+       Hold[$CellContext`n0$$], 100, "Initial Sample Size"}}, {{
+       Hold[$CellContext`whichci$$], "CLT", "Scheme"}, {
+      "CLT", "CLTFudge", "BE"}}, {
+      Hold[
+       Style["Numerical Results", 12, Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Row[{}]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["Initial Stage", 11, Italic]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Row[{"Initially estimated \[Sigma] is ", $CellContext`sigmahat0}]]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Row[{"Final sample size is ", $CellContext`n1}]]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Row[{}]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["Final Stage", 11, Italic]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Row[{
+         "Estimated \[Mu] is ", $CellContext`muhat1 
+          PlusMinus[$CellContext`ciwidth]}]]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Row[{"Finally estimated \[Sigma] is ", $CellContext`sigmahat1}]]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        If[$CellContext`showint$$ == "Yes", 
+         Row[{"Estimated kurtosis is ", $CellContext`kurthat1}], 
+         Style[""]]]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Row[{}]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["Scorecard", 11, Italic]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Row[{"Estimated \[Mu] is ", 
+          If[
+          Abs[$CellContext`mu0$$ - $CellContext`muhat1] < \
+$CellContext`tolerance$$, 
+           Style["within", FontColor -> RGBColor[0, 0.75, 0]], 
+           Style["outside", FontColor -> Red]], " tolerance"}]]], 
+      Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
+    450., {277.71875, 284.28125}}, Typeset`update$$ = 
+    3.52428892889449`16.299646494768528*^9, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`showint$4645$$ = 
+    False, $CellContext`whichci$4650$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`c0$$ = 0.1, $CellContext`mu0$$ = 
+        1, $CellContext`n0$$ = 100, $CellContext`showint$$ = 
+        "No", $CellContext`sig0$$ = 1, $CellContext`tolerance$$ = 
+        0.01, $CellContext`uncertainty$$ = 0.05, $CellContext`whichci$$ = 
+        "CLT"}, "ControllerVariables" :> {
+        Hold[$CellContext`showint$$, $CellContext`showint$4645$$, False], 
+        Hold[$CellContext`whichci$$, $CellContext`whichci$4650$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`g0[
+          Pattern[$CellContext`x$, 
+           
+           Blank[]]] = $CellContext`g[$CellContext`x$, $CellContext`mu0$$, \
+$CellContext`sig0$$, $CellContext`c0$$]; $CellContext`g0p[
+          Pattern[$CellContext`x, 
+           Blank[]]] = D[
+          $CellContext`g0[$CellContext`x], $CellContext`x]; \
+$CellContext`kurtg0 = 
+        N[-3 + 3 E^(2 $CellContext`c0$$^2) + 2 E^(3 $CellContext`c0$$^2) + 
+          E^(4 $CellContext`c0$$^2)]; 
+       If[$CellContext`n0$$ <= 100000, $CellContext`x0sample = RandomVariate[
+            
+            NormalDistribution[], $CellContext`n0$$]; $CellContext`y0sample = \
+$CellContext`g0[$CellContext`x0sample]; $CellContext`sigmahat0 = 
+          StandardDeviation[$CellContext`y0sample]; $CellContext`n1 = 
+          Switch[$CellContext`whichci$$, "CLT", 
+            Ceiling[(InverseCDF[
+                NormalDistribution[], 1 - $CellContext`uncertainty$$/
+                2] ($CellContext`sigmahat0/$CellContext`tolerance$$))^2], 
+            "CLTFudge", 
+            Ceiling[1.2 (InverseCDF[
+                 NormalDistribution[], 1 - $CellContext`uncertainty$$/
+                 2] ($CellContext`sigmahat0/$CellContext`tolerance$$))^2]]; 
+         If[$CellContext`n1 <= 
+           1000001, $CellContext`x1sample = RandomVariate[
+              
+              NormalDistribution[], $CellContext`n1]; $CellContext`y1sample = \
+$CellContext`g0[$CellContext`x1sample]; $CellContext`muhat1 = 
+            Mean[$CellContext`y1sample]; $CellContext`sigmahat1 = 
+            StandardDeviation[$CellContext`y1sample]; $CellContext`kurthat1 = 
+            Kurtosis[$CellContext`y1sample]; $CellContext`ciwidth = InverseCDF[
+               NormalDistribution[], 1 - $CellContext`uncertainty$$/
+               2] ($CellContext`sigmahat0/
+              Sqrt[$CellContext`n1]); $CellContext`ypdfyplotdata0 = Table[{
+               $CellContext`g0[$CellContext`t], PDF[
+                 
+                 NormalDistribution[], \
+$CellContext`t]/$CellContext`g0p[$CellContext`t]}, {$CellContext`t, -4, 4, 
+               0.002}]; $CellContext`ypdfyplotdata1 = Table[{
+               $CellContext`g0[$CellContext`t], PDF[
+                 
+                 NormalDistribution[], \
+$CellContext`t]/$CellContext`g0p[$CellContext`t]}, {$CellContext`t, -4, 4, 
+               0.002}]; $CellContext`ypdfyplotdata0 = Table[{
+               $CellContext`g0[$CellContext`t], PDF[
+                 
+                 NormalDistribution[], \
+$CellContext`t]/$CellContext`g0p[$CellContext`t]}, {$CellContext`t, 
+               Min[$CellContext`x0sample], 
+               Max[$CellContext`x0sample], 
+               0.002}]; $CellContext`ypdfyplotdata1 = Table[{
+               $CellContext`g0[$CellContext`t], PDF[
+                 
+                 NormalDistribution[], \
+$CellContext`t]/$CellContext`g0p[$CellContext`t]}, {$CellContext`t, 
+               Min[$CellContext`x1sample], 
+               Max[$CellContext`x1sample], 0.002}]; $CellContext`distrib0 = 
+            HistogramDistribution[$CellContext`y0sample]; \
+$CellContext`distrib0 = HistogramDistribution[$CellContext`y1sample]; 
+           If[$CellContext`showint$$ == "Yes", 
+             Column[{
+               Show[
+                
+                Histogram[$CellContext`y0sample, Automatic, "PDF", {
+                 ScalingFunctions -> "Log"}, {ImageSize -> Medium}], 
+                
+                ListLinePlot[$CellContext`ypdfyplotdata0, {
+                 ScalingFunctions -> "Log"}, {ImageSize -> Medium}, {
+                 PlotStyle -> {Thick, Red}}]], 
+               Show[
+                
+                Histogram[$CellContext`y1sample, Automatic, "PDF", {
+                 ScalingFunctions -> "Log"}, {ImageSize -> Medium}], 
+                ListLinePlot[$CellContext`ypdfyplotdata1, {
+                 ScalingFunctions -> "Log"}, {ImageSize -> Medium}, {
+                 PlotStyle -> {Thick, Red}}]]}], 
+             Column[{
+               
+               Histogram[$CellContext`y0sample, Automatic, "PDF", {
+                ScalingFunctions -> "Log"}, {ImageSize -> Medium}], 
+               
+               Histogram[$CellContext`y1sample, Automatic, "PDF", {
+                ScalingFunctions -> "Log"}, {ImageSize -> Medium}]}]], 
+           Style[
+           "Error: Final sample size is too large!", 18, Bold, FontColor -> 
+            Red]], 
+         Style[
+         "Error: Initial sample size is too large!", 18, Bold, FontColor -> 
+          Red]]), "Specifications" :> {
+        Style["Integrand Specifications", 12, Bold], 
+        Dynamic[
+         If[$CellContext`showint$$ == "Yes", 
+          Style[
+           $CellContext`g0[$CellContext`x], 12], 
+          Style["", 12]]], {{$CellContext`mu0$$, 1, 
+          "True mean, \[Mu]"}}, {{$CellContext`sig0$$, 1, 
+          "True \[Sigma] > 0"}}, {{$CellContext`c0$$, 0.1, 
+          "Parameter > 0"}}, {{$CellContext`showint$$, "No", 
+          "Show Integrand"}, {"Yes", "No"}}, 
+        Row[{}], 
+        Dynamic[
+         If[$CellContext`showint$$ == "Yes", 
+          Row[{"True kurtosis is ", $CellContext`kurtg0}], 
+          Style[""]]], Delimiter, 
+        Style[
+        "Approximation Scheme", 12, 
+         Bold], {{$CellContext`tolerance$$, 0.01, 
+          "Tolerance, \[Epsilon] > 0"}}, {{$CellContext`uncertainty$$, 0.05, 
+          "Uncertainty, 0 < \[Alpha] <1"}}, {{$CellContext`n0$$, 100, 
+          "Initial Sample Size"}}, {{$CellContext`whichci$$, "CLT", 
+          "Scheme"}, {"CLT", "CLTFudge", "BE"}}, Delimiter, 
+        Style["Numerical Results", 12, Bold], 
+        Row[{}], 
+        Style["Initial Stage", 11, Italic], 
+        Dynamic[
+         Row[{"Initially estimated \[Sigma] is ", $CellContext`sigmahat0}]], 
+        Dynamic[
+         Row[{"Final sample size is ", $CellContext`n1}]], 
+        Row[{}], 
+        Style["Final Stage", 11, Italic], 
+        Dynamic[
+         Row[{
+          "Estimated \[Mu] is ", $CellContext`muhat1 
+           PlusMinus[$CellContext`ciwidth]}]], 
+        Dynamic[
+         Row[{"Finally estimated \[Sigma] is ", $CellContext`sigmahat1}]], 
+        Dynamic[
+         If[$CellContext`showint$$ == "Yes", 
+          Row[{"Estimated kurtosis is ", $CellContext`kurthat1}], 
+          Style[""]]], 
+        Row[{}], 
+        Style["Scorecard", 11, Italic], 
+        Dynamic[
+         Row[{"Estimated \[Mu] is ", 
+           If[
+           Abs[$CellContext`mu0$$ - $CellContext`muhat1] < \
+$CellContext`tolerance$$, 
+            Style["within", FontColor -> RGBColor[0, 0.75, 0]], 
+            Style["outside", FontColor -> Red]], " tolerance"}]]}, 
+      "Options" :> {ContinuousAction -> None, ControlPlacement -> Left}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{833., {312., 318.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.521423912172822*^9, 3.52142397147852*^9, 3.521424134126102*^9, {
+   3.5214242733503637`*^9, 3.521424289426779*^9}, 3.5214245631121817`*^9, 
+   3.521424595796055*^9, 3.521424776016246*^9, 3.5214248276664352`*^9, 
+   3.521424918780964*^9, 3.5214251200853*^9, 3.521536764813938*^9, 
+   3.5215368447227077`*^9, 3.521536905488269*^9, 3.5243056941751432`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StandardDeviation", "::", "shlen"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The argument \[NoBreak]\\!\\({0.9999962752622228`}\\)\
+\[NoBreak] should have at least two elements. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StandardDeviation\\\", ButtonNote -> \
+\\\"StandardDeviation::shlen\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.524306852467527*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0.`\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.524306852532916*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Infinity", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \[NoBreak]\\!\\(0.`\\\\ \
+ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
+\\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.5243068525365667`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StandardDeviation", "::", "shlen"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The argument \[NoBreak]\\!\\({0.9996645384038996`}\\)\
+\[NoBreak] should have at least two elements. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StandardDeviation\\\", ButtonNote -> \
+\\\"StandardDeviation::shlen\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.5243068663381567`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0.`\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.52430686634015*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Infinity", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \[NoBreak]\\!\\(0.`\\\\ \
+ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
+\\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.524306866341568*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1063, 1006},
+WindowMargins->{{Automatic, 131}, {Automatic, 0}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.25, 1.25 Inherited],
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 23, \
+2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 204, 4, 95, "Title"],
+Cell[786, 28, 2999, 91, 287, "Text"],
+Cell[3788, 121, 863, 25, 33, "Input"],
+Cell[CellGroupData[{
+Cell[4676, 150, 588, 16, 33, "Input"],
+Cell[5267, 168, 275, 4, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5579, 177, 663, 19, 33, "Input"],
+Cell[6245, 198, 287, 5, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6569, 208, 830, 22, 72, "Input"],
+Cell[7402, 232, 734, 18, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8173, 255, 24328, 533, 1464, "Input"],
+Cell[32504, 790, 12043, 262, 650, "Output"],
+Cell[44550, 1054, 499, 10, 26, "Message"],
+Cell[45052, 1066, 447, 10, 49, "Message"],
+Cell[45502, 1078, 479, 10, 26, "Message"],
+Cell[45984, 1090, 501, 10, 26, "Message"],
+Cell[46488, 1102, 446, 10, 49, "Message"],
+Cell[46937, 1114, 477, 10, 26, "Message"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

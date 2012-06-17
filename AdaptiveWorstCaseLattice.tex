@@ -1,0 +1,192 @@
+\documentclass[12pt]{amsart}
+\setlength{\marginparwidth}{0.5in}
+\usepackage{amsmath,amsthm,amssymb,natbib,graphicx}
+\textheight 9in
+\textwidth 6.5 in
+\hoffset -1 in
+\voffset -1 in
+\input FJHDef.tex
+
+\newcommand{\fudge}{\mathfrak{C}}
+\newcommand{\cubed}{[0,1)^d}
+\newcommand{\sphere}{\mathbb{S}}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\ck}{\mathcal{K}}
+\newcommand{\cq}{\mathcal{Q}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\tP}{\widetilde{P}}
+\newcommand{\bg}{{\bf g}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bbu}{\bar{\bf u}}
+\newcommand{\bv}{{\bf v}}
+\newcommand{\bbv}{\bar{\bf v}}
+\newcommand{\bw}{{\bf w}}
+\newcommand{\bbw}{\bar{\bf w}}
+\newcommand{\tvDelta}{\widetilde{\vDelta}}
+\newcommand{\hv}{\hat{v}}
+%\newcommand{\vm}{\bvec{m}}
+\DeclareMathOperator{\MSE}{MSE}
+\DeclareMathOperator{\RMSE}{RMSE}
+\DeclareMathOperator{\rnd}{rnd}
+\DeclareMathOperator{\abso}{abs}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\nor}{nor}
+\DeclareMathOperator{\err}{err}
+\DeclareMathOperator{\prob}{prob}
+\DeclareMathOperator{\third}{third}
+%\DeclareMathOperator{\fourth}{fourth}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\DeclareMathOperator{\sMC}{sMC}
+\DeclareMathOperator{\aMC}{aMC}
+
+
+\begin{document}
+
+\title{Adaptive Simple Monte Carlo}
+\author{Fred J. Hickernell}
+\author{Yuewei Liu}
+\address{Room E1-208, Department of Applied Mathematics, Illinois Institute of Technology, 10 W.\ 32$^{\text{nd}}$ St., Chicago, IL 60616}
+\address{School of Mathematics and Statistics, Lanzhou University, Lanzhou City, Gansu, China 730000}
+\begin{abstract}We attempt a 
+\end{abstract}
+\maketitle
+
+
+\section{Introduction}
+
+An \emph{integration lattice}, $L$, is a subset of $\reals^d$ and a superset of $\integers^d$ that has no accumulation point and that is closed under addition and subtraction modulo $1$, i.e., 
+\[
+\vx, \vt \in L \implies \vx \pm \vt \in L.
+\]  
+A \emph{shifted} integration lattice, $L_{\vDelta}$ is defined as $L_{\vDelta} = \{ \vx +\vDelta \pmod 1 : \vx \in L\}$ for some integration lattice $L$ and some fixed $\vDelta \in \cubed$.  The shifted lattice is actually a coset of the lattice.  The node set of an integration lattice is defined as those lattice points falling inside the unit cube, i.e., $P = L \cap \cubed$.  Likewise, the node set of a shifted integration lattice is $P_{\vDelta}= L_{\vDelta} \cap \cubed$.  Equivalently, the nodesets of the integration lattice and shifted integration lattice may be defined respectively by the conditions
+\[
+\vx, \vt \in P \implies \vx \pm \vt \pmod 1 \in P, \qquad P_{\vDelta} = \{ \vx +\vDelta \pmod 1 : \vx \in P\}.
+\]  
+The dual lattice, $L^{\perp}$, corresponding to an integration lattice, $L$, is a subset of $\integers^d$ satisfying
+\[
+\vk \in L^{\perp} \iff \vk^T\vx \in \integers \quad \forall \vx \in L.
+\]  
+Equivalently, one may replace $\vx \in L$ by $\vx$ in the node set of $L$.
+
+Let $\cf$ denote the Banach space of real-valued functions defined on $\cubed$ with absolutely convergent Fourier series, i.e., 
+\[
+\cf = \left \{ f \in \cl_{\infty}\cubed : f(\vx) = \sum_{\vk \in \integers^d} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T \vx}, \ \text{where } \norm[\ell_1]{\hf} <  \infty\right\}.
+\]
+with the norm defined as $\norm[\cf]{f}=\norm[\ell_1]{\hf}$.  Note that the Fourier coefficients may be defined as 
+\[
+\hf(\vk) = \int_{\cubed} f(\vx) e^{-2 \pi \sqrt{-1} \vk^T \vx} \, \dif \vx.
+\]
+These Fourier coefficients, defined as linear functionals, $f \mapsto \hf(\vk)$, are bounded under the norm.  The problem is how to numerically estimate the integrals of functions in $\cf$.  Note that the integral is just one of the Fourier coefficients and is also a bounded linear functional on $\cf$,
+\[
+\mu : f \mapsto \int_{\cubed} f(\vx) \, \dif \vx, \qquad \mu(f) = \hf(\vzero) 
+\]
+
+The problem of interest is how to numerically estimate the integrals of functions in $\cf$.  The integral is just one of the Fourier coefficients and thus also a bounded linear functional on $\cf$:
+\[
+\mu : f \mapsto \int_{\cubed} f(\vx) \, \dif \vx, \qquad \mu(f) = \hf(\vzero).
+\]
+Integrals are approximated by \emph{sample averages} over node sets of integration lattices.  For any set $P \in \cubed$, this is defined as
+\[
+A(\cdot,P) : f \mapsto \frac{1}{\abs{P}}\sum_{\vx \in P} f(\vx),
+\]
+where $\abs{P}$ denotes the cardinality of $P$. Note that $A(\cdot,P)$ is also a bounded linear functional on $\cf$. If $P_{\vDelta}$ is the node set of a shifted integration lattice, then the sample average may be written in terms of the Fourier coefficients as
+\begin{align*}
+A(f,P_{\vDelta}) & =  \frac{1}{\abs{P_{\vDelta}}}\sum_{\vx \in P_{\vDelta}} f(\vx)  =  \frac{1}{\abs{P}}\sum_{\vx \in P} \sum_{\vk \in \integers^d} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T (\vx+\vDelta)}\\
+& =  \sum_{\vk \in \integers^d} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T \vDelta} \left[\frac{1}{\abs{P}}\sum_{\vx \in P}  e^{2 \pi \sqrt{-1} \vk^T \vx}\right] \\
+& =  \sum_{\vk \in L^{\perp}} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T \vDelta}
+ = T_{\vDelta}(S_{L^\perp}(f)),
+\end{align*}
+where $T_{\vx} : f \mapsto f(\vx)$ is the evaluation functional defined on $\cf$, and $S_{\ck}: \cf \to \cf$ is a bounded linear operator that strips out all but the specified terms of the Fourier series of a function:
+\[
+(S_{\ck}f)(\vx)\ = \sum_{\vk \in \ck} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T \vx},
+\]
+where $\ck \subseteq \integers^d$.
+
+The error of a quasi-Monte Carlo method based on the design $P$ is also a bounded linear functional, $\err(f,P) = \mu(f) - A(f;P)$.  For shifted lattice rules the error may be written in terms of the Fourier coefficients as 
+\begin{align*}
+\err(f,P) &= \mu(f) - A(f;P) = \hf(\vzero) - \sum_{\vk \in L^{\perp}} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T \vDelta} \\
+&= - \sum_{\vk \in L^{\perp}{}'} \hf(\vk) e^{2 \pi \sqrt{-1} \vk^T \vDelta} = - T_{\vDelta}(S_{L^{\perp}{}'}(f)),
+\end{align*}
+where $L^{\perp}{}' = L^\perp \setminus \{\vzero\}$.
+
+
+\section{Error Estimates}
+
+Suppose that $L$ is an integration lattice and $\tL$ is is a sub-lattice of $L$.  Because lattices are subgroups of $\integers^d$, then any shifted lattice $L_\vDelta$ can be written as a union of $\tL_{\vDelta}$ and a finite number of shifted counterparts (cosets) of $\tL$, i.e.,  
+\[
+L_{\vDelta} = \tL_{\vDelta+\tvDelta_0} \cup \cdots \cup \tL_{\vDelta+ \tvDelta_{M-1}}, \qquad \tvDelta_i \in P = L \cap \cubed, \quad \tvDelta_0=\vzero, 
+\]
+where $P$ is the nodeset of $L$.  Let $P_{\vDelta}$ denote the nodeset of $L_{\vDelta}$, and $\tP_{i}$ denote the nodeset of $\tL_{\vDelta + \tvDelta_{i}}$.  It follows that $P_{\vDelta} = \tP_{0} \cup \cdots \cup \tP_{M-1}$.  Moreover, the dual lattice, $\tL^{\perp}$ is the union of shifted copies of $L^{\perp}$, i.e.,
+\[
+\tL^{\perp} = L_{\vnu_0}^{\perp} \cup \cdots \cup L_{\vnu_{M-1}}^{\perp}, \qquad \vnu_i \in \tL^{\perp}, \quad \vnu_0 = \vzero.
+\] 
+Furthermore, this implies that
+\[
+\tL^{\perp}{}' = L^{\perp}{}' \cup L_{\vnu_1}^{\perp} \cup \cdots \cup L_{\vnu_{M-1}}^{\perp}, \qquad \vnu_i \in \tL^{\perp}, \quad \vnu_0 = \vzero.
+\] 
+Note that
+\begin{equation} \label{latprop1}
+\vk^T \tvDelta_i \in \integers \qquad \forall \vk \in L^{\perp}, 
+\end{equation}
+by definition of the dual lattice.  Letting $1_{\ca}$ denote the characteristic function, note also that
+\begin{align*}
+1_{L^{\perp}}(\vk) 
+&= \frac{1}{\abs{P}}\sum_{\vx \in P} e^{2 \pi \sqrt{-1} \vk^T\vx} 
+= \frac{1}{\lvert \tP \rvert M}\sum_{\vx \in \tP} \sum_{i=0}^{M-1} e^{2 \pi \sqrt{-1}\vk^T(\vx+\tvDelta_i)}  \\
+& = \frac{1}{\lvert \tP \rvert}\sum_{\vx \in \tP} e^{2 \pi \sqrt{-1} \vk^T\vx} \frac{1}{M} \sum_{i=0}^{M-1} e^{2 \pi \sqrt{-1} \vk^T\tvDelta_i}
+= 1_{\tL^{\perp}}(\vk) \frac{1}{M} \sum_{i=0}^{M-1} e^{2 \pi \sqrt{-1} \vk^T\tvDelta_i},
+\end{align*}
+which implies that
+\begin{equation} \label{latprop2}
+\frac{1}{M} \sum_{i=0}^{M-1} e^{2 \pi \sqrt{-1} \vk^T\tvDelta_i} = 1_{\tL^{\perp}\setminus L^{\perp}}(\vk)
+\end{equation}
+
+One possible upper bound for $\abs{\err(f,P_{\vDelta})} = \abs{T_{\vDelta} (S_{L^{\perp}{}'}(f))} $ would be
+\begin{equation*}
+\widehat{\err}_0(f,P) = \frac{\fudge}{M-1}\abs{A(f,P_{\vDelta}) - A(f,\tP_0)} 
+\end{equation*}
+where $C>0$ is a fudge factor.  That is, an upper bound on the error of numerical integration using the nodeset, $P_{\vDelta}$,  with the larger number of points is proportional to the difference between the integral approximation using the nodeset $P_{\vDelta}$ and the approximation using a subset of this nodeset, namely, $\tP_0$.  This expression can be written in terms of the Fourier coefficients of the integrand
+\begin{align*}
+\widehat{\err}_0(f,P_{\vDelta}) &= \frac{\fudge}{M-1}\abs{A(f,P_{\vDelta}) - A(f,\tP_0)} 
+= \frac{\fudge}{M-1}\abs{\err(f,P_{\vDelta}) - \err(f,\tP_0)} \\
+&= \frac{\fudge}{M-1}\abs{T_{\vDelta}(S_{L^{\perp}{}'}(f)) - T_{\vDelta}(S_{\tL^{\perp}{}'}(f))}\\
+&= \frac{\fudge}{M-1}\abs{T_{\vDelta}(S_{L^{\perp}{}'}(f)-S_{\tL^{\perp}{}'}(f))}
+= \frac{\fudge}{M-1}\abs{T_{\vDelta}(S_{\tL^{\perp}{}'\setminus L^{\perp}{}'}(f))}\\
+&= \fudge\abs{\frac{1}{M-1}\sum_{i=1}^{M-1} T_{\vDelta}(S_{L^{\perp}_{\vnu_i}}(f)) }.
+\end{align*}
+This error bound works well provided that the average of the $T_{\vDelta}(S_{L^{\perp}_{\vnu_i}}(f))$ mimics $T_{\vDelta} (S_{L^{\perp}{}'}(f))$.  However, a potential problem may arise if there is cancellation among the $T_{\vDelta}(S_{L^{\perp}_{\vnu_i}}(f))$, causing their average to severely underestimate $T_{\vDelta} (S_{L^{\perp}{}'}(f))$.
+
+
+Another potential upper bound that mitigates against some of the cancellation takes the form of the quasi-standard error:
+\begin{align*}
+[\widehat{\err}(f,P_{\vDelta})]^2 &= \frac{\fudge^2}{M(M-1)} \sum_{i=0}^{M-1} [A(f,\tP_{i})-A(f,P_{\vDelta})]^2
+\intertext{which can also be expressed as}
+[\widehat{\err}(f,P_{\vDelta})]^2&= \frac{\fudge^2}{M(M-1)} \sum_{i=0}^{M-1} [\err(f,\tP_{i})-\err(f,P_{\vDelta})]^2 \\
+&= \frac{\fudge^2}{M(M-1)} \sum_{i=0}^{M-1} \left\{[\err(f,\tP_{i})]^2-2\err(f,\tP_{i})\err(f,P_{\vDelta}) + [\err(f,P_{\vDelta})]^2 \right \} \\
+&= \frac{\fudge^2}{M-1} \left \{ \frac{1}{M} \sum_{i=0}^{M-1} [\err(f,\tP_{i})]^2 - [\err(f,P_{\vDelta})]^2 \right \} 
+\end{align*}
+
+The first term in the right hand side expression above may be simplified by applying the properties of the above lattices, including \eqref{latprop1} and \eqref{latprop2}:
+\begin{align*}
+\frac{1}{M} \sum_{i=0}^{M-1} [\err(f,\tP_{i})]^2 &= \frac{1}{M} \sum_{i=0}^{M-1} [T_{\vDelta+\tvDelta_i}(S_{\tL^\perp{}'} (f))]^2\\
+& = \sum_{\vk , \vl \in \tL^\perp{}'} \left[\hf(\vk) \hf^*(\vl) \frac{1}{M} \sum_{i=0}^{M-1} e^{2\pi\sqrt{-1}(\vk-\vl)^T(\vDelta+\tvDelta_i)} \right] \\
+&= \sum_{\vk \in \tL^\perp{}'} \sum_{\vm \in L^\perp{}'} \left[\hf(\vk) \hf^*(\vm) \frac{1}{M} \sum_{i=0}^{M-1} e^{2\pi\sqrt{-1}(\vk-\vm)^T(\vDelta+\tvDelta_i)} \right] \\
+& \qquad \qquad + \sum_{\vk \in \tL^\perp{}'} \sum_{j=1}^{M-1} \sum_{\vm \in L^\perp_{\vnu_j}} \left[\hf(\vk) \hf^*(\vm) \frac{1}{M} \sum_{i=0}^{M-1} e^{2\pi\sqrt{-1}(\vk-\vm)^T(\vDelta+\tvDelta_i)} \right] \\
+&= \sum_{\vk , \vm \in L^\perp{}'} \hf(\vk) \hf^*(\vm) e^{2\pi\sqrt{-1}(\vk-\vm)^T\vDelta} \\
+& \qquad \qquad + \sum_{j=1}^{M-1} \sum_{\vk,\vm \in L^\perp_{\vnu_j}} \hf(\vk) \hf^*(\vm) e^{2\pi\sqrt{-1}(\vk-\vm)^T\vDelta} \\
+&= [\err(f,P_{\vDelta})]^2 + \sum_{j=1}^{M-1} \abs{T_{\vDelta}(S_{L^\perp_{\vnu_j}}(f))}^2.
+\end{align*}
+This implies that 
+\begin{equation}
+\widehat{\err}(f,P_{\vDelta}) = \fudge\sqrt{\frac{1}{M-1}\sum_{j=1}^{M-1} \abs{T_{\vDelta}(S_{L^\perp_{\vnu_j}}(f))}^2}.
+\end{equation}
+
+
+
+
+\bibliographystyle{spbasic}
+\bibliography{FJH21,FJHown21}
+\end{document}

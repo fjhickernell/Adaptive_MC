@@ -1,0 +1,120 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>TestQuadMC</title><meta name="generator" content="MATLAB 7.13"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2011-10-03"><meta name="DC.source" content="TestQuadMC.m"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Garbage collection and initialization</a></li><li><a href="#3">Product of exponentials, normal pdf on all reals</a></li></ul></div><pre class="codeinput"><span class="comment">%Test the new quadMC routine</span>
+</pre><h2>Garbage collection and initialization<a name="2"></a></h2><pre class="codeinput">clear <span class="string">all</span>, close <span class="string">all</span>
+format <span class="string">compact</span>
+</pre><h2>Product of exponentials, normal pdf on all reals<a name="3"></a></h2><pre class="codeinput"><span class="comment">% Set up function</span>
+funtype=<span class="string">'exp'</span>;
+param.dim=2;
+param.pdf=<span class="string">'normal'</span>;
+param.interval=[-inf(1,param.dim);inf(1,param.dim)];
+param.shape=1./(1:param.dim);
+param.scale=1./(1:param.dim);
+param.addc=1;
+[testfun,param]=choosetestfun(funtype,param);
+
+<span class="comment">% Evaluate integral</span>
+param.tol=1e-2;
+param.sample=<span class="string">'iid'</span>;
+param.scramble=true;
+[Q,param]=quadMC(testfun,param.interval,param);
+OutputTestQuadMC(param);
+</pre><pre class="codeoutput">Using iid sampling
+The approximate integral   = 4.1448
+   while the true integral = 4.1494
+The desired tolerance      = 0.01
+   while the actual error  = 0.0046666
+The number of function values used = 1868440
+   and the time required           = 0.34949
+ 
+</pre><p class="footer"><br>
+      Published with MATLAB&reg; 7.13<br></p></div><!--
+##### SOURCE BEGIN #####
+%Test the new quadMC routine
+
+%% Garbage collection and initialization
+clear all, close all
+format compact
+
+%% Product of exponentials, normal pdf on all reals
+
+% Set up function
+funtype='exp';
+param.dim=2;
+param.pdf='normal';
+param.interval=[-inf(1,param.dim);inf(1,param.dim)];
+param.shape=1./(1:param.dim);
+param.scale=1./(1:param.dim);
+param.addc=1;
+[testfun,param]=choosetestfun(funtype,param);
+
+% Evaluate integral
+param.tol=1e-2;
+param.sample='iid';
+param.scramble=true;
+[Q,param]=quadMC(testfun,param.interval,param);
+OutputTestQuadMC(param);
+##### SOURCE END #####
+--></body></html>

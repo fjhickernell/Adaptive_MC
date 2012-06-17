@@ -1,0 +1,321 @@
+\documentclass[12pt]{amsart}
+\usepackage{amsmath,amssymb}
+\textheight 9in
+\textwidth 6.5 in
+\hoffset -1 in
+\voffset -1 in
+\input FJHDef.tex
+
+\newcommand{\sphere}{\mathbb{S}}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\cq}{\mathcal{Q}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\tP}{\widetilde{P}}
+\newcommand{\bg}{{\bf g}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bbu}{\bar{\bf u}}
+\newcommand{\bv}{{\bf v}}
+\newcommand{\bbv}{\bar{\bf v}}
+\newcommand{\bw}{{\bf w}}
+\newcommand{\bbw}{\bar{\bf w}}
+\newcommand{\hv}{\hat{v}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}[theorem]{Proposition}
+\begin{document}
+
+\title{Adaptive Simple Monte Carlo}
+\author{Fred J. Hickernell}
+\begin{abstract}I attempt a probabilistic analysis of simple Monte Carlo, achieving probabilistic error bounds when the kurtosis is controlled.  The algorithm uses a sample size that depends adaptively on the estimated variance of the integrand.  Thus, the algorithm is nonlinear (depending essentially on the function).  My intention, if what is done here is correct, is to try to extend this to the more sophisticated sampling schemes and infinite dimensional problems.
+\end{abstract}
+\maketitle
+
+\section{Non-Adaptive Monte Carlo}
+Suppose one wishes to compute the following integral or mean, $\mu$, of some function $g: \reals^d \to \reals$,
+\begin{equation*}
+\mu= \int_{\reals^d} g(\vx) f(\vx) \, \dif \vx,
+\end{equation*}
+where $f: \reals^d \to [0,\infty)$ is a probability density function.  The $\cl_{p,f}$ norm of $g$ is defined by
+\[
+\norm[p,f]{g} :=\left\{\int_{\reals^d} \abs{g(\vx)}^p f(\vx) \, \dif \vx\right\}^{1/p}
+\]
+Note that if $1 \le q<p$, then by H\"older's inequality,
+\begin{align}\label{LP}
+\nonumber \norm[q,f]{g} &=\left\{\int_{\reals^d} \abs{g(\vx)}^q f(\vx) \, \dif \vx\right\}^{1/q}\\
+\nonumber & \le \left\{\int_{\reals^d} \abs{g(\vx)}^p f(\vx) \, \dif \vx \right\}^{1/p} \left\{\int_{\reals^d} 1^{p/(p-q)} f(\vx) \, \dif \vx\right\}^{(p-q)/(pq)} \\
+& = \norm[p,f]{g} \norm[pq/(p-q),f]{1} = \norm[p,f]{g}.
+\end{align}
+Thus, $\cl_q \subseteq \cl_p$ for $1 \le q<p$.
+
+Let $\vX_1, \vX_2, \ldots$ be independent and identially distributed random variables with the probability density function $f$, briefly, $\vX_1, \vX_2, \ldots$ i.i.d.\ $\sim f$.  Then the simple Monte Carlo estimator of the mean, is
+\begin{equation} \label{simpleMCest}
+\hmu_n = \frac 1n \sum_{i=1}^n g(\vX_i).
+\end{equation}
+An important question that springs to mind is how to choose the right sample size, $n$, to achieve a specified tolerance, $\epsilon$.  The random estimator, $\hmu_n$ has mean $\mu$ and variance
+\begin{equation*}
+\var(\hmu_n) = \frac{\sigma^2}{n},
+\end{equation*}
+where $\sigma^2$ is the variance of the function $g$:
+\begin{equation} \label{sigmadef}
+\sigma^2 := \var(g) := \int_{\reals^d} [g(\vx)-\mu]^2 f(\vx) \, \dif \vx.
+\end{equation}
+
+In practice, one often invokes the Central Limit Theorem to determine sample size. Given a significance level or uncertainty tolerance, $\alpha$, one has
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \frac{z_{\alpha/2} \sigma}{\sqrt{n}} \right] \approx 1-\alpha.
+\]
+Thus one has the \emph{approximate} probabilistic result
+\begin{equation} \label{CLTerr}
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \approx 1-\alpha \qquad \text{for } n=N_{N}(\epsilon,\alpha,\sigma^2) :=\left \lceil \left(\frac{z_{\alpha/2}\sigma}{\epsilon}\right)^2 \right \rceil.
+\end{equation}
+The above is exact if $g(\vX_i)$ are i.i.d.\ normal, however, in general this result is only approximate and relies on the unknown $\sigma$.  The above observations are formalized in the proposition below.
+
+\begin{prop}  For a given positive constant, $\sigma_{\max}$, define
+\[
+\cg_{N,\sigma_{\max}}= \{g \in \cl_{2,f} : g(\vX) \sim N(\mu,\sigma^2) \text{ for }\vX \sim f, \ \sigma^2 \le \sigma^2_{\max}, \},
+\]
+where the variance of the function is defined in \eqref{sigmadef}.  If for a given error tolerance, $\epsilon$, and an uncertainty tolerance, $\alpha$, then a probabilistic error bound is given by
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \ge 1-\alpha \qquad \text{for } n \ge N_{N}(\epsilon,\alpha,\sigma_{\max}).
+\]
+\end{prop}
+
+Note that the set $\cg_{N,\sigma_{\max}}$ assumes that $g(\vX)$ is normal, and that there is a priori knowledge about the variance of $g$.  The first of these drawbacks may be removed by turning to Berry-Esseen inequality.
+
+Using Berry-Esseen's inequality (Theorem \ref{BE}) yields an exact upper bound rather than approximate one.  Choosing $Z=\hmu_n$ yields
+\[
+\Prob\left[\abs{\hmu_n-\mu} < \frac{\sigma}{\sqrt{n \alpha}} \right] \ge 1-\alpha.
+\]
+Thus, a proper choice of sample size guarantees that the estimate is within the tolerance of the true answer with probability $1-\alpha$:
+$$\Prob\left[\abs{\hmu_n-\mu} < \epsilon \right] \ge 1-\alpha \qquad \text{for } n\geq N_B(\epsilon,\alpha,\sigma,\varrho)\quad$$
+where $N_B(\epsilon,\alpha,\sigma,\varrho)$ is the solution of
+\begin{equation} \label{NB0}
+\Phi(-\frac{\sqrt{n}\epsilon}{\sigma})+\frac{A\varrho}{\sqrt{n}}=\frac{\alpha}{2}.
+\end{equation}
+
+By (\ref{NB0}), we know $n=\displaystyle\frac{\sigma^2}{\epsilon^2}\displaystyle z^2_{\alpha/2-A\varrho/\sqrt{n}}$, that means,
+$N_{B}(\epsilon,\alpha,\sigma,\varrho)\rightarrow N_{N}(\epsilon,\alpha,\sigma)$, when \\$n\rightarrow+\infty$.
+\begin{prop}  For a given positive constant, $\sigma_{\max}$, define the set of functions
+\[
+\cg_{C,\sigma_{\max}}= \{g \in \cl_{2,f} : \var(g)= \sigma^2 \le \sigma^2_{\max}, \},
+\]
+where the variance of the function is defined in \eqref{sigmadef}. If for a given error tolerance, $\epsilon$, an uncertainty tolerance, $\alpha$, and $\varrho$ defined in theorem \ref{BE}, define $N_B(\epsilon,\alpha,\sigma,\varrho)$ is the solution of (\ref{NB}), then a probabilistic error bound is given by
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \ge 1-\alpha \qquad \text{for } n\ge N_{B}(\epsilon,\alpha,\sigma_{\max},\varrho).
+\]
+\end{prop}
+\begin{proof}
+Note $Z_n=\hat{\mu}_n-\mu$, by theorem \ref{BE}, for $x>0$ we have
+\begin{eqnarray*}
+\Prob\left[Z_n<\frac{\sigma}{\sqrt{n}}x\right]&=&1-\Prob\left[Z_n\geq\frac{\sigma}{\sqrt{n}}x\right]\\
+&=&1-\left(\Prob\left[Z_n\geq\frac{\sigma}{\sqrt{n}}x\right]-\Phi(-x)+\Phi(-x)\right)\\
+&\geq& 1-A\frac{\varrho}{\sqrt{n}}-\Phi(-x)
+\end{eqnarray*}
+then
+\begin{eqnarray*}
+\Prob\left[\abs{Z_n}<\frac{\sigma}{\sqrt{n}}x\right]&=&\Prob\left[Z_n<\frac{\sigma}{\sqrt{n}}x\right]-\Prob\left[Z_n<-\frac{\sigma}{\sqrt{n}}x\right]\\
+&\geq & 1-A\frac{\varrho}{\sqrt{n}}-\Phi(-x)-\Prob\left[Z_n<-\frac{\sigma}{\sqrt{n}}x\right]\\
+&\geq & 1-A\frac{\varrho}{\sqrt{n}}-\Phi(-x)-\left(A\frac{\varrho}{\sqrt{n}}+\Phi(-x)\right)\\
+&=& 1-2\left(A\frac{\varrho}{\sqrt{n}}+\Phi(-x)\right)
+\end{eqnarray*}
+Let $\epsilon=\sigma x/\sqrt{n}$, we control the probility of
+$$\Prob[\abs{Z_n}<\epsilon]\geq 1-2\left(A\frac{\varrho}{\sqrt{n}}+\Phi\left(-\frac{\epsilon\sqrt{n}}{\sigma}\right)\right)\geq 1-\alpha$$
+this means we can choose $n:=N_B(\epsilon,\alpha,\sigma,\varrho)$, such that
+\begin{equation}\label{NB}
+\Phi(-\frac{\sqrt{n}\epsilon}{\sigma})+\frac{A\varrho}{\sqrt{n}}=\frac{\alpha}{2}
+\end{equation}
+since $N_{B}(\epsilon,\alpha,\sigma_{\max},\varrho)\geq N_{B}(\epsilon,\alpha,\sigma,\varrho)$, so
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \ge 1-\alpha \qquad \text{for } n\ge N_{B}(\epsilon,\alpha,\sigma_{\max},\varrho).
+\]
+\end{proof}
+\section{Adaptive Monte Carlo}
+Although the Berry-Esseen result is exact for general distributions, it still depends on the typically unknown $\sigma^2$.  This is why in practice one normally uses observed function values observed to approximate the $\sigma^2$ by the sample variance, as follows:
+\begin{equation} \label{samplevar}
+\hv_{n} = \frac 1{n-1} \sum_{i=1}^{n} [g(\vX_i)- \hmu_{n}]^2.
+\end{equation}
+This means that we now have an \emph{adaptive} algorithm.  One might choose an initial sample of size $n_0$, and use it to estimate $\sigma^2$ by $\hv_{n_0}$.  Then one chooses an \emph{independent} sample of size $n=N_{C}(\epsilon,\alpha,\hv_{n_0})$ or $n=N_{N}(\epsilon,\alpha,\hv_{n_0})$ to compute $\hmu_n$ the final estimate of $\mu$.
+
+Unfortunately, once we approximate $\sigma^2$ by $\hv_n$, we again have inexact results.  However, they can be made exact by using Cantelli's inequality (Theorem \ref{Can}) and the variance of $\hv_n$ in Theorem \ref{Varvarthm}.
+\begin{align*}
+1-\alpha & \le \Prob\left[\hv_n-\sigma^2 \ge - \sigma^2 \sqrt{\frac 1n \left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{\alpha}\right)} \right] \\
+&= \Prob\left[\frac{\hv_n}{1 - \sqrt{\left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}} \ge \sigma^2 \right]
+\end{align*}
+Thus,
+\begin{equation} \label{probvarupbd}
+\Prob\left[\hsigma_{\text{up}}(n,\alpha,\kappa)  \ge \sigma \right] \ge 1 - \alpha, \qquad \text{where } \hsigma^2_{\text{up}}(n,\alpha,\kappa) = \frac{\hv_{n}}{1 - \sqrt{ \left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{n \alpha}\right)}},
+\end{equation}
+provided that
+\begin{align*}
+1 &> \left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{n \alpha}\right)\\
+\frac{n \alpha}{1-\alpha} & > \kappa  + \frac{2n}{n-1} \\
+\kappa & < \frac{n \alpha}{1-\alpha} - \frac{2n}{n-1} =: \kappa_{\text{poss}}.
+\end{align*}
+\begin{theorem} For a given positive constant, $\kappa_{\max}$, define the set of functions with finite fourth momemts:
+\[
+\cg_{C,\sigma_{\max}}= \{g \in \cl_{4,f} : \kurt(g)= \kappa \le \kappa_{\max}, \},
+\]
+where the kurtosis of the function is defined in \eqref{kurtdef}.
+Suppose that one has an error tolerance, $\epsilon$, and an uncertainty tolerance, $\alpha$. Let $\alpha_1 = 1 - \sqrt{1 - \alpha}$.  Pick any $n_0>1$ satisfying
+\[
+\kappa_{\max} < \frac{n_0 \alpha_1}{1-\alpha_1} - \frac{2n_0}{n_0-1},
+\]
+and compute the sample variance, $\hv_{n_0}$ of a simple random sample of size $n_0$.   Use this to compute $\hsigma^2_{\text{\rm up}}(n_0,\alpha_1,\kappa_{\max})$ by \eqref{probvarupbd}.
+$\varrho$ is defined in theorem \ref{BE}. Define $N_B(\epsilon,\alpha,\sigma,\varrho)$ is the solution of (\ref{NB}). Next choose an independent random sample of size $n$ and compute $\hmu_n$, the simple Monte Carlo estimator of $\mu$.  A probabilistic error bound is given by
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \geq 1-\alpha \qquad \text{for } n:=\max\{n_0,N_B(\epsilon,\alpha_1,\sigma_{\max},\varrho)\}
+\]
+\end{theorem}
+\begin{proof}
+By \eqref{probvarupbd} it follows that $\hsigma_{\text{up}}(n,\alpha_1,\kappa)  \ge \sigma$ with probability $1-\alpha_1$.
+\end{proof}
+Consider a spacial case in (\ref{NB}), let $\Phi(-\frac{\sqrt{n}\epsilon}{\sigma})=\frac{A\varrho}{\sqrt{n}}=\frac{\alpha}{4}$, since $\varrho\leq (\kappa_{\max}+3)^{3/4}$,
+we can get the upper bound of $N_B(\epsilon,\alpha_1,\sigma_{\max},\varrho)$ by
+$$N_B(\epsilon,\alpha_1,\sigma_{\max},\varrho)\leq \max\{\frac{Z^2_{\alpha_1/4}\sigma^2_{\max}}{\epsilon^2},\frac{16A^2(\kappa_{\max}+3)^{3/2}}{\epsilon^2}\}$$
+
+\section{Example}
+
+Consider the case of the uniform probability distribution on $[0,1]$, i.e., $f=1$.  Define
+\[
+g(x) = \begin{cases} 1 + \sigma \sqrt{\frac{1-p}{p}}, & 0 \le x \le p,\\
+1 - \sigma \sqrt{\frac{p}{1-p}}, & p < x \le 1,
+\end{cases}
+\]
+where $p$ and $\sigma$ are parameters, with $0 < p < 1$.
+Note that
+\begin{align*}
+\mu &= \int_0^1 g(x) \, \dif x = 1\\
+\var(g) &= \int_0^1 [g(x)-\mu]^2 \, \dif x = \sigma^2 \frac{1-p}{p} p + \sigma^2 \frac{p}{1-p} (1-p) = \sigma^2, \\
+\kappa = \kurt(g) &= \frac{1}{\sigma^4}\int_0^1 [g(x)-\mu]^4 \, \dif x - 3 = \left(\frac{1-p}{p}\right)^2 p + \left(\frac{p}{1-p} \right)^2 (1-p) - 3 \\
+& = \frac{(1-p)^3 + p^3}{p(1-p)} - 3 = \frac{1}{p(1-p)} - 6.
+\end{align*}
+Note that $\kappa$ ranges from a minimum of $-2$, when $p=1/2$ to a maximum of $\infty$ when $p=0,1$.
+
+When
+
+\section{Questions}
+
+Here are some questions that suggest themeselves:
+
+\begin{itemize}
+
+\item Is this analysis above known already?  Is this the typical probabilistic setting?  Is it better to look at a randomized setting where one considers the expected value of the error?
+
+\item Can this type of analysis be extended to randomized quasi-Monte Carlo for finited dimension, $d$?  Infinite dimension?  In this latter case one needs some multilevel algorithm, but the specification of the levels perhaps could be deduced from the data.
+
+\item Are there inequalities like Chebyshev's inequality that apply when $Z$ is the sum of i.i.d.\ random variables?  Some of the better known ones, like Hoeffding's inequality assume boundedness, which we cannot presume here.
+
+\item How do we prove Cantelli's inequality?
+
+\end{itemize}
+
+\section*{Appendix}
+\begin{theorem}[Berry-Esseen Inequality] \label{BE} Let $X_1,\dots,X_n$ be independent random variables haveing a common distribution.
+
+Suppose
+\begin{center}
+ $EX_1=0$, \quad $EX^2_1=\sigma^2>0$, \quad $E\abs{X_1}^3<\infty$,\quad$\varrho=\displaystyle\frac{E\abs{X_1}^3}{\sigma^3}$.
+\end{center}
+Then
+\[
+\sup_x\abs{\Prob\left[\frac{1}{\sigma\sqrt{n}}\sum_{j=1}^{n}{X_j}<x \right]-\Phi(x)}\leq A\frac{\varrho}{\sqrt{n}}.
+\]
+\end{theorem}
+where $A$ satisfied $0.4097\leq A\leq 0.5600$.
+
+\begin{theorem} \label{Varvarthm} Let $\hv_n$ be the sample variance as defined in \eqref{samplevar}.  It's variance is
+\[
+\var(\hv_n^2) = \frac{\sigma^4}{n} \left ( \kappa  + \frac{2n}{n-1}\right),
+\]
+where $\kappa$ denotes the \emph{kurtosis}:
+\begin{equation} \label{kurtdef}
+\kappa := \kurt(g) := \frac{\gamma}{\sigma^4} -3 , \qquad \gamma := \int_{\reals^d} [g(\vx)-\mu]^4 f(\vx) \, \dif \vx.
+\end{equation}
+\end{theorem}
+\begin{proof}The sample variance has mean $\sigma^2/n$.  To facilitate the derviation, let $Y_i=g(X_i) - \mu$.
+\begin{align*}
+\hv_n & =  \frac 1{n-1} \sum_{i=1}^n \left[Y_i- \left(\frac 1n \sum_{j=1}^n Y_j\right) \right]^2
+=  \frac 1{n(n-1)}\left[ n \sum_{i=1}^n Y^2_i-  \sum_{j,k=1}^n Y_jY_k \right] \\
+\hv_n^2 & = \frac 1{n^2(n-1)^2}\left[ n^2 \sum_{i,j=1}^n Y^2_i Y^2_j  - 2 n \sum_{i,j,k=1}^n Y^2_i Y_j Y_k +  \sum_{i,j,k,l=1}^n Y_iY_j Y_k Y_l\right] \\
+E[ Y^2_i Y^2_j] & = \begin{cases} \gamma, & i=j,\\
+\sigma^4, & i \ne j,
+\end{cases}\\
+\sum_{i,j=1}^n E[Y^2_i Y^2_j]&= n \gamma + n(n-1)\sigma^4, \\
+E[ Y^2_i Y_j Y_k] & = \begin{cases} \gamma, & i=j=k,\\
+\sigma^4, & i \ne j, j=k,\\
+0, & j \ne k,
+\end{cases} \\
+\sum_{i,j,k=1}^n E[Y^2_i Y_j Y_k] &= n\gamma  + n(n-1)\sigma^4 \\
+E[ Y_i Y_j Y_k Y_l] & = \begin{cases} \gamma, & i=j=k=l,\\
+\sigma^4, & i, j, k, l \text{ have 2 distinct values},\\
+0, & \text{otherwise},
+\end{cases}\\
+\sum_{i,j,k,l=1}^n E[Y_iY_j Y_k Y_l] &= n \gamma + 3n(n-1)\sigma^4 \\
+E[\hv_n^2] & = \frac{ n^3[\gamma + (n-1)\sigma^4]  - 2 n^2 [\gamma + (n-1)\sigma^4] +  n[\gamma + 3(n-1)\sigma^4]} {n^2(n-1)^2} \\
+& = \frac{ (n-1)\gamma + (n^2-2n+3)\sigma^4} {n(n-1)} \\
+\var(\hv_n^2) & = E[\hv_n^2] - \left[E(\hv_n)\right]^2 = \frac{ (n-1)\gamma + (n^2-2n+3)\sigma^4} {n(n-1)} -\sigma^4\\
+& = \frac{(n-1)\gamma + (-n+3)\sigma^4} {n(n-1)}= \frac{1}{n} \left ( \gamma - \frac{n-3}{n-1} \sigma^4 \right)\\
+& = \frac{1}{n} \left ( \sigma^4(\kappa +3) - \frac{n-3}{n-1} \sigma^4 \right) = \frac{\sigma^4}{n} \left ( \kappa  + \frac{2n}{n-1}\right)
+\end{align*}
+and then divide both sides by $\sigma^2_Z/\alpha$.
+\end{proof}
+\begin{theorem}[Single tailed Cantelli's inequality]\label{Can}
+$\xi$ is a random variable with bounded variance $\sigma^2$ and for any $a\geq 0$, it
+follows that:
+$$\Prob[\xi-\mathrm{E}\xi\geq a]\leq \frac{\sigma^2}{a^2+\sigma^2}$$
+\end{theorem}
+\begin{proof}Let random variable $X=\xi-\textrm{E}\xi$,
+$S$ is like that:
+\[ S=\left\{ \begin{array}{rr} 1, & X\geq a\\ -1, & X<a \end{array}
+\right. \] \\we know
+\begin{eqnarray}\label{th1}
+\nonumber
+\text{var}(X)&=&\textrm{E}\{X^2\}-(\textrm{E}\{X\})^2\\&=&\nonumber
+\textrm{E}\{\textrm{E}\{X^2|S\}\}-(\textrm{E}\{\textrm{E}\{X|S\}\})^2\\&=&\nonumber
+\textrm{E}\{\text{var}(X|S)+(\textrm{E}\{X|S\})^2\}-(\textrm{E}\{\textrm{E}\{X|S\}\})^2\\&=&\nonumber
+\textrm{E}\{\text{var}(X|S)\}+\textrm{E}\{(\textrm{E}\{X|S\})^2\}-(\textrm{E}\{\textrm{E}\{X|S\}\})^2\\&=&
+\textrm{E}\{\text{var}(X|S)\}+\text{var}(\textrm{E}\{X|S\})
+\end{eqnarray}
+Let's look at $\textrm{E}\{X|S\}$,
+obviously, $\textrm{E}\{X|S=1\}\geq a$, and
+$\textrm{E}\{\textrm{E}\{X|S\}\}=\textrm{E}X=0$, e.g.
+\begin{equation}\label{e2}
+\textrm{E}\{\textrm{E}\{X|S\}\}=\textrm{E}\{X|S=1\}P_g+\textrm{E}\{X|S=-1\}P_l=0
+\end{equation}
+where $P_g=\Prob[X\geq a],P_l=\Prob[X<a]$.
+From \eqref{e2} we have
+\begin{equation}\label{e3}
+(\textrm{E}\{X|S=-1\})^2=\left(\frac{\textrm{E}\{X|S=1\}P_g}{P_l}\right)^2\geq \left(\frac{aP_g}{P_l}\right)^2
+\end{equation}
+then by \eqref{th1}, \\
+\begin{eqnarray*}
+\text{var}(X)&=&\textrm{E}\{\text{var}(X|S)\}+\text{var}(\textrm{E}\{X|S\})\\
+&\geq&\text{var}(\textrm{E}\{X|S\})\\
+&=&\textrm{E}\{\textrm{E}\{X|S\}^2\}-(\textrm{E}\{\textrm{E}\{X|S\}\})^2\\
+&=&\textrm{E}\{\textrm{E}\{X|S\}^2\}\\
+&\geq& a^2P_g+P_l(\frac{aP_g}{P_l})^2=a^2P_g/(1-P_g)
+\end{eqnarray*}
+Note $\text{var}(X)=\text{var}(\xi)=\sigma^2$, it says
+\begin{eqnarray*}
+\sigma^2\geq a^2P_g/(1-P_g)&\leftrightharpoons& \sigma^2(1-P_g)\geq a^2P_g\\
+&\rightleftharpoons & \sigma^2\geq (a^2+\sigma^2)P_g\\
+&\rightleftharpoons & P_g\leq \frac{\sigma^2}{a^2+\sigma^2}
+\end{eqnarray*}
+also is $P[\xi-\textrm{E}\xi\geq
+a]\leq \frac{\sigma^2}{a^2+\sigma^2}$\\
+\end{proof}
+\begin{theorem}
+Proof inequality(\ref{probvarupbd})
+\end{theorem}
+\begin{proof}From theorem \ref{Can} we know for $a>0$
+$$\Prob[\hat{v}_n-\sigma^2\leq
+-a]=\Prob[\sigma^2-\hat{v}_n\geq
+a]\leq\frac{\text{var}(\hat{v}_n)}{a^2+\text{var}(\hat{v}_n)}$$Let
+$$a=\sigma^2\sqrt{\frac{1}{n}\left(\kappa+\frac{2n}{n-1}\right)\left(\frac{1-\alpha}{\alpha}\right)}$$
+by theorem \ref{Can}
+\begin{eqnarray} \label{th2}\nonumber\Prob[\hat{v}_n-\sigma^2\leq
+-a]&\leq&\frac{\frac{\sigma^4}{n}\left(\kappa+\frac{2n}{n-1}\right)}{\frac{\sigma^4}{n}\left(\kappa+\frac{2n}{n-1}\right)\left(\frac{1-\alpha}{\alpha}\right)+\frac{\sigma^4}{n}\left(\kappa+\frac{2n}{n-1}\right)}\\&
+=&\frac{1}{\left(\frac{1-\alpha}{\alpha}\right)+1}=\alpha
+\end{eqnarray}
+by \eqref{th2} we get equation (\ref{probvarupbd}) easily.
+\end{proof}
+\end{document}

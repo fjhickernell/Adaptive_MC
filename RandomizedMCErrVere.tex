@@ -1,6 +1,6 @@
 \documentclass[12pt]{amsart}
 \setlength{\marginparwidth}{0.5in}
-\usepackage{amsmath,amssymb,graphicx}
+\usepackage{amsmath,amssymb,natbib,graphicx}
 \textheight 9in
 \textwidth 6.5 in
 \hoffset -1 in
@@ -29,9 +29,11 @@
 \DeclareMathOperator{\err}{err}
 \DeclareMathOperator{\prob}{prob}
 \DeclareMathOperator{\third}{third}
+%\DeclareMathOperator{\fourth}{fourth}
 \newtheorem{theorem}{Theorem}
 \newtheorem{prop}[theorem]{Proposition}
 \DeclareMathOperator{\sMC}{sMC}
+\DeclareMathOperator{\aMC}{aMC}
 \begin{document}
 
 \title{Adaptive Simple Monte Carlo}
@@ -77,7 +79,7 @@ M_p(f) := \int_{\reals^d} \abs{f(\vx)-\mu}^p \rho(\vx) \, \dif \vx, \qquad p \ge
 \end{equation}
 By this definition, the variance of $Y_1$ is the second moment, i.e., 
 \begin{equation} \label{sigmadef}
-\sigma^2 := \var(Y_1) = \var(f) := M_2(f) = \int_{\reals^d} \abs{f(\vx)-\mu}^2 \rho(\vx) \, \dif \vx.
+\sigma^2 := \var(Y_1) = \var(f(\vX_1)) =: \var(f) = M_2(f) = \int_{\reals^d} \abs{f(\vx)-\mu}^2 \rho(\vx) \, \dif \vx.
 \end{equation}
 Moreover, by \eqref{LP} it follows that low order moments can be bounded above by higher order moments.
 \begin{equation}\label{Mineq}
@@ -101,21 +103,21 @@ Given an error tolerance, $\varepsilon$, and a set of functions, $\cf$, one may 
 \err^{\rnd\nor}(n,\cf,\sMC) := \sup_{f \in \cf} \frac{\RMSE(\hmu_n)} {\sqrt{\var(f)}} =  \frac{1}{\sqrt{n}}.
 \end{align}
 \end{subequations}
-Here the root mean square error is taken over all $\hmu_n$ with cardinality $n$.  Given an error criterion, $\err^{\text{x}}$, the sample size needed to attain the error tolerance, $\varepsilon$ for this class of algorithms is defined as 
+Here the root mean square error is taken over all $\hmu_n$ with cardinality $n$.  Given an error criterion, $\err^{\text{x}}$, the sample size needed to attain the error tolerance, $\varepsilon$. for this class of algorithms with deterministic sample size is defined as 
 \[
-n^{\text{x}}(\varepsilon,\cf,\sMC) = \min \{{n \in \natzero} :  \err^{\text{x}}(n,\cf,\sMC) \le \varepsilon\},
+\cost^{\text{x}}(\varepsilon,\cf,\sMC) = \min \{{n \in \natzero} :  \err^{\text{x}}(n,\cf,\sMC) \le \varepsilon\},
 \]
 where $\text{x} \in \{\rnd\abso, \rnd\rel, \rnd\nor\}$.
 For the error criteria in \eqref{randerrcrit} and the simple Monte Carlo algorithm, it is found that 
 \begin{subequations} \label{randerrcritsample}
 \begin{align}
-n^{\rnd\abso}(\varepsilon,\cf^{\abso},\sMC) &= \frac{\sigma^2_{\max}} {\varepsilon^2}, & \cf^{\abso} &= \left\{f \in \cl_2 : \var(f) \le \sigma^2_{\max} \right\},\\
-n^{\rnd\rel}(\varepsilon,\cf^{\rel},\sMC) & = \frac{a^2} {\varepsilon^2}, & \cf^{\rel} &= \left\{f \in \cl_2 : \frac{\var(f)}{[\mu(f)]^2} \le a^2,\ \mu(f) \ne 0 \right\}, \\
-n^{\rnd\nor}(\varepsilon,\cf^{\nor},\sMC) & = \frac{1} {\varepsilon^2}, & \cf^{\nor} &= \cl_2.
+\cost^{\rnd\abso}(\varepsilon,\cf^{\abso},\sMC) &= \frac{\sigma^2_{\max}} {\varepsilon^2}, & \cf^{\abso} &= \left\{f \in \cl_2 : \var(f) \le \sigma^2_{\max} \right\},\\
+\cost^{\rnd\rel}(\varepsilon,\cf^{\rel},\sMC) & = \frac{a^2} {\varepsilon^2}, & \cf^{\rel} &= \left\{f \in \cl_2 : \frac{\var(f)}{[\mu(f)]^2} \le a^2,\ \mu(f) \ne 0 \right\}, \\
+\cost^{\rnd\nor}(\varepsilon,\cf^{\nor},\sMC) & = \frac{1} {\varepsilon^2}, & \cf^{\nor} &= \cl_2.
 \end{align}
 \end{subequations}
 
-The error analyses above have some practical shortcomings.  To apply the randomized absolute case one must have some a priori knowledge of the variance of the integrand.  It must not larger than $\sigma^2_{\max}$ or the theory does not apply.  If the variance of the integrand is much smaller than $\sigma^2_{\max}$, then the specified sample size, $n^{\rnd\abso}(\varepsilon,\cf^{\abso},\sMC)$ is much too large. The randomized relative case is even more problematic since determining whether $f \in \cf^{\rel}$ requires a priori knowledge of the ratio of the variance of the integrand to its squared mean.  The randomized normalized case avoids the problem of requiring a priori knowledge of the integrand variance by including the variance of the integrand in the error criterion.  However, still this does not give the practioner a clear idea of how large the error will be, only that it can be made small relative to the squre root of the variance of the integrand.
+The error analyses above have some practical shortcomings.  To apply the randomized absolute case one must have some a priori knowledge of the variance of the integrand.  It must not larger than $\sigma^2_{\max}$ or the theory does not apply.  If the variance of the integrand is much smaller than $\sigma^2_{\max}$, then the specified sample size, $\cost^{\rnd\abso}(\varepsilon,\cf^{\abso},\sMC)$ is much too large. The randomized relative case is even more problematic since determining whether $f \in \cf^{\rel}$ requires a priori knowledge of the ratio of the variance of the integrand to its squared mean.  The randomized normalized case avoids the problem of requiring a priori knowledge of the integrand variance by including the variance of the integrand in the error criterion.  However, still this does not give the practioner a clear idea of how large the error will be, only that it can be made small relative to the squre root of the variance of the integrand.
 
 \section{Probabilistic Error Analysis}
 
@@ -134,9 +136,9 @@ Another approach that appears somewhat more stringent than the randomized error 
 \err^{\prob\nor}(n,\alpha,\cf,\sMC) := \min \left \{\varepsilon :  \sup_{f \in \cf} \Prob\left[\abs{\frac{\hmu_n-\mu}{\sigma}} \le \varepsilon \right] \ge 1-\alpha \right \},
 \end{multline}
 \end{subequations}
-Again one may define the minimu number of function values required to attain a given error toloerance as
+Again one may define the minimum number of function values required to attain a given error tolerance as
 \[
-n^{\text{x}}(\varepsilon,\alpha,\cf,\sMC) = \min \{{n \in \natzero} :  \err^{\text{x}}(n,\alpha,\cf,\sMC) \le \varepsilon\},
+\cost^{\text{x}}(\varepsilon,\alpha,\cf,\sMC) = \min \{{n \in \natzero} :  \err^{\text{x}}(n,\alpha,\cf,\sMC) \le \varepsilon\},
 \]
 where $\text{x} \in \{\prob\abso, \prob\rel, \prob\nor\}$.
 
@@ -150,9 +152,9 @@ In practice, one often invokes the Central Limit Theorem to determine sample siz
 This directly leads to  the \emph{approximate} probabilistic result:
 \begin{subequations} \label{proberrcritsampleGauss}
 \begin{align}
-n^{\prob\abso}(\varepsilon,\cf^{\abso},\sMC) &\approx  N_{G}(\varepsilon/\sigma_{\max},\alpha), & \text{where } N_{G}(\varepsilon,\alpha) :=\left \lceil \left(\frac{z_{\alpha/2}}{\varepsilon}\right)^2 \right \rceil,\\
-n^{\prob\rel}(\varepsilon,\cf^{\rel},\sMC) & \approx  N_{G}(\varepsilon/a,\alpha), \\
-n^{\prob\nor}(\varepsilon,\cf^{\nor},\sMC) &\approx  N_{G}(\varepsilon,\alpha).
+\cost^{\prob\abso}(\varepsilon,\cf^{\abso},\sMC) &\approx  N_{G}(\varepsilon/\sigma_{\max},\alpha), & \text{where } N_{G}(\varepsilon,\alpha) :=\left \lceil \left(\frac{z_{\alpha/2}}{\varepsilon}\right)^2 \right \rceil,\\
+\cost^{\prob\rel}(\varepsilon,\cf^{\rel},\sMC) & \approx  N_{G}(\varepsilon/a,\alpha), \\
+\cost^{\prob\nor}(\varepsilon,\cf^{\nor},\sMC) &\approx  N_{G}(\varepsilon,\alpha).
 \end{align}
 \end{subequations}
 The above is exact if the $Y_i=f(\vX_i)$ are i.i.d.\ Gaussian, however, in general this result is only approximate.
@@ -164,9 +166,9 @@ Using Chebyshev's inequality (Theorem \ref{Chebineqthm}) yields an exact upper b
 This inequality leads to an \emph{upper bound} on the sample size required to guarantee that the estimated mean is within the tolerance of the true answer with probability $1-\alpha$:
 \begin{subequations} \label{proberrcritsampleCheby}
 \begin{align}
-n^{\prob\abso}(\varepsilon,\cf^{\abso},\sMC) &\le N_{C}(\varepsilon/\sigma_{\max},\alpha), & \text{where }N_{C}(\varepsilon,\alpha) :=\left \lceil \frac{1}{\alpha\varepsilon^2} \right \rceil,\\
-n^{\prob\rel}(\varepsilon,\cf^{\rel},\sMC) & \le N_{C}(\varepsilon/a,\alpha), \\
-n^{\prob\nor}(\varepsilon,\cf^{\nor},\sMC) &\le N_{C}(\varepsilon,\alpha).
+\cost^{\prob\abso}(\varepsilon,\cf^{\abso},\sMC) &\le N_{C}(\varepsilon/\sigma_{\max},\alpha), & \text{where }N_{C}(\varepsilon,\alpha) :=\left \lceil \frac{1}{\alpha\varepsilon^2} \right \rceil,\\
+\cost^{\prob\rel}(\varepsilon,\cf^{\rel},\sMC) & \le N_{C}(\varepsilon/a,\alpha), \\
+\cost^{\prob\nor}(\varepsilon,\cf^{\nor},\sMC) &\le N_{C}(\varepsilon,\alpha).
 \end{align}
 \end{subequations}
 The sample size $N_C$ is typically much larger than $ N_G$, since $1/\alpha$ is much larger than $z_{\alpha/2}^2$ as $\alpha \to 0$.  Figure \ref{alphacomparefig} compares these two quantities.
@@ -209,14 +211,13 @@ N_B(b,\alpha,\varrho) := \min \left \{ n \in \naturals : \Phi\left(-b \sqrt{n}  
 This inequality leads to an \emph{upper bound} on the work required to meet the probabilistic error criterion, but this time for a smaller set of functions.  guarantee that the estimated mean is within the tolerance of the true answer with probability $1-\alpha$:
 \begin{subequations} \label{proberrcritsampleBE}
 \begin{align}
-n^{\prob\abso}(\varepsilon,\cf^{\abso} \cap \cf^{\third},\sMC) &\le N_{B}(\varepsilon/\sigma_{\max},\alpha,\varrho_{\max}), \\
-n^{\prob\rel}(\varepsilon,\cf^{\rel}\cap \cf^{\third},\sMC) & \le N_{B}(\varepsilon/a,\alpha,\varrho_{\max}), \\
-n^{\prob\nor}(\varepsilon,\cf^{\nor}\cap \cf^{\third},\sMC) &\le N_{B}(\varepsilon,\alpha,\varrho_{\max}),
+\cost^{\prob\abso}(\varepsilon,\cf^{\abso} \cap \cf^{\third},\sMC) &\le N_{B}(\varepsilon/\sigma_{\max},\alpha,\varrho_{\max}), \\
+\cost^{\prob\rel}(\varepsilon,\cf^{\rel}\cap \cf^{\third},\sMC) & \le N_{B}(\varepsilon/a,\alpha,\varrho_{\max}), \\
+\cost^{\prob\nor}(\varepsilon,\cf^{\nor}\cap \cf^{\third},\sMC) &\le N_{B}(\varepsilon,\alpha,\varrho_{\max}),
 \intertext{where}
 \cf^{\third}& :=\left \{ f \in \cl_3 : \frac{M_3(f)}{[\var(f)]^{3/2}} \le \rho_{\max} \right \}.
 \end{align}
 \end{subequations}
-The sample size $N_C$ is typically much larger than $ N_G$, since $1/\alpha$ is much larger than $z_{\alpha/2}^2$ as $\alpha \to 0$.  Figure \ref{alphacomparefig} compares these two quantities.
 
 Definition \eqref{NB} may be re-written implicitly
 \begin{equation}\label{NBalt}
@@ -247,9 +248,9 @@ Unfortunately, once we approximate $\sigma^2$ by $\hv_n$, we again have inexact 
 \]
 where
 \begin{equation} \label{kurtdef}
-\kappa:= \kurt(f) = \frac{M_4(f)}{\var^2(f)} = \frac{M_4(f)}{\sigma^4(f)} \ge 1
+\kappa:= \kurt(f) = \frac{M_4(f)}{\var^2(f)} = \frac{M_4(f)}{\sigma^4(f)} \ge 1 \qquad \forall f \in \cl_4
 \end{equation}
-denotes the \emph{kurtosis}.  Thus,
+denotes the \emph{kurtosis}.  Note that the kurtosis of a function is independent of scale.  Thus, it follows that
 \begin{subequations}\label{probvarupbd}
 \begin{gather}
 \Prob\left[\hsigma_{\text{up}}(\hv_n,n,\alpha,\kappa)  > \sigma \right] \ge 1 - \alpha, \\
@@ -276,7 +277,20 @@ n \ge 1 + \frac{1}{2} \left\{ (\kappa-1)M -1 + \sqrt{\left[(\kappa-1)M -1\right]
 \end{gather*}
 Thus, for example, even in the best case scenario of $\kappa=1$, the smallest possible value, we have $n \ge [1 + \sqrt{1 + 8 M}]/2$.  For $L=2$ and $\alpha=0.05$ this translates into $M=38$ and $n \ge 9.2$.
 
-From still another perspective, for a given $n$ and $\kappa$, one must require $\alpha$ large enough, namely one must have
+On the other hand, suppose that we choose
+\[
+\hsigma^2_{\text{up}} = L \hv_{n}
+\]
+where $L$ is a \emph{fudge factor}.  This means that we are implicitly assuming the kurtosis to satisfy
+\begin{align*}
+\frac{1}
+{1 - \sqrt{ \left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n }\right)}} &\le L, \\
+\frac{1}{L} &\le 1 - \sqrt{ \left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n }\right)}, \\
+\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n }\right) &\le \left(1 - \frac{1}{L}\right)^2 = \left(\frac{L-1}{L}\right)^2,\\
+\kappa  & \le \frac{n-3}{n-1} + \left(\frac{1-\alpha}{\alpha n }\right)\left(\frac{L-1}{L}\right)^2.
+\end{align*}
+
+From still another perspective, for a given $n$ and $\kappa$, one must require $\alpha$ large enough, namely
 \begin{gather*}
 \frac{1}{ n }\left(\kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha}\right) < 1, \\
 \alpha>\frac{1}{1+\frac{n}{\kappa  - \frac{n-3}{n-1}}}.
@@ -292,56 +306,52 @@ Figure  \ref{ampfacfig} shows how much the sample variance needs to be inflated 
 
 \begin{theorem} \label{mainadaptthm} For a given positive constant, $\kappa_{\max}$, define the set of functions with bounded fourth moments:
 \[
-\cg_{4,\kappa_{\max}}= \{g \in \cl_{4,f} : \kurt(g)= \kappa \le \kappa_{\max} \},
+\cf^{\kurt}= \{f \in \cl_{4} : \kurt(f)= \kappa \le \kappa_{\max} \},
 \]
-where the kurtosis of the function is defined in Theorem \ref{Varvarthm}.
-Suppose that one has an error tolerance, $\epsilon$, and an uncertainty tolerance, $\alpha$. Let $\alpha_1 = 1 - \sqrt{1 - \alpha}$.  Pick any $n_0>1$ satisfying
+where the kurtosis of the function is defined in \eqref{kurtdef}.
+Suppose that one has an error tolerance, $\varepsilon$, and an uncertainty tolerance, $\alpha$. Let $\alpha_1 = 1 - \sqrt{1 - \alpha}$.  Pick any $n_0>1$ satisfying
 \[
 \kappa_{\max} < \kappa_{\text{\rm poss}}(\alpha_1,n_0)  = \frac{n_0 \alpha_1}{1-\alpha_1} + \frac{n_0-3}{n_0-1},
 \]
 and compute the sample variance, $\hv_{n_0}$ of a simple random sample of size $n_0$.   Use this to compute $\hsigma^2_{\text{\rm up}} = \hsigma^2_{\text{\rm up}}(\hv_{n_0},n_0,\alpha_1,\kappa_{\max})$ by \eqref{probvarupbd}.  Next choose an independent random sample of size
 \[
-n = \min\left( N_C(\epsilon,\alpha_1,\hsigma^2_{\text{\rm up}}), N_B(\epsilon,\alpha_1,\hsigma^2_{\text{\rm up}},\kappa_{\max}^{3/4}) \right)
+n = \min\left( N_C(\varepsilon/\hsigma_{\text{\rm up}},\alpha_1), N_B(\varepsilon/\hsigma_{\text{\rm up}},\alpha_1,\kappa_{\max}^{3/4}) \right)
 \]
-and compute $\hmu_n$, the simple Monte Carlo estimator of $\mu$.  Here $N_C$ is defined in \eqref{Cheberr} and  $N_B$ is defined in \eqref{NB}.  A probabilistic error bound is given by
+and compute $\hmu_n$, the simple Monte Carlo estimator of $\mu$.  Here $N_C$ is defined in \eqref{proberrcritsampleCheby} and  $N_B$ is defined in \eqref{NB}.  A probabilistic error bound is given by
 \[
 \Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \geq 1-\alpha.
 \]
 \end{theorem}
 \begin{proof}
-By \eqref{probvarupbd} it follows that $\hsigma_{\text{up}}(\hv_{n_0},n_0,\alpha_1,\kappa)  \ge \sigma$ with probability $1-\alpha_1$.  By Propositions  \ref{nonadaptChebprop} and \ref{nonadaptBerryprop} it follows that  $\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \geq 1-\alpha_1$, provided that $\hsigma_{\text{up}}  \ge \sigma$.  Thus, the probability that both of these events happen, is at least $(1-\alpha_1)^2=1-\alpha$.
+By \eqref{probvarupbd} it follows that $\hsigma_{\text{up}}(\hv_{n_0},n_0,\alpha_1,\kappa)  \ge \sigma$ with probability $1-\alpha_1$.  By  \eqref{proberrcritsampleCheby} and \eqref{proberrcritsampleBE} it follows that  $\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \geq 1-\alpha_1$, provided that $\hsigma_{\text{up}}  \ge \sigma$.  Thus, the probability that both of these events happen, is at least $(1-\alpha_1)^2=1-\alpha$.
 \end{proof}
 
-The cost of this algorithm can be evaluated in a probabilistic way also.  Define the cost of an algorithm as the $1-\beta$ quantile of the total number of function evaluations:
+The sample size of this algorithm is now a random variable, and so the cost is defined probabilistically.  Define the cost of an algorithm as the $1-\beta$ quantile of the total number of function evaluations.  Furthermore, the cost now depends not only on the space of functions, but also on the variance of the integrand, which is stated explicitly:
 \begin{equation}
-\cost(\hmu_n(g),\beta) := \min\left\{M : \Prob(n_0 + n \le M) \ge 1-\beta  \right \}.
+\cost(\varepsilon,\sigma^2,\cf^{\kurt},\aMC) := \sup_{\substack{f \in \cf^{\kurt}\\ \var(f)\le \sigma^2} } \min\left\{M : \Prob(n_0 + n \le M) \ge 1-\beta  \right \}.
 \end{equation}
-Here, the cost is assumed to depend on the integrand, $g$.  For the algorithm described in Theorem \ref{mainadaptthm} we may derive an upper bound on the cost by means of Proposition \ref{propCant} as follows:
-\begin{align*}
-\lefteqn{\cost(\hmu_n(g),\beta)} \\
-&= \min\left\{M : \Prob(n_0 + n \le M) \ge 1-\beta  \right \}\\
-& = n_0 + \min\left\{M : \Prob\left( \min\left( N_C(\epsilon,\alpha_1,\hsigma^2_{\text{\rm up}}), N_B(\epsilon,\alpha_1,\hsigma^2_{\text{\rm up}},\kappa_{\max}^{3/4}) \right) \le M\right) \ge 1-\beta  \right \}.
-\end{align*}
+
 From form Proposition \ref{propCant} it follows that
 \begin{align*}
 1-\beta & \le \Prob\left[\hv_n < \sigma^2 \left\{1 + \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\beta}{\beta n}\right)}\right\} \right] \\
 & = \Prob\left[\frac{\hv_n} {1 - \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha_1}{\alpha_1 n}\right)}} < \sigma^2 \left\{\frac{1 + \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\beta}{\beta n}\right)}} {1 - \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha_1}{\alpha_1 n}\right)}} \right\} \right] \\
-& = \Prob\left[\hsigma^2_{\text{\rm up}}(\hv_{n_0},n_0,\alpha_1,\kappa_{\max}) < \sigma^2 \gamma(n_0,\alpha_1,\beta,\kappa_{\max}) \right],
+& = \Prob\left[\hsigma^2_{\text{\rm up}}(\hv_{n},n,\alpha_1,\kappa_{\max}) < \sigma^2 \gamma^2(n,\alpha_1,\beta,\kappa_{\max}) \right],
 \end{align*}
 where,
 \[
-\gamma(n,\alpha_1,\beta,\kappa_{\max}) = \frac{1 + \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\beta}{\beta n}\right)}} {1 - \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha_1}{\alpha_1 n}\right)}}.
+\gamma^2(n,\alpha_1,\beta,\kappa_{\max}) := \frac{1 + \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\beta}{\beta n}\right)}} {1 - \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha_1}{\alpha_1 n}\right)}} > 1.
 \]
-Since $N_C(\epsilon,\alpha_1, \cdot)$ and $N_B(\epsilon,\alpha_1, \cdot,\kappa_{\max}^{3/4})$ are increasing functions, it follows that
+Since $N_C(\cdot,\alpha_1)$ and $N_B(\cdot,\alpha_1,\kappa_{\max}^{3/4})$ are decreasing functions, it follows that
 \begin{multline} \label{adaptcost}
-\cost(\hmu_n(g),\beta) \le n_0 + \\
-\min\left( N_C(\epsilon,\alpha_1,\var(g)\gamma(n_0,\alpha_1,\beta,\kappa_{\max})), N_B(\epsilon,\alpha_1,\var(g)\gamma(n_0,\alpha_1,\beta,\kappa_{\max}),\kappa_{\max}^{3/4}) \right).
+\cost(\varepsilon,\sigma^2,\cf^{\kurt},\aMC) = \sup_{\substack{f \in \cf^{\kurt}\\ \var(f)\le \sigma^2} } \min\left\{M : \Prob(n_0 + n \le M) \ge 1-\beta  \right \}\\
+= n_0 + \min\left\{M : \Prob\left( \min\left( N_C(\varepsilon/\hsigma_{\text{\rm up}},\alpha_1), N_B(\varepsilon/\hsigma_{\text{\rm up}},\alpha_1,\kappa_{\max}^{3/4}) \right) \le M\right) \ge 1-\beta  \right \}]] \\
+\le n_0 + \min\left( N_C(\varepsilon/(\sigma\gamma(n_0,\alpha_1,\beta,\kappa_{\max})),\alpha_1), N_B(\varepsilon/(\sigma\gamma(n_0,\alpha_1,\beta,\kappa_{\max})),\alpha_1,\kappa_{\max}^{3/4}) \right).
 \end{multline}
 
 \begin{theorem} \label{costtheorem} The algorithm described in Theorem \ref{mainadaptthm} has a probabilistic cost given by \eqref{adaptcost}.
 \end{theorem}
 
-The key factors that determine $\cost(\hmu_n(g),\beta)$ are $\epsilon$, the error tolerance, and $\var(g)$.  The cost is roughly proportional to $\var(g)\epsilon^{-2}$.  For the set of integrands $\cg_{4,\kappa_{\max}}$ the variance, $\var(g)$ is unbounded.  Thus, the cost is not bounded, however, it does seem to behave as expected as a function of the variance of the integrand.  As mentioned before, this is actually an advantage of this analysis.  One need not make any assumptions about the variance of the integrand, only about the kurtosis, which is unchanged when the integrand is multiplied by an arbitrary constant.
+The key factors that determine $\cost(\varepsilon,\sigma^2,\cf^{\kurt},\aMC)$ are $\varepsilon$, the error tolerance, and $\sigma^2$, the variance of the integrand.  The cost is roughly proportional to $\sigma^2\epsilon^{-2}$.  For the set of integrands $\cf^{\kurt}$ the variance, $\var(f)$ is unbounded.  Thus, the cost is not bounded, however, it does seem to behave as expected as a function of the variance of the integrand.  As mentioned before, this is actually an advantage of this analysis.  One need not make any assumptions about the variance of the integrand, only about the kurtosis, which is unchanged when the integrand is multiplied by an arbitrary constant.
 
 %Consider a spacial case in (\ref{NB}), let $\Phi(-\frac{\sqrt{n}\epsilon}{\sigma})=\frac{A\varrho}{\sqrt{n}}=\frac{\alpha}{4}$, since $\varrho\leq (\kappa_{\max}+3)^{3/4}$,
 %we can get the upper bound of $N_B(\epsilon,\alpha_1,\sigma_{\max},\varrho)$ by
@@ -349,9 +359,9 @@ The key factors that determine $\cost(\hmu_n(g),\beta)$ are $\epsilon$, the erro
 
 \section{Example}
 
-Consider the case of the uniform probability distribution on $[0,1]$, i.e., $f=1$.  Define
+Consider the case of the uniform probability distribution on $[0,1]$, i.e., $\rho=1$.  Define
 \begin{equation} \label{exampleeq}
-g(x) = \begin{cases} 1 + \sigma \sqrt{\frac{1-p}{p}}, & 0 \le x \le p,\\
+f(x) = \begin{cases} 1 + \sigma \sqrt{\frac{1-p}{p}}, & 0 \le x \le p,\\
 1 - \sigma \sqrt{\frac{p}{1-p}}, & p < x \le 1,
 \end{cases}
 \end{equation}
@@ -367,20 +377,20 @@ Note that $\kappa$ ranges from a minimum of $1$, when $p=1/2$ to a maximum of $\
 
 \begin{figure}
 \includegraphics[width=3in]{NormalErrFig.eps}
-\caption{Empirical distribution function of $\abs{\mu-\hmu_n}/\epsilon$ for example \eqref{exampleeq} with $\mu=\sigma=1$, $n_0=100$, $\kappa_{\max} = 3.2$, $\epsilon=0.01$, and  $p=0.001, 0.002, 0.005, 0.01, 0.02, 0.05$ using the algorithm in Theorem \ref{mainadaptthm}. \label{normalerrfig}}
+\caption{Empirical distribution function of $\abs{\mu-\hmu_n}/\epsilon$ for example \eqref{exampleeq} with $\mu=\sigma=1$, $n_0=100$, $\kappa_{\max} = 3.2$, $\varepsilon=0.01$, and  $p=0.001, 0.002, 0.005, 0.01, 0.02, 0.05$ using the algorithm in Theorem \ref{mainadaptthm}. \label{normalerrfig}}
 \end{figure}
 
 Figure \ref{normalerrfig} shows the empirical distribution of the normalized error $\abs{\mu-\hmu_n}/\epsilon$, using $1000$ replications for a range of values of $p$.  As can be seen in this figure and in Table \ref{examptable}, the adaptive Monte Carlo method does poorly for very small values of $p$, which correspond to vary large values of the kurtosis.  However, even for values of the kurtosis above $\kappa_{\max}=3.2$ used in this example, the chance of meeting the error tolerance may be quite high.
 
 \begin{table}
-\caption{Kurtosis probability of meeting the error tolerance for different values of $p$. \label{examptable}}
+\caption{Kurtosis and probability of meeting the error tolerance for different values of $p$. \label{examptable}}
 \[
 \begin{array}{r|ccccccccccc}
 p &   0.001 &    0.002 &    0.005 &     0.01 &     0.02 &     0.05 \\
 \hline
 \kappa &  998.00 &   498.00 &   198.01 &    98.01 &    48.02 &    18.05 \\
 \hline
-\Prob(\abs{\mu-\hmu_n} \le \epsilon) &    8.70\% &    17.50\% &    39.20\% &    63.50\% &    86.40\% &    99.90\% \\
+\Prob(\abs{\mu-\hmu_n} \le \varepsilon) &    8.70\% &    17.50\% &    39.20\% &    63.50\% &    86.40\% &    99.90\% \\
 \end{array}
 \]
 \end{table}
@@ -402,7 +412,7 @@ Here are some questions that suggest themselves:
 
 \end{itemize}
 
-\section*{Appendix}
+\section*{Appendix of Useful Theorems}
 \begin{theorem}[Chebyshev's Inequality] \label{Chebineqthm} Let $Z$ be any random variable with mean $\mu$ and variance $\sigma^2$.  Then for all $\alpha >0$, Chebyshev's inequality states that
 \[
 \Prob\left[\abs{Z-\mu} \ge \frac{\sigma}{\sqrt{\alpha}} \right] \le \alpha, \qquad \Prob\left[\abs{Z-\mu} < \frac{\sigma}{\sqrt{\alpha}} \right] \ge 1-\alpha.
@@ -414,7 +424,7 @@ Here are some questions that suggest themselves:
 \end{equation*}
 and then divide both sides by $\sigma^2/\alpha$.
 \end{proof}
-Theorem 5.16 in \cite{p1}
+The following theorem comes from \cite[Theorem 5.16, p. 168]{Pet95a}
 \begin{theorem}[Non-uniform Berry-Esseen Inequality] \label{BE} Let $Y_1,\dots,Y_n$ be i.i.d.\ random variables.  Suppose that
 \[
 \mu=E(Y_i), \quad \var(Y_i)=\sigma^2>0, \quad \varrho=\frac{E\abs{Y_i - \mu}^3}{\sigma^3} < \infty.
@@ -525,8 +535,6 @@ Then \eqref{sampvarup} follows directly.  By a similar argument.
 Thus, \eqref{sampvarlo} follows as well.
 \end{proof}
 
-\begin{thebibliography}{99}
-\bibitem{p1}Valentin V. Petrov, \emph{Limit Theorems of Probability Theory:Sequences of Independent Random Variables},
-Clarendon press,Oxford, 1995,P168.
-\end{thebibliography}
+\bibliographystyle{spbasic}
+\bibliography{FJH21,FJHown21}
 \end{document}

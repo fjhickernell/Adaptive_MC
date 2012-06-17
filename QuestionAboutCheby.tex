@@ -1,0 +1,134 @@
+\documentclass[12pt]{amsart}
+\usepackage{amsmath,amssymb,natbib}
+\textheight 9in
+\textwidth 6.5 in 
+\hoffset -1 in
+\voffset -1 in
+\input FJHDef.tex
+
+\newcommand{\sphere}{\mathbb{S}}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\cq}{\mathcal{Q}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\tP}{\widetilde{P}}
+\newcommand{\bg}{{\bf g}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bbu}{\bar{\bf u}}
+\newcommand{\bv}{{\bf v}}
+\newcommand{\bbv}{\bar{\bf v}}
+\newcommand{\bw}{{\bf w}}
+\newcommand{\bbw}{\bar{\bf w}}
+\newcommand{\hv}{\hat{v}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}[theorem]{Proposition}
+\begin{document}
+
+\title{Question About Cheybshev's Inequality and the Central Limit Theorem}
+\author{Fred J. Hickernell}
+\maketitle
+
+Suppose one wishes to approximate the mean, $\mu=E(X)$, by the sample average of i.i.d.\ draws, $X_1, X_2, \ldots$, i.e., 
+\begin{equation} \label{simpleMCest}
+\hmu_n = \frac 1n \sum_{i=1}^n X_i.
+\end{equation}
+An important question that springs to mind is how to choose the right sample size, $n$, to achieve a specified tolerance, $\epsilon$.  The random estimator, $\hmu_n$ has mean $\mu$ and variance
+\begin{equation*}
+\var(\hmu_n) = \frac{\sigma^2}{n},
+\end{equation*}
+where $\sigma^2=\var(X)=\var(X_i)$.
+
+In practice, one often invokes the Central Limit Theorem to determine sample size. Given a significance level or uncertainty tolerance, $\alpha$, one has 
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \frac{z_{\alpha/2} \sigma}{\sqrt{n}} \right] \approx 1-\alpha.
+\]
+Thus one has the \emph{approximate} probabilistic result
+\begin{equation} \label{CLTerr}
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] \approx 1-\alpha \qquad \text{for } n=N_{N}(\epsilon,\alpha,\sigma^2) :=\left \lceil \left(\frac{z_{\alpha/2}\sigma}{\epsilon}\right)^2 \right \rceil.
+\end{equation}
+The above is exact if the $X_i$ are i.i.d.\ normal, however, in general this result is only approximate and relies on the unknown $\sigma$.  The above observations are formalized in the proposition below.  
+
+The first of these drawbacks may be removed by turning to Chebyshev's inequality.  Using Chebyshev's inequality yields an exact upper bound rather than approximate one:
+\[
+\Prob\left[\abs{\hmu_n-\mu} < \frac{\sigma}{\sqrt{n \alpha}} \right] \ge 1-\alpha.
+\]
+Thus, a proper choice of sample size guarantees that the estimate is within the tolerance of the true answer with probability $1-\alpha$:
+\begin{equation} \label{Cheberr}
+\Prob\left[\abs{\hmu_n-\mu} < \epsilon \right] \ge 1-\alpha \qquad \text{for } n= N_C(\epsilon,\alpha,\sigma^2):= \left \lceil \frac{\sigma^2}{\alpha\epsilon^2} \right \rceil.
+\end{equation}
+This sample size is typically much larger than $N_N$, since $1/\sqrt{\alpha}$ is typically much larger than $z_{\alpha/2}$.
+
+{\bf Question 1:  Is there a tighter inequality than Chebyshev's, when the random variable is known to be a sum of i.i.d.\ random variables, but not assuming boundedness (like Hoeffding's inequality), only the existence of the first two or more moments?  From \cite{GhoMee77a} we know that it is not tight.  Is there something that tells us now close we are to the Central Limit Theorem as a function of $n$ or the moments?}
+
+Although the Chebyshev result is exact for general distributions, it still depends on the typically unknown $\sigma^2$.  This is why in practice one normally uses observed function values observed to approximate the $\sigma^2$ by the sample variance, as follows:
+\begin{equation} \label{samplevar}
+\hv_{n} = \frac 1{n-1} \sum_{i=1}^{n} (X_i- \hmu_{n})^2.
+\end{equation}
+This means that we now have an \emph{adaptive} algorithm.  One might choose an initial sample of size $n_0$, and use it to estimate $\sigma^2$ by $\hv_{n_0}$.  Then one chooses an \emph{independent} sample of size $n=N_{C}(\epsilon,\alpha,\hv_{n_0})$ or $n=N_{N}(\epsilon,\alpha,\hv_{n_0})$ to compute $\hmu_n$ the final estimate of $\mu$.
+
+Unfortunately, once we approximate $\sigma^2$ by $\hv_n$, we again have inexact results.  However, they can be made exact by using Cantelli's inequality and the variance of $\hv_n$:
+\begin{align*}
+1-\alpha & \le \Prob\left[\hv_n-\sigma^2 \ge - \sigma^2 \sqrt{\frac 1n \left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{\alpha}\right)} \right] \\
+&= \Prob\left[\frac{\hv_n}{1 - \sqrt{\left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}} \ge \sigma^2 \right]
+\end{align*}
+Thus,
+\begin{equation} \label{probvarupbd}
+\Prob\left[\hsigma_{\text{up}}(n,\alpha,\kappa)  \ge \sigma \right] \ge 1 - \alpha, \qquad \text{where } \hsigma^2_{\text{up}}(n,\alpha,\kappa) = \frac{\hv_{n}}{1 - \sqrt{ \left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{n \alpha}\right)}},
+\end{equation}
+provided that 
+\begin{align*}
+1 &> \left ( \kappa  + \frac{2n}{n-1}\right)\left(\frac{1-\alpha}{n \alpha}\right)\\
+\frac{n \alpha}{1-\alpha} & > \kappa  + \frac{2n}{n-1} \\
+\kappa & < \frac{n \alpha}{1-\alpha} - \frac{2n}{n-1} =: \kappa_{\text{poss}}.
+\end{align*}
+
+\begin{theorem} For a given positive constant, $\kappa_{\max}$, define the set of random variables with finite fourth moments:
+\[
+\cy = \{X : \kurt(X)= \kappa \le \kappa_{\max}, \},
+\]
+where the kurtosis of the function is defined in \eqref{kurtdef}.
+Suppose that one has an error tolerance, $\epsilon$, and an uncertainty tolerance, $\alpha$.  Let $\alpha_1 = 1 - \sqrt{1 - \alpha}$.  Pick any $n_0>1$ satisfying 
+\[
+\kappa_{\max} < \frac{n_0 \alpha_1}{1-\alpha_1} - \frac{2n_0}{n_0-1},
+\]
+and compute the sample variance, $\hv_{n_0}$ of a simple random sample of size $n_0$.  Use this to compute $\hsigma^2_{\text{\rm up}}(n_0,\alpha_1,\kappa_{\max})$ by \eqref{probvarupbd}.
+Next choose an independent random sample of size $n$ and compute $\hmu_n$, the simple Monte Carlo estimator of $\mu$.  A probabilistic error bound is given by 
+\[
+\Prob\left[\abs{\hmu_n-\mu} \le \epsilon \right] = 1-\alpha \qquad \text{for } n\ge N_{C}(\epsilon,\alpha_1,\hsigma^2_{\text{\rm up}}(n_0,\alpha_1,\kappa_{\max})).
+\]
+\end{theorem}
+\begin{proof} By \eqref{probvarupbd} it follows that $\hsigma_{\text{up}}(n,\alpha,\kappa)  \ge \sigma$ with probability $1-\alpha_1$.  
+
+\end{proof}
+
+The point is that now we have a guaranteed (with a certain confidence) program for getting an approximation to the mean if we know that our random variable does not have too large a kurtosis.  But at least we do not have to know the varaiance in advance.
+
+{\bf Question 2:  Is there a tighter bound for the sample variance than Cantelli's Theorem?}
+
+{\bf Question 3:  Is this all known and written down somewhere?  My real aim is to apply this kind of analysis to problems where we use something more sophisticated as our estimator.}
+
+\section*{Appendix}
+\begin{theorem}[Chebyshev's and Cantelli's Inequalities] \label{Chebineqthm} Let $Z$ be any random variable with mean $\mu_Z$ and variance $\sigma^2_{Z}$.  Then for all $\alpha >0$, Chebyshev's inequality states that
+\[
+\Prob\left[\abs{Z-\mu_Z} \ge \frac{\sigma_Z}{\sqrt{\alpha}} \right] \le \alpha, \qquad \Prob\left[\abs{Z-\mu_Z} < \frac{\sigma_Z}{\sqrt{\alpha}} \right] \ge 1-\alpha.
+\]
+Cantelli's inequality states that
+\begin{gather*}
+\Prob\left[Z-\mu_Z \ge \sigma_Z \sqrt{\frac{1-\alpha}{\alpha}} \right] \le \alpha, \qquad \Prob\left[Z-\mu_Z < \sigma_Z \sqrt{\frac{1-\alpha}{\alpha}} \right] \ge 1-\alpha, \\
+\Prob\left[Z-\mu_Z \le - \sigma_Z \sqrt{\frac{1-\alpha}{\alpha}} \right] \le \alpha, \qquad \Prob\left[Z-\mu_Z > -\sigma_Z \sqrt{\frac{1-\alpha}{\alpha}} \right] \ge 1-\alpha.
+\end{gather*}
+\end{theorem}
+
+\begin{theorem} \label{Varvarthm} Let $\hv_n$ be the sample variance as defined in \eqref{samplevar}.  It's variance is
+\[
+\var(\hv_n^2) = \frac{\sigma^4}{n} \left ( \kappa  + \frac{2n}{n-1}\right),
+\]
+where $\kappa$ denotes the \emph{kurtosis}:
+\begin{equation} \label{kurtdef}
+\kappa := \kurt(X) := \frac{\gamma}{\sigma^4} -3 , \qquad \gamma := E[(X-\mu)^4].
+\end{equation}
+\end{theorem}
+
+\bibliographystyle{spbasic}
+\bibliography{FJH21,FJHown21}
+
+\end{document}
