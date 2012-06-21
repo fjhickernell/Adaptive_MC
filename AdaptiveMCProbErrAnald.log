@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  21 JUN 2012 16:13
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  21 JUN 2012 16:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -17,28 +17,772 @@ iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
 ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
 ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
 .
+(./svmult.cls
+Document Class: svmult 2007/06/25 v5.4 
+Springer Verlag global LaTeX document class for multi authored books
+Class Springer-SVMult Info: extra/valid Springer sub-package 
+(Springer-SVMult)           not found in option list - using "global" style.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\svparindent=\dimen103
+\bibindent=\dimen104
+\betweenumberspace=\dimen105
+\headlineindent=\dimen106
+\minitoc=\write3
+\c@minitocdepth=\count87
+\c@chapter=\count88
+\mottowidth=\dimen107
+\svitemindent=\dimen108
+\verbatimindent=\dimen109
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 963.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 964.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 965.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 966.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 967.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 968.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 969.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 970.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 971.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 972.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 973.
+\tocchpnum=\dimen110
+\tocsecnum=\dimen111
+\tocsectotal=\dimen112
+\tocsubsecnum=\dimen113
+\tocsubsectotal=\dimen114
+\tocsubsubsecnum=\dimen115
+\tocsubsubsectotal=\dimen116
+\tocparanum=\dimen117
+\tocparatotal=\dimen118
+\tocsubparanum=\dimen119
+\foot@parindent=\dimen120
+\spthmsep=\dimen121
+\c@theorem=\count89
+\c@case=\count90
+\c@conjecture=\count91
+\c@corollary=\count92
+\c@definition=\count93
+\c@example=\count94
+\c@exercise=\count95
+\c@lemma=\count96
+\c@note=\count97
+\c@problem=\count98
+\c@property=\count99
+\c@proposition=\count100
+\c@question=\count101
+\c@solution=\count102
+\c@remark=\count103
+\c@prob=\count104
+\instindent=\dimen122
+\figgap=\dimen123
+\bildb@x=\box26
+\figcapgap=\dimen124
+\tabcapgap=\dimen125
+\c@merk=\count105
+\c@@inst=\count106
+\c@@auth=\count107
+\c@auco=\count108
+\instindent=\dimen126
+\authrun=\box27
+\authorrunning=\toks14
+\tocauthor=\toks15
+\titrun=\box28
+\titlerunning=\toks16
+\toctitle=\toks17
+\c@contribution=\count109
+LaTeX Info: Redefining \abstract on input line 2320.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-! LaTeX Error: File `svmult.cls' not found.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: cls)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-Enter file name: 
-./AdaptiveMCProbErrAnald.tex:2: Emergency stop.
-<read *> 
-         
-l.2 ^^M
-       
-End of file on the terminal!
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count110
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2007/10/04 v 0.95: framed or shaded text with page breaks
+\fb@frw=\dimen127
+\fb@frh=\dimen128
+\FrameRule=\dimen129
+\FrameSep=\dimen130
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/mathptmx.sty
+Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+\symbold=\mathgroup4
+\symitalic=\mathgroup5
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+LaTeX Info: Redefining \hbar on input line 50.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/helvet.sty
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 
- 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks18
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/type1cm/type1cm.sty
+Package: type1cm 2002/09/05 v0.04 BlueSky/Y&Y Type1 CM font definitions (DPC, p
+atched RF)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen131
+\Gin@req@width=\dimen132
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
+\c@tracingmulticols=\count111
+\mult@box=\box29
+\multicol@leftmargin=\dimen133
+\c@unbalance=\count112
+\c@collectmore=\count113
+\doublecol@number=\count114
+\multicoltolerance=\count115
+\multicolpretolerance=\count116
+\full@width=\dimen134
+\page@free=\dimen135
+\premulticols=\dimen136
+\postmulticols=\dimen137
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box30
+\last@line=\box31
+\mult@rightbox=\box32
+\mult@grightbox=\box33
+\mult@gfirstbox=\box34
+\mult@firstbox=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\c@columnbadness=\count117
+\c@finalcolumnbadness=\count118
+\last@try=\dimen138
+\multicolovershoot=\dimen139
+\multicolundershoot=\dimen140
+\mult@nat@firstbox=\box53
+\colbreak@box=\box54
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2009/09/15 v5.5a a miscellany of footnote facilities
+\FN@temptoken=\toks19
+\footnotemargin=\dimen141
+\c@pp@next@reset=\count119
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks20
+\ex@=\dimen142
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen143
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count120
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count121
+\leftroot@=\count122
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count123
+\DOTSCASE@=\count124
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box55
+\strutbox@=\box56
+\big@size=\dimen144
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+\macc@depth=\count125
+\c@MaxMatrixCols=\count126
+\dotsspace@=\muskip10
+\c@parentequation=\count127
+\dspbrk@lvl=\count128
+\tag@help=\toks21
+\row@=\count129
+\column@=\count130
+\maxfields@=\count131
+\andhelp@=\toks22
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
+\@envbody=\toks23
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup7
+\symAMSb=\mathgroup8
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldlasy=\mathgroup9
+LaTeX Info: Redefining \bm on input line 204.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen151
+\lightrulewidth=\dimen152
+\cmidrulewidth=\dimen153
+\belowrulesep=\dimen154
+\belowbottomsep=\dimen155
+\aboverulesep=\dimen156
+\abovetopsep=\dimen157
+\cmidrulesep=\dimen158
+\cmidrulekern=\dimen159
+\defaultaddspace=\dimen160
+\@cmidla=\count132
+\@cmidlb=\count133
+\@aboverulesep=\dimen161
+\@belowrulesep=\dimen162
+\@thisruleclass=\count134
+\@lastruleclass=\count135
+\@thisrulewidth=\dimen163
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen164
+\epsfysize=\dimen165
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen166
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/multirow/bigstrut.sty)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip48
+\bibsep=\skip49
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count136
+)
+\@indexfile=\write4
+\openout4 = `AdaptiveMCProbErrAnald.idx'.
+
+
+Writing index file AdaptiveMCProbErrAnald.idx
+(./FJHDef.tex
+\overwdth=\skip50
+) (./AdaptiveMCProbErrAnald.aux)
+\openout1 = `AdaptiveMCProbErrAnald.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 50.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count137
+\scratchdimen=\dimen167
+\scratchbox=\box57
+\nofMPsegments=\count138
+\nofMParguments=\count139
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count140
+\MPscratchDim=\dimen168
+\MPnumerator=\count141
+\makeMPintoPDFobject=\count142
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+
+
+Package mathptmx Warning: There are no bold math fonts on input line 72.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 72.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 72
+.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 72
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 72
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 72
+.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11.84009> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.6001> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.29004> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.10005> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 72.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 1389) in paragraph at lines 72--72
+[][]\OT1/ptm/m/n/8.5 Department of Ap-plied Math-e-mat-ics, Illi-nois In-sti-tu
+te of Tech-nol-ogy, Chicago, IL, USA,
+ []
+
+
+Underfull \hbox (badness 3895) in paragraph at lines 72--72
+\OT1/pcr/m/n/8.5 hickernell@iit.edu,ljiang14@hawk.iit.edu???other emails $\OMS/
+ztmcm/m/n/8.5 ^^A$ \OT1/ptm/m/n/8.5 School of
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
+[1
+
+
+
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 85.
+
+[2]
+Overfull \hbox (10.75107pt too wide) detected at line 136
+\OML/ztmcm/m/it/10 f\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 x\OT1/ztmcm/m/n/10 ) 
+= []  \OML/ztmcm/m/it/10 ^^V \OT1/ztmcm/m/n/10 = [][] \OML/ztmcm/m/it/10 f\OT1/
+ztmcm/m/n/10 (\OML/ztmcm/m/it/10 x\OT1/ztmcm/m/n/10 ) d\OML/ztmcm/m/it/10 x;  ^
+^[[] \OT1/ztmcm/m/n/10 = [][][\OML/ztmcm/m/it/10 f\OT1/ztmcm/m/n/10 (\OML/ztmcm
+/m/it/10 x\OT1/ztmcm/m/n/10 ) \OMS/ztmcm/m/n/10 ^^@ \OML/ztmcm/m/it/10 ^^V\OT1/
+ztmcm/m/n/10 ][] d\OML/ztmcm/m/it/10 x:
+ []
+
+[3]
+Package epstopdf Info: Source file: <NormalErrFig.eps>
+(epstopdf)                    date: 2012-06-21 15:59:36
+(epstopdf)                    size: 21950 bytes
+(epstopdf)             Output file: <NormalErrFig-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:45
+(epstopdf)                    size: 14521 bytes
+(epstopdf)             Command: <epstopdf --outfile=NormalErrFig-eps-converted-
+to.pdf NormalErrFig.eps>
+(epstopdf)             \includegraphics on input line 152.
+Package epstopdf Info: Output file is already uptodate.
+ <NormalErrFig-eps-converted-to.pdf, id=25, 521.95pt x 418.56375pt>
+File: NormalErrFig-eps-converted-to.pdf Graphic file (type pdf)
+
+<use NormalErrFig-eps-converted-to.pdf>
+Package pdftex.def Info: NormalErrFig-eps-converted-to.pdf used on input line 1
+52.
+(pdftex.def)             Requested size: 216.81pt x 173.86676pt.
+ [4 <./NormalErrFig-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <FoolQuadFunction.eps>
+(epstopdf)                    date: 2012-06-21 15:59:36
+(epstopdf)                    size: 12469 bytes
+(epstopdf)             Output file: <FoolQuadFunction-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:46
+(epstopdf)                    size: 9351 bytes
+(epstopdf)             Command: <epstopdf --outfile=FoolQuadFunction-eps-conver
+ted-to.pdf FoolQuadFunction.eps>
+(epstopdf)             \includegraphics on input line 166.
+Package epstopdf Info: Output file is already uptodate.
+ <FoolQuadFunction-eps-converted-to.pdf, id=35, 498.86375pt x 426.59375pt>
+File: FoolQuadFunction-eps-converted-to.pdf Graphic file (type pdf)
+
+<use FoolQuadFunction-eps-converted-to.pdf>
+Package pdftex.def Info: FoolQuadFunction-eps-converted-to.pdf used on input li
+ne 166.
+(pdftex.def)             Requested size: 216.81pt x 185.39754pt.
+ [5 <./FoolQuadFunction-eps-converted-to.pdf>] [6]
+Package epstopdf Info: Source file: <kurtmaxfig.eps>
+(epstopdf)                    date: 2012-06-21 15:59:40
+(epstopdf)                    size: 99119 bytes
+(epstopdf)             Output file: <kurtmaxfig-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:46
+(epstopdf)                    size: 13229 bytes
+(epstopdf)             Command: <epstopdf --outfile=kurtmaxfig-eps-converted-to
+.pdf kurtmaxfig.eps>
+(epstopdf)             \includegraphics on input line 213.
+Package epstopdf Info: Output file is already uptodate.
+
+<kurtmaxfig-eps-converted-to.pdf, id=51, 540.0175pt x 420.57124pt>
+File: kurtmaxfig-eps-converted-to.pdf Graphic file (type pdf)
+
+<use kurtmaxfig-eps-converted-to.pdf>
+Package pdftex.def Info: kurtmaxfig-eps-converted-to.pdf used on input line 213
+.
+(pdftex.def)             Requested size: 151.76744pt x 118.19553pt.
+Package epstopdf Info: Source file: <alphacompare.eps>
+(epstopdf)                    date: 2012-06-21 15:59:37
+(epstopdf)                    size: 18497 bytes
+(epstopdf)             Output file: <alphacompare-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:46
+(epstopdf)                    size: 10901 bytes
+(epstopdf)             Command: <epstopdf --outfile=alphacompare-eps-converted-
+to.pdf alphacompare.eps>
+(epstopdf)             \includegraphics on input line 218.
+Package epstopdf Info: Output file is already uptodate.
+
+<alphacompare-eps-converted-to.pdf, id=52, 499.8675pt x 422.57875pt>
+File: alphacompare-eps-converted-to.pdf Graphic file (type pdf)
+
+<use alphacompare-eps-converted-to.pdf>
+Package pdftex.def Info: alphacompare-eps-converted-to.pdf used on input line 2
+18.
+(pdftex.def)             Requested size: 151.76744pt x 128.30278pt.
+ [7 <./kurtmaxfig-eps-converted-to.pdf> <./alphacompare-eps-converted-to.pdf>]
+Overfull \hbox (31.03337pt too wide) in paragraph at lines 248--248
+[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 268.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 268.
+ [8] [9]
+Overfull \hbox (9.86484pt too wide) in paragraph at lines 321--321
+[] 
+ []
+
+[10] [11] [12]
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 435.
+ [13]
+Overfull \hbox (2.65001pt too wide) in paragraph at lines 455--458
+[]\OT1/ptm/b/n/10 (Non-uniform Berry-Esseen In-equal-ity). \OT1/ptm/m/it/10 (Pe
+trov, 1995, The-o-rem 5.16,
+ []
+
+[14]
+Overfull \hbox (4.24591pt too wide) in paragraph at lines 503--503
+[] 
+ []
+
+
+Overfull \hbox (6.98965pt too wide) in paragraph at lines 520--520
+[] 
+ []
+
+[15]
+Overfull \hbox (6.94318pt too wide) detected at line 528
+\OT1/ztmcm/m/n/10 [\OML/ztmcm/m/it/10 E\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 Z 
+\OMS/ztmcm/m/n/10 ^^@ \OML/ztmcm/m/it/10 ^^V\OMS/ztmcm/m/n/10 j\OML/ztmcm/m/it/
+10 S \OT1/ztmcm/m/n/10 = \OMS/ztmcm/m/n/10 ^^@\OT1/ztmcm/m/n/10 1)][] = [][] \O
+MS/ztmcm/m/n/10 ^^U [][]
+ []
+
+[16]
+
+LaTeX Warning: Reference `qmcsec' on page 17 undefined on input line 563.
+
+(./AdaptiveMCProbErrAnald.bbl) [17]
+
+Package natbib Warning: Citation `Hal05a' on page 18 undefined on input line 62
+0.
+
+
+Package natbib Warning: Citation `Owe06a' on page 18 undefined on input line 62
+0.
+
+[18]
+Overfull \hbox (19.33829pt too wide) detected at line 654
+\OT1/ztmcm/m/n/10 (1\OML/ztmcm/m/it/10 =\OT1/ztmcm/m/n/10 3 \OMS/ztmcm/m/n/10 ^
+^H \OT1/ztmcm/m/n/10 2\OML/ztmcm/m/it/10 =\OT1/ztmcm/m/n/10 3) \OMS/ztmcm/m/n/1
+0 ^^H \OT1/ztmcm/m/n/10 2\OML/ztmcm/m/it/10 =\OT1/ztmcm/m/n/10 3 = ([][]0\OML/z
+tmcm/m/it/10 :[] \OMS/ztmcm/m/n/10 ^^H [][]\OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/1
+0 :[]\OT1/ztmcm/m/n/10 ) \OMS/ztmcm/m/n/10 ^^H [][]\OT1/ztmcm/m/n/10 0\OML/ztmc
+m/m/it/10 :[] \OT1/ztmcm/m/n/10 = ([][]0\OML/ztmcm/m/it/10 :[]  []  \OT1/ztmcm/
+m/n/10 1) \OMS/ztmcm/m/n/10 ^^H [][]\OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :[] \
+OT1/ztmcm/m/n/10 = 0 \OMS/ztmcm/m/n/10 ^^H [][]\OT1/ztmcm/m/n/10 0\OML/ztmcm/m/
+it/10 :[] \OT1/ztmcm/m/n/10 = 2\OML/ztmcm/m/it/10 =\OT1/ztmcm/m/n/10 3\OML/ztmc
+m/m/it/10 ;
+ []
+
+[19] [20]
+Overfull \hbox (36.45053pt too wide) detected at line 697
+[] \OMS/ztmcm/m/n/10 ^^H [] \OT1/ztmcm/m/n/10 = [] \OMS/ztmcm/m/n/10 ^^H []\OML
+/ztmcm/m/it/10 ;  [] \OMS/ztmcm/m/n/10 ^^H \OT1/ztmcm/m/n/10 (\OMS/ztmcm/m/n/10
+ 	[]\OT1/ztmcm/m/n/10 ) = []\OML/ztmcm/m/it/10 ;  \OT1/ztmcm/m/n/10 ([] \OMS/zt
+mcm/m/n/10 ^^H []\OT1/ztmcm/m/n/10 ) \OMS/ztmcm/m/n/10 
+ [] \OT1/ztmcm/m/n/10 = ([] \OMS/ztmcm/m/n/10 
+ []\OT1/ztmcm/m/n/10 ) + ([] \OMS/ztmcm/m/n/10 
+ []\OT1/ztmcm/m/n/10 )  []  1 \OMS/ztmcm/m/n/10 8[]\OML/ztmcm/m/it/10 ; [] \OMS
+/ztmcm/m/n/10 2 \OML/ztmcm/m/it/10 
+[];  [] \OMS/ztmcm/m/n/10 2 \OT1/ztmcm/m/n/10 [0\OML/ztmcm/m/it/10 ; \OT1/ztmcm
+/m/n/10 1)[]\OML/ztmcm/m/it/10 :
+ []
+
+
+Overfull \hbox (15.61772pt too wide) detected at line 702
+\OML/ztmcm/m/it/10 ^^^[] \OT1/ztmcm/m/n/10 = 1\OML/ztmcm/m/it/10 ;  ^^^[]^^^[] 
+\OT1/ztmcm/m/n/10 = \OML/ztmcm/m/it/10 ^^^[];  ^^^[]\OT1/ztmcm/m/n/10 ([] \OMS/
+ztmcm/m/n/10 ^^H []\OT1/ztmcm/m/n/10 ) = \OML/ztmcm/m/it/10 ^^^[]\OT1/ztmcm/m/n
+/10 ([])\OML/ztmcm/m/it/10 ^^^[]\OT1/ztmcm/m/n/10 ([])\OML/ztmcm/m/it/10 ;  \OM
+S/ztmcm/m/n/10 8[]\OML/ztmcm/m/it/10 ; [] \OMS/ztmcm/m/n/10 2 \OML/ztmcm/m/it/1
+0 
+[];  [] \OMS/ztmcm/m/n/10 2 [][]\OML/ztmcm/m/it/10 ;  [] \OMS/ztmcm/m/n/10 2 \O
+T1/ztmcm/m/n/10 [0\OML/ztmcm/m/it/10 ; \OT1/ztmcm/m/n/10 1)[]\OML/ztmcm/m/it/10
+ :
+ []
+
+[21] [22] [23]
+Package epstopdf Info: Source file: <probfailfig.eps>
+(epstopdf)                    date: 2012-06-21 15:59:40
+(epstopdf)                    size: 12410 bytes
+(epstopdf)             Output file: <probfailfig-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:47
+(epstopdf)                    size: 8812 bytes
+(epstopdf)             Command: <epstopdf --outfile=probfailfig-eps-converted-t
+o.pdf probfailfig.eps>
+(epstopdf)             \includegraphics on input line 791.
+Package epstopdf Info: Output file is already uptodate.
+
+<probfailfig-eps-converted-to.pdf, id=141, 539.01375pt x 419.5675pt>
+File: probfailfig-eps-converted-to.pdf Graphic file (type pdf)
+
+<use probfailfig-eps-converted-to.pdf>
+Package pdftex.def Info: probfailfig-eps-converted-to.pdf used on input line 79
+1.
+(pdftex.def)             Requested size: 216.81pt x 168.76512pt.
+
+
+Package natbib Warning: There were undefined citations.
+
+[24 <./probfailfig-eps-converted-to.pdf>] (./AdaptiveMCProbErrAnald.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 10 strings out of 493633
- 239 string characters out of 3143378
- 49245 words of memory out of 3000000
- 3408 multiletter control sequences out of 15000+200000
- 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 4504 strings out of 493633
+ 57274 string characters out of 3143378
+ 141130 words of memory out of 3000000
+ 7628 multiletter control sequences out of 15000+200000
+ 70201 words of font info for 179 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 10i,0n,7p,60b,8s stack positions out of 5000i,500n,10000p,200000b,50000s
-./AdaptiveMCProbErrAnald.tex:2:  ==> Fatal error occurred, no output PDF file p
-roduced!
+ 38i,20n,24p,953b,341s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2011/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texl
+ive/2011/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/
+2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/tex
+mf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2011/texmf-dist/fon
+ts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/ur
+w/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/ut
+mbi8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+</usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on AdaptiveMCProbErrAnald.pdf (24 pages, 255279 bytes).
+PDF statistics:
+ 204 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+
