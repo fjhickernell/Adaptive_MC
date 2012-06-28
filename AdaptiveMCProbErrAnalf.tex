@@ -464,7 +464,7 @@ and $\sigma(f)=\sqrt{\var(f)}$ is the standard deviation of the integrand.  Give
 \end{equation}
 For example, one might choose
 \begin{equation} \label{alphaseqex}
-\alpha_{\sigma} = 1-\me^{-a_2}, \ \ \alpha_{i} = 1-\me^{-a_2a_1^{-i}}, \ i\in \naturals, \quad \text{where} \  a_1 \in (1,\infty), \  b_2=\frac{1-a}{a} \log(1-\alpha).
+\alpha_{\sigma} = 1-(1-\alpha)^{(a-1)/a}, \ \ \alpha_{i} = 1-(1-\alpha)^{(a-1)/a^{i+1}}, \ i\in \naturals, \quad \text{where} \  a \in (1,\infty).
 \end{equation}
 
 \begin{theorem} \label{relerradaptthm} Specify the following parameters defining the algorithm:
@@ -473,19 +473,28 @@ For example, one might choose
 \item initial sample size for mean estimation, $n_1 \in \naturals$,
 \item variance inflation factor for variance estimation, $\fudge \in (1,\infty)$, 
 \item factor for confidence interval width reduction, $\delta \in (0,1)$,
-\item uncertainty tolerance, $\alpha\in (0,1)$, and a sequence $\alpha_{\sigma}, \alpha_1,  \alpha_2, \ldots$ satisfying \eqref{alphaseq}, and
-\item relative error tolerance, $\varepsilon \in (0,1)$. 
+\item uncertainty tolerance, $\alpha\in (0,1)$, and a sequence $\alpha_{\sigma}, \alpha_1,  \alpha_2, \ldots$ satisfying \eqref{alphaseq}, 
+\item the parameter $\theta \in [0,1]$, used to define the general error criterion \eqref{genrelerrcrit}, and
+\item the error tolerance, $\varepsilon >0$. 
 \end{itemize} 
-Define the set of functions with bounded kurtosis and nonzero mean:
+Define the set of functions with bounded kurtosis and nonzero mean if $\theta$ happens to be one:
 \[
-\cc_{\kappa_{\max},0}= \{f \in \cl_{4} : \kurt(f)= \kappa \le \kappa_{\max}(n_{\sigma},\alpha_{\sigma},\fudge), \mu(f) \ne 0\},
+\cc_{\kappa_{\max},0}= \{f \in \cc_{\kappa_{\max}} :  1-\theta+\abs{\mu(f)} \ne 0\},
 \]
-where $\kappa_{\max}$ is defined in \eqref{kappamaxdef}.  For any $f \in \cc_{\kappa_{\max},0}$, compute the sample variance, $\hv_{n_{\sigma}}$ using a simple random sample of size $n_{\sigma}$. Use this to approximate the variance of $f$ by $\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}$, as in \eqref{sigmadef}, and to compute the width of initial the confidence interval for the mean, $\tvareps_1=\hsigma N_{CB}^{-1}(n_1,\alpha_1,\kappa_{\max}^{3/4})$.  For $i=1, 2, \ldots$, do the following:
+where $\kappa_{\max}=\kappa_{\max}(n_{\sigma},\alpha_{\sigma},\fudge)$ is defined in \eqref{kappamaxdef}.  For any $f \in \cc_{\kappa_{\max},0}$, compute the sample variance, $\hv_{n_{\sigma}}$ using a simple random sample of size $n_{\sigma}$. Use this to approximate the variance of $f$ by $\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}$, as in \eqref{samplevar}, and to compute the width of initial the confidence interval for the mean, $\hvareps_1=\hsigma N_{CB}^{-1}(n_1,\alpha_1,\kappa_{\max}^{3/4})$.  For $i=1, 2, \ldots$, do the following:
 \begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi})}
+%\renewcommand{\labelenumi}{\alph{enumi})}
 \item Compute the sample average $\hmu_{n_i}$ using a simple random sample that is independent of those used to compute $\hv_{n_{\sigma}}$ and $\hmu_{n_1}, \ldots, \hmu_{n_{i-1}}$.
 
-\item If $\tvareps_i > \varepsilon \abs{\hmu_{n_i}}$, then reduce the width of the next confidence interval for the mean, 
+\item If $\hvareps_i \ge \min(\abs{\hmu_{n_i}},(1-\theta)/\theta)$, then $\hvareps_i$ is too large.  Go to Step \ref{newhvarepsstep}.  Otherwise compute 
+\[
+\tvareps_i = 
+\]
+according to 
+
+
+\item \label{newhvarepsstep} Compute the next $\hvareps_i$
+If $\tvareps_i > \varepsilon \abs{\hmu_{n_i}}$, then reduce the width of the next confidence interval for the mean, 
 \[
 \tvareps_{i+1} = \min(\delta\tvareps_i, \varepsilon \max(\tvareps_i,\abs{\hmu_{n_i}}-\tvareps_i)).
 \]
