@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  7 JUN 2012 10:19
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  23 JUN 2012 08:29
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -757,4 +757,525 @@ Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count162
 \calc@Bcount=\count163
 \calc@Adimen=\dimen198
-\calc@Bdimen=\dimen
+\calc@Bdimen=\dimen199
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count164
+\calc@Cskip=\skip63
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2010/10/22 v0.4 Testing for the operating system
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2011/03/01 v1.6 Catches the contents of a file (HO)
+)
+runsystem(uname -s > "HickernellMCQMC2012InvitedTalk.w18")...executed.
+
+
+(./HickernellMCQMC2012InvitedTalk.w18)
+runsystem(rm -- "HickernellMCQMC2012InvitedTalk.w18")...executed.
+
+)
+\minted@bgbox=\box57
+\minted@code=\write6
+\@float@every@listing=\toks46
+\c@listing=\count165
+)
+runsystem(which pygmentize && touch HickernellMCQMC2012InvitedTalk.aex)...execu
+ted.
+
+runsystem(rm HickernellMCQMC2012InvitedTalk.aex)...executed.
+
+
+(/Users/fred/Library/texmf/tex/FredTexDefinitions/FredBeamer/beamerthemeFredIIT
+.sty
+(/Users/fred/Library/texmf/tex/FredTexDefinitions/FredBeamer/beamerouterthemeFr
+edIIT.sty)
+(/Users/fred/Library/texmf/tex/FredTexDefinitions/FredBeamer/beamercolorthemeII
+T.sty)) (/Users/fred/Library/texmf/tex/FredTexDefinitions/FJHDef.tex
+\overwdth=\skip64
+)
+(./HickernellMCQMC2012InvitedTalk.aux)
+\openout1 = `HickernellMCQMC2012InvitedTalk.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: dvips
+*geometry* verbose mode - [ preamble ] result:
+* driver: dvips
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(9.24994pt, 345.69548pt, 9.24994pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=345.69548pt
+* \textheight=244.6939pt
+* \oddsidemargin=-63.02005pt
+* \evensidemargin=-63.02005pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=9.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=8.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ABD: EveryShipout initializing macros
+\AtBeginShipoutBox=\box58
+Package hyperref Info: Link coloring OFF on input line 114.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count166
+)
+LaTeX Info: Redefining \ref on input line 114.
+LaTeX Info: Redefining \pageref on input line 114.
+LaTeX Info: Redefining \nameref on input line 114.
+
+(./HickernellMCQMC2012InvitedTalk.out) (./HickernellMCQMC2012InvitedTalk.out)
+\@outlinefile=\write7
+\openout7 = `HickernellMCQMC2012InvitedTalk.out'.
+
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-basic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-bibliography-dictionary/translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-environment-dictionary/translator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-months-dictionary/translator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-numbers-dictionary/translator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-theorem-dictionary/translator-theorem-dictionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+runsystem(pygmentize -S default -f latex > HickernellMCQMC2012InvitedTalk.pyg).
+..executed.
+
+
+(./HickernellMCQMC2012InvitedTalk.pyg) (./HickernellMCQMC2012InvitedTalk.nav)
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
+(Font)              size <5> substituted on input line 115.
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [1
+
+]
+LaTeX Font Info:    Try loading font information for U+euf on input line 152.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
+)
+File: MengerIITRedGray.eps Graphic file (type eps)
+
+<MengerIITRedGray.eps> [2
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [3
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps>
+[4
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [5
+
+]
+Overfull \vbox (15.58374pt too high) detected at line 152
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [6
+
+]
+Overfull \vbox (15.58374pt too high) detected at line 152
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [7
+
+]
+Overfull \vbox (7.8938pt too high) detected at line 152
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [8
+
+]
+Overfull \vbox (7.8938pt too high) detected at line 152
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [9
+
+]
+Overfull \vbox (7.8938pt too high) detected at line 152
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [10
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [11
+
+]
+\openout4 = `HickernellMCQMC2012InvitedTalk.vrb'.
+
+
+(./HickernellMCQMC2012InvitedTalk.vrb
+File: erfplot.eps Graphic file (type eps)
+ <erfplot.eps>
+File: FoolQuadFunction.eps Graphic file (type eps)
+ <FoolQuadFunction.eps>
+File: FoolQuadOscillFunctionPiece.eps Graphic file (type eps)
+
+<FoolQuadOscillFunctionPiece.eps>)
+Overfull \hbox (6.12982pt too wide) in paragraph at lines 2--205
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [12
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [13
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps>
+[14
+
+]
+Overfull \vbox (7.8938pt too high) detected at line 233
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [15
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [16
+
+]
+File: kurtmaxfig.eps Graphic file (type eps)
+ <kurtmaxfig.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+
+<MengerIITRedGray.eps> [17
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [18
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps>
+[19
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [20
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [21
+
+]
+File: FoolQuadStepFunction.eps Graphic file (type eps)
+
+<FoolQuadStepFunction.eps>
+File: stepd=1iidErrTime.eps Graphic file (type eps)
+ <stepd=1iidErrTime.eps>
+Overfull \vbox (2.36263pt too high) detected at line 362
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [22
+
+]
+File: stepd=1iidErrTime.eps Graphic file (type eps)
+ <stepd=1iidErrTime.eps>
+File: stepd=1quadErrTime.eps Graphic file (type eps)
+ <stepd=1quadErrTime.eps>
+File: stepd=1quadgkErrTime.eps Graphic file (type eps)
+
+<stepd=1quadgkErrTime.eps>
+Overfull \hbox (5.5112pt too wide) in paragraph at lines 405--405
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [23
+
+]
+File: stepd=1iidErrTime.eps Graphic file (type eps)
+ <stepd=1iidErrTime.eps>
+File: stepd=1iidheavyErrTime.eps Graphic file (type eps)
+
+<stepd=1iidheavyErrTime.eps>
+File: stepd=1SobolErrTime.eps Graphic file (type eps)
+ <stepd=1SobolErrTime.eps>
+File: stepd=1SobolheavyErrTime.eps Graphic file (type eps)
+
+<stepd=1SobolheavyErrTime.eps>
+Overfull \hbox (11.20166pt too wide) in paragraph at lines 439--439
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [24
+
+]
+File: stepd=3iidErrTime.eps Graphic file (type eps)
+ <stepd=3iidErrTime.eps>
+File: stepd=3iidheavyErrTime.eps Graphic file (type eps)
+
+<stepd=3iidheavyErrTime.eps>
+File: stepd=3SobolErrTime.eps Graphic file (type eps)
+ <stepd=3SobolErrTime.eps>
+File: stepd=3SobolheavyErrTime.eps Graphic file (type eps)
+
+<stepd=3SobolheavyErrTime.eps>
+Overfull \hbox (11.20166pt too wide) in paragraph at lines 474--474
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [25
+
+]
+File: geomeaniidErrTime.eps Graphic file (type eps)
+ <geomeaniidErrTime.eps>
+File: geomeaniidheavyErrTime.eps Graphic file (type eps)
+
+<geomeaniidheavyErrTime.eps>
+File: geomeanSobolErrTime.eps Graphic file (type eps)
+ <geomeanSobolErrTime.eps>
+File: geomeanSobolheavyErrTime.eps Graphic file (type eps)
+
+<geomeanSobolheavyErrTime.eps>
+Overfull \hbox (11.20166pt too wide) in paragraph at lines 503--503
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [26
+
+]
+File: AdaptGuaranteedRegion.eps Graphic file (type eps)
+ <AdaptGuaranteedRegion.eps>
+File: NonAdaptGuaranteedRegion.eps Graphic file (type eps)
+
+<NonAdaptGuaranteedRegion.eps>
+Overfull \hbox (8.35664pt too wide) in paragraph at lines 525--525
+[][]  
+ []
+
+
+Overfull \vbox (7.84506pt too high) detected at line 525
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [27
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [28
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps>
+[29
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [30
+
+] (./HickernellMCQMC2012InvitedTalk.bbl)
+File: MengerIITRedGray.eps Graphic file (type eps)
+
+<MengerIITRedGray.eps> [31
+
+]
+File: ConvexSumDist.eps Graphic file (type eps)
+ <ConvexSumDist.eps>
+Overfull \hbox (2.66576pt too wide) in paragraph at lines 612--612
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [32
+
+]
+File: ConvexSumFun.eps Graphic file (type eps)
+ <ConvexSumFun.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [33
+
+]
+File: MengerIITRedGray.eps Graphic file (type eps)
+
+<MengerIITRedGray.eps> [34
+
+]
+Overfull \hbox (1.46819pt too wide) in paragraph at lines 706--706
+[] 
+ []
+
+File: dualnet-6.eps Graphic file (type eps)
+<dualnet-6.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [35
+
+]
+Overfull \hbox (1.46819pt too wide) in paragraph at lines 706--706
+[] 
+ []
+
+File: dualnet-7.eps Graphic file (type eps)
+<dualnet-7.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [36
+
+]
+Overfull \hbox (1.46819pt too wide) in paragraph at lines 706--706
+[] 
+ []
+
+File: dualnet-8.eps Graphic file (type eps)
+<dualnet-8.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [37
+
+]
+Overfull \hbox (1.46819pt too wide) in paragraph at lines 706--706
+[] 
+ []
+
+File: dualnet-9.eps Graphic file (type eps)
+<dualnet-9.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [38
+
+]
+Overfull \hbox (1.73897pt too wide) in paragraph at lines 706--706
+[] 
+ []
+
+File: dualnet-10.eps Graphic file (type eps)
+<dualnet-10.eps>
+File: MengerIITRedGray.eps Graphic file (type eps)
+ <MengerIITRedGray.eps> [39
+
+]
+File: iidtimedim.eps Graphic file (type eps)
+ <iidtimedim.eps>
+File: iidheavytimedim.eps Graphic file (type eps)
+
+<iidheavytimedim.eps>
+File: Soboltimedim.eps Graphic file (type eps)
+ <Soboltimedim.eps>
+File: Sobolheavytimedim.eps Graphic file (type eps)
+ <Sobolheavytimedim.eps>
+Overfull \hbox (11.20166pt too wide) in paragraph at lines 735--735
+[][]  
+ []
+
+File: MengerIITRedGray.eps Graphic file (type eps)
+<MengerIITRedGray.eps> [40
+
+]
+\tf@nav=\write8
+\openout8 = `HickernellMCQMC2012InvitedTalk.nav'.
+
+\tf@toc=\write9
+\openout9 = `HickernellMCQMC2012InvitedTalk.toc'.
+
+\tf@snm=\write10
+\openout10 = `HickernellMCQMC2012InvitedTalk.snm'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 739.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 739.
+ (./HickernellMCQMC2012InvitedTalk.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 739.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 739.
+Package rerunfilecheck Info: File `HickernellMCQMC2012InvitedTalk.out' has not 
+changed.
+(rerunfilecheck)             Checksum: 872D09425DADD43D66C4FB3A250B46EF;257.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 16903 strings out of 493630
+ 310142 string characters out of 3143346
+ 399405 words of memory out of 3000000
+ 19732 multiletter control sequences out of 15000+200000
+ 24593 words of font info for 96 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 49i,26n,67p,882b,636s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on HickernellMCQMC2012InvitedTalk.dvi (40 pages, 593080 bytes).
