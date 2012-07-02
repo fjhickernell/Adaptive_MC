@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  28 JUN 2012 13:01
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  2 JUL 2012 14:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -17,13 +17,13 @@ iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
 ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
 ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
 .
-(/Users/fred/Library/texmf/tex/latex/mathegl/mult/styles/svmult.cls
-Document Class: svmult 2003/07/23 v3.10 
+(./svmult.cls
+Document Class: svmult 2006/11/28 v3.26 
 Springer Verlag global LaTeX document class for multi authored books
 
 Class Springer-SVMult Warning: Specified option or subpackage "graybox" 
-(Springer-SVMult)              not found passing it to article class 
-(Springer-SVMult)              - on input line 154.
+(Springer-SVMult)              not found - passing it to article class 
+(Springer-SVMult)              - on input line 164.
 
 Class Springer-SVMult Info: extra/valid Springer sub-package 
 (Springer-SVMult)           not found in option list - using "global" style.
@@ -51,17 +51,17 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \c@chapter=\count88
 \svitemindent=\dimen105
 \verbatimindent=\dimen106
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 722.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 723.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 724.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 725.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 726.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 727.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 728.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 729.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 730.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 731.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 732.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 721.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 722.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 723.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 724.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 725.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 726.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 727.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 728.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 729.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 730.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 731.
 \tocchpnum=\dimen107
 \tocsecnum=\dimen108
 \tocsectotal=\dimen109
@@ -371,8 +371,6 @@ Writing index file AdaptiveMCProbErrAnalf.idx
 (./FJHDef.tex
 \overwdth=\skip50
 )
-\c@rem=\count136
-
 
 LaTeX Warning: Unused global option(s):
     [graybox].
@@ -454,11 +452,10 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 79.
  [1
+
 
 
 ] [2]
@@ -500,17 +497,14 @@ Package natbib Warning: There were undefined citations.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 3379 strings out of 493630
- 40063 string characters out of 3143346
- 110730 words of memory out of 3000000
- 6615 multiletter control sequences out of 15000+200000
+ 3384 strings out of 493630
+ 40015 string characters out of 3143346
+ 107894 words of memory out of 3000000
+ 6621 multiletter control sequences out of 15000+200000
  39114 words of font info for 118 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 29i,17n,26p,965b,312s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalf.dvi (13 pages, 67336 bytes).
+Output written on AdaptiveMCProbErrAnalf.dvi (13 pages, 67904 bytes).

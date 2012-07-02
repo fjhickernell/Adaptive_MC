@@ -45,7 +45,7 @@
 %\DeclareMathOperator{\fourth}{fourth}
 %\newtheorem{theorem}{Theorem}
 \newtheorem{prop}[theorem]{Proposition}
-\newtheorem{rem}{Remark}
+%\newtheorem{rem}{Remark}
 \DeclareMathOperator{\sMC}{sMC}
 \DeclareMathOperator{\aMC}{aMC}
 \begin{document}
@@ -330,12 +330,12 @@ $N_C$ is defined in \eqref{NCdef} and  $N_B$ is defined in \eqref{NB}.  Compute 
 since $\hsigma \ge \sigma$ with probability $1-\talpha$ by \eqref{kappamaxdef}.  \qed
 \end{proof}
 
-\begin{rem} If one is willing to invest $n_\sigma$ samples to estimate $\sigma$, it makes practical sense to to choose the sample size for the sample mean at least that large, i.e, 
+\begin{remark} If one is willing to invest $n_\sigma$ samples to estimate $\sigma$, it makes practical sense to to choose the sample size for the sample mean at least that large, i.e, 
 \[
 n = \max(n_{\sigma},N_{CB}(\varepsilon/\hsigma,\talpha,\kappa_{\max}^{3/4})).
 \]
-By the error bound following from Chebyshev's inequality, \eqref{ChebErr}, this means that the probabilistic absolute error bound in Theorem \ref{mainadaptthm} also holds for integrands, $f$, lying in the ball $\cb_{\sigma_{\max}}$, defined in \eqref{ballintegdef}, where $\sigma_{\max} = \varepsilon \sqrt{\alpha n_{\sigma}}$ 
-\end{rem}
+By the error bound following from Chebyshev's inequality, \eqref{ChebErr}, this means that the probabilistic absolute error bound in Theorem \ref{mainadaptthm} also holds for integrands, $f$, lying in the ball $\cb_{\sigma_{\max}}$, defined in \eqref{ballintegdef}, where $\sigma_{\max} = \varepsilon \sqrt{\alpha n_{\sigma}}$.
+\end{remark}
 
 
 \subsection{Cost of the Algorithm}  The sample size of the adaptive algorithm defined in Theorem \ref{mainadaptthm} is a random variable, and so the cost of this algorithm might best be defined defined probabilistically.  Moreover, the cost depends strongly on $\sigma$ as well as the $\varepsilon$, and its definition should reflect this dependence. 
@@ -371,100 +371,79 @@ Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to 
 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
 
-\section{Simple Monte Carlo Satisfying a Relative Error Criterion} \label{relerrsec}
+\section{Numerical Examples}
+
+
+\section{A General Error Criterion} \label{relerrsec}
 
 In many practical situations, one needs to approximate the integral with a certain relative accuracy.  For example, one wants an answer that is correct to three significant digits.  In this case, given a tolerance, $\varepsilon$, and a significance level $\alpha$, with $\varepsilon, \alpha \in (0, 1)$, one seeks a random $\tmu$ such that 
-\begin{equation} \label{relerrcrit}
+\begin{equation*} \label{relerrcrit}
 \Prob\left[\abs{\frac{\tmu-\mu}{\mu}} \le \varepsilon \right] \geq 1-\alpha.
-\end{equation}
+\end{equation*}
 A more general form of this criterion would be
 \begin{equation} \label{genrelerrcrit}
 \Prob\left[\frac{\abs{\tmu-\mu}} {1-\theta + \theta\abs{\mu}} \le \varepsilon \right] \geq 1-\alpha.
 \end{equation}
-for some fixed $\theta \in [0,1]$, where $\theta=0$ corresponds to absolute error, and $\theta = 1$ corresponds to relative error.
-Clearly, one must have $(1-\theta) + \abs{\mu}\ne0$ for such a statement to be possible.  
+for some fixed $\theta \in [0,1]$, where $\theta=0$ corresponds to absolute error, and $\theta = 1$ corresponds to relative error.  Clearly, one must have $(1-\theta) + \abs{\mu}\ne0$ for such a statement to be possible.  
 
+If $\varepsilon_{A} \ge 0$ is an absolute error tolerance, and $\varepsilon_{R} \ge 0$ is a relative error tolerance, then letting 
+\[
+\varepsilon = \frac{\varepsilon_{A}\varepsilon_{R}}{\theta \varepsilon_{A} + (1-\theta) \varepsilon_{R}},
+\]
+it follows that for all $\theta \in [0,1]$,
+\[
+[1-\theta + \theta \abs{\mu}]\varepsilon = (1-\gamma)\varepsilon_{A} + \gamma \varepsilon_{R} \abs{\mu} \le \max(\varepsilon_{A},\varepsilon_{R} \abs{\mu}),
+\]
+where
+\[
+\gamma = \frac{\theta \varepsilon_{A}}{\theta \varepsilon_{A} + (1-\theta) \varepsilon_{R}} \in [0,1].
+\]
+Thus, error criterion  \eqref{genrelerrcrit} implies that one has satisfied either an absolute or a relative error criterion, 
+\[
+\Prob\left[\frac{\abs{\tmu-\mu}} {1-\theta + \theta\abs{\mu}} \le \varepsilon \right] \geq 1-\alpha \implies \Prob\left[\abs{\tmu-\mu} \le \varepsilon_A \text{ or } \abs{\tmu-\mu} \le \abs{\mu}\varepsilon_R \right] \geq 1-\alpha.
+\]
+A value of $\gamma$ close to zero implies a preference to fulfill the absolute error criterion while a value of $\gamma$ close to one implies a preference to fulfill the relative error criterion.
 
-The above form is not a traditional confidence interval, however, suppose that one has the following confidence interval for $\mu$ in terms of $\hmu$ and $\hvareps$: 
-\begin{equation} \label{relerrcritc}
-1-\alpha \le \Prob\left[\abs{\hmu-\mu} \le \hvareps \right] = \Prob[\hmu-\hvareps \le \mu \le \hmu+\hvareps].
-\end{equation}
-Define $\tmu$ and $\tvareps>0$ to satisfy
-\begin{gather}
-\label{tmudef}
-\frac{\tmu \pm (1-\theta) \tvareps}{1 \mp \theta \tvareps \sign(\hmu \mp \hvareps)} = \hmu \pm \hvareps \\
-\nonumber
-\iff \tmu \pm (1-\theta) \tvareps = (\hmu \pm \hvareps)[1 \mp \theta \tvareps \sign(\hmu \mp \hvareps)] \\
-\nonumber
-\iff \tmu \pm [(1-\theta) + \theta\sign(\hmu \mp \hvareps)(\hmu \pm \hvareps)]\tvareps = (\hmu \pm \hvareps) \\
-\nonumber
-\iff \begin{cases}
-\displaystyle \tvareps= \frac{\hvareps}{1 -\theta +\frac{\theta}{2}[\sign(\hmu-\hvareps)(\hmu+\hvareps) + \sign(\hmu+\hvareps)(\hmu-\hvareps)]}\\[3ex]
-\displaystyle \tmu= \hmu - \frac{\theta\tvareps}{2}[\sign(\hmu-\hvareps)(\hmu+\hvareps) - \sign(\hmu+\hvareps)(\hmu-\hvareps)] 
-\end{cases}\\
-\label{tepsdefb}
-\iff 
-\left\{
-\begin{array}{lll}
-\displaystyle \tvareps= \frac{\hvareps}{1 -\theta - \theta\hvareps}, & 
-\displaystyle \tmu
-%= \hmu + \theta\tvareps\hmu 
-= \frac{\hmu(1-\theta)}{1 -\theta - \theta\hvareps}, &
-\abs{\hmu} < \hvareps, \\[2ex]
-\displaystyle \tvareps= \frac{\hvareps}{1 -\theta}, & 
-\tmu= \hmu, & 
-\abs{\hmu} = \hvareps,\\[2ex]
-\displaystyle \tvareps= \frac{\hvareps}{1 -\theta + \theta\abs{\hmu}}, & 
-\displaystyle \tmu
-%= \hmu - \theta\tvareps\sign(\hmu)\hvareps 
-= \frac{\hmu(1 -\theta) + \theta(\hmu^2-\hvareps^2)\sign(\hmu)}{1 -\theta + \theta\abs{\hmu}}, & 
-\abs{\hmu} > \hvareps.
-\end{array}
-\right.
-\end{gather}
-Here, one must have $\hvareps<\min(\abs{\hmu},(1-\theta)/\theta)$ to ensure that $\tvareps$ is positive. 
-
-Based on these definitions of $\tmu$ and $\tvareps>0$, it then follows from the confidence interval \eqref{relerrcritc} that 
-\begin{align}
-\nonumber
-1- \alpha & 
-\le \Prob[\hmu-\hvareps \le \mu \le \hmu+\hvareps]\\
-\nonumber
-& = \Prob\left[ \frac{\tmu-(1-\theta)\tvareps}{1+\theta\tvareps\sign(\hmu+\hvareps)} \le \mu \le \frac{\tmu + (1-\theta) \tvareps}{1-\theta\tvareps\sign(\hmu-\hvareps)} \right] 
-\qquad \text{by \eqref{tmudef}} \\
-\nonumber
-& = \Prob\left[ \tmu-(1-\theta)\tvareps \le \mu[1+\theta\tvareps\sign(\hmu+\hvareps)] \  \& \right. \\
-\nonumber
-& \qquad \qquad \left .  \mu[1-\theta\tvareps\sign(\hmu-\hvareps)] \le \tmu + (1-\theta) \tvareps \right] \qquad \text{since $\tvareps<1/\theta$ for $\abs{\hmu} > \hvareps$}\\
-\nonumber
-& = \Prob\left[ -\{1-\theta + \theta\mu\sign(\hmu+\hvareps)\} \tvareps \le \mu - \tmu \le  \{1-\theta + \theta\mu\sign(\hmu+\hvareps)\}\tvareps \right] \\
-\nonumber
-& \le \Prob\left[ -(1-\theta + \theta\abs{\mu}) \tvareps \le \mu - \tmu \le  (1-\theta + \theta\abs{\mu})\tvareps \right] \qquad \text{by \eqref{relerrcritc}},
-\end{align}
-which implies the generalized confidence interval, \eqref{genrelerrcrit}, provided that $\tvareps \le \varepsilon$.  The previous section shows how to find absolute error criteria of the form \eqref{relerrcritc}, but the challenge is to ensure that $\tvareps$, as defined in \eqref{tepsdefb} in terms of $\hmu$ and $\hvareps$, is no greater than the specified $\varepsilon$. This is done iteratively as described in Theorem \ref{relerradaptthm} below.
+Obtaining a confidence interval of the form \eqref{genrelerrcrit}, proceeds in three stages: i) obtaining an upper bound on $\sigma^2$, ii) obtaining a lower bound on $1-\theta + \theta\abs{\mu}$, and iii) then using these to obtain \eqref{genrelerrcrit}.  What differs from the absolute error case is step ii).  For this step it is noted that
+\begin{multline} \label{relerrcritd}
+\Prob\left[\abs{\hmu-\mu} \le \hvareps \right] \ge 1-\alpha \implies \Prob[\max(\abs{\hmu}-\hvareps,0) \le \abs{\mu} \le \abs{\hmu}+\hvareps] \ge 1-\alpha \\
+\implies \Prob[1-\theta + \theta\max(\abs{\hmu}-\hvareps,0) \le 1-\theta + \theta\abs{\mu} \le 1-\theta + \theta(\abs{\hmu}+\hvareps)] \ge 1-\alpha.
+\end{multline}
+Although one might be happy the left side of this inequality being positive, if it is too much smaller than the right side, then one might be eventually expending too much extra work in step iii).  Thus, it makes sense to require 
+\begin{gather*}
+1-\theta + \theta\max(\abs{\hmu}-\hvareps,0) \ge \hdelta [1-\theta + \theta(\abs{\hmu}+\hvareps)] \\
+\iff \hvareps = \begin{cases}
+\displaystyle \frac{(1-\hdelta)(1-\theta)}{\hdelta \theta} -\abs{\hmu}, & 
+\displaystyle 0 \le \abs{\hmu}  < \frac{(1-\hdelta)(1-\theta)}{2 \hdelta \theta},
+ \\[2ex]
+\displaystyle \frac{1-\hdelta}{1+\hdelta} \left[\frac{1-\theta}{\theta} +\abs{\hmu}\right], & 
+\displaystyle \frac{(1-\hdelta)(1-\theta)}{2 \hdelta \theta} \le \abs{\hmu}  < \infty.
+\end{cases}
+\end{gather*}
+This is done iteratively in the algorithm described in Theorem \ref{relerradaptthm} below.  One needs to prevent $\hvareps$ from becoming too small.  This means that $\hdelta$ should kept away from $1$, which means that the lower bound on $1-\theta + \theta\abs{\mu}$ is allowed to be somewhat smaller than the upper bound.  Preventing $\hvareps$ from becoming too small also means that $1-\theta + \abs{\hmu}$ cannot be too small. This may be unavoidable if one is interested in relative error $\theta=1$, and the true answer, $\mu$, is small.
 
 Some notation is needed for this theorem.  For any fixed $\alpha \in (0,1)$, and $M>0$, define the inverse of the functions $N_C(\cdot,\alpha)$, $N_B(\cdot,\alpha,M)$, and $N_{CB}(\cdot,\alpha,M)$,
-\begin{subequations} \label{probadapterrcritBE}
-\begin{gather}\label{NCinv}
+%\begin{subequations} \label{probadapterrcritBE}
+\begin{gather*}\label{NCinv}
 N_C^{-1}(n,\alpha) := \frac{1}{\sqrt{n \alpha}}, \\
-\label{NBinv}
+\label{NBinv*}
 N_B^{-1}(n,\alpha,M) := \min \left \{ b>0 : \Phi\left(-b \sqrt{n}  \right)+\frac{0.56M}{\sqrt{n}\left(1+ b\sqrt{n} \right)^{3}}
 \le \frac{\alpha}{2} \right \}, \\
-\label{NCBinv}
+\label{NCBinv*}
 N_{CB}^{-1}(n,\alpha,M) := \min(N_C^{-1}(n,\alpha),N_B^{-1}(n,\alpha,M)).
-\end{gather}
+\end{gather*}
 It then follows then by Chebyshev's inequality and the Berry-Esseen Inequality (see \eqref{BEresult}) that 
-\begin{equation}
+\begin{equation*}
 \Prob[\abs{\hmu_n -\mu}<\hvareps] \geq 1-\alpha, \quad \text{provided } \ f \in \cc_{\kappa_{\max}}, \text{ where }\hvareps=\sigma(f) N_{CB}^{-1}(n,\alpha,\kappa_{\max}^{3/4}), 
-\end{equation} 
-\end{subequations}
-and $\sigma(f)=\sqrt{\var(f)}$ is the standard deviation of the integrand.  Given a significance level, $\alpha \in (0,1)$, let $\alpha_{\sigma}, \alpha_1,  \alpha_2, \ldots$ be an infinite sequence of positive numbers all less than one, such that 
+\end{equation*} 
+%\end{subequations}
+and $\sigma(f)=\sqrt{\var(f)}$ is the standard deviation of the integrand.  Given a significance level, $\alpha \in (0,1)$, let $\alpha_{\sigma}, \alpha_{\mu}, \alpha_1,  \alpha_2, \ldots$ be an infinite sequence of positive numbers all less than one, such that 
 \begin{equation} \label{alphaseq}
-(1-\alpha_{\sigma})(1-\alpha_1)(1-\alpha_2) \cdots = 1-\alpha.
+(1-\alpha_{\sigma})(1-\alpha_{\mu})(1-\alpha_1)(1-\alpha_2) \cdots = 1-\alpha.
 \end{equation}
-For example, one might choose
+For example, one might choose $\alpha_{\sigma},\alpha_{\mu},$ and $\halpha$ such that $(1-\alpha_{\sigma})(1-\alpha_{\mu})(1-\halpha)=1-\alpha$, and then 
 \begin{equation} \label{alphaseqex}
-\alpha_{\sigma} = 1-(1-\alpha)^{(a-1)/a}, \ \ \alpha_{i} = 1-(1-\alpha)^{(a-1)/a^{i+1}}, \ i\in \naturals, \quad \text{where} \  a \in (1,\infty).
+\alpha_{i} = 1-(1-\halpha)^{(a-1)a^{-i}}, \ i\in \naturals, \quad \text{where} \  a \in (1,\infty).
 \end{equation}
 
 \begin{theorem} \label{relerradaptthm} Specify the following parameters defining the algorithm:
@@ -472,53 +451,62 @@ For example, one might choose
 \item sample size for variance estimation, $n_{\sigma} \in \naturals$,
 \item initial sample size for mean estimation, $n_1 \in \naturals$,
 \item variance inflation factor for variance estimation, $\fudge \in (1,\infty)$, 
-\item factor for confidence interval width reduction, $\delta \in (0,1)$,
-\item uncertainty tolerance, $\alpha\in (0,1)$, and a sequence $\alpha_{\sigma}, \alpha_1,  \alpha_2, \ldots$ satisfying \eqref{alphaseq}, 
+\item factors for Step 2, $\hdelta, \delta, \tdelta \in (0,1)$, with $\delta < \tdelta$.
+\item uncertainty tolerance, $\alpha\in (0,1)$, and a sequence $\alpha_{\sigma}, \alpha_{\mu}, \alpha_1,  \alpha_2, \ldots$ satisfying \eqref{alphaseq}, 
 \item the parameter $\theta \in [0,1]$, used to define the general error criterion \eqref{genrelerrcrit}, and
 \item the error tolerance, $\varepsilon >0$. 
 \end{itemize} 
-Define the set of functions with bounded kurtosis and nonzero mean if $\theta$ happens to be one:
-\[
-\cc_{\kappa_{\max},0}= \{f \in \cc_{\kappa_{\max}} :  1-\theta+\abs{\mu(f)} \ne 0\},
-\]
-where $\kappa_{\max}=\kappa_{\max}(n_{\sigma},\alpha_{\sigma},\fudge)$ is defined in \eqref{kappamaxdef}.  For any $f \in \cc_{\kappa_{\max},0}$, compute the sample variance, $\hv_{n_{\sigma}}$ using a simple random sample of size $n_{\sigma}$. Use this to approximate the variance of $f$ by $\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}$, as in \eqref{samplevar}, and to compute the width of initial the confidence interval for the mean, $\hvareps_1=\hsigma N_{CB}^{-1}(n_1,\alpha_1,\kappa_{\max}^{3/4})$.  For $i=1, 2, \ldots$, do the following:
+Let $\kappa_{\max}=\kappa_{\max}(n_{\sigma},\alpha_{\sigma},\fudge)$ as defined in \eqref{kappamaxdef}.  For any $f$ lying in the cone of functions with bounded kurtosis, $\cc_{\kappa_{\max}}$, do the following:
 \begin{enumerate}
 %\renewcommand{\labelenumi}{\alph{enumi})}
+\item {\bf Bounding the variance of the integrand from above.} Compute the sample variance, $\hv_{n_{\sigma}}$ using a simple random sample of size $n_{\sigma}$. Use this to approximate the variance of $f$ by $\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}$, as in \eqref{samplevar}. Compute the width of initial the confidence interval for the mean, $\hvareps_1=\hsigma N_{CB}^{-1}(n_1,\alpha_1,\kappa_{\max}^{3/4})$.
+
+\item \label{boundcstep} {\bf Bounding the denominator in the error criterion  from below.} For $i=1, 2, \ldots$, do the following:
+
+\begin{enumerate}
+
 \item Compute the sample average $\hmu_{n_i}$ using a simple random sample that is independent of those used to compute $\hv_{n_{\sigma}}$ and $\hmu_{n_1}, \ldots, \hmu_{n_{i-1}}$.
 
-\item If $\hvareps_i \ge \min(\abs{\hmu_{n_i}},(1-\theta)/\theta)$, then $\hvareps_i$ is too large.  Go to Step \ref{newhvarepsstep}.  Otherwise compute 
-\[
-\tvareps_i = 
-\]
-according to 
+\item Compute $\fc=1-\theta + \theta\max(\abs{\hmu_{n_i}}-\hvareps_{i},0)$, a confident lower bound on $1-\theta + \theta\abs{\mu}$, according to \eqref{relerrcritd}.  If $\fc \ge \delta [1 - \theta + \theta(\abs{\hmu_{n_i}} + \hvareps)]$, then $\fc$ is large enough.  Set $\tau=i$ and go to Step \ref{hmufinalstep}.
+
+\item \label{newhvarepsstep} Else, compute the next tolerance for the sample mean
+\begin{gather*}
+\hvareps_{0} = \begin{cases}
+\displaystyle \frac{(1-\hdelta)(1-\theta)}{\hdelta \theta} -\abs{\hmu_{n_i}}, & 
+\displaystyle 0 \le \abs{\hmu_{n_i}}  < \frac{(1-\hdelta)(1-\theta)}{2 \hdelta \theta},
+ \\[2ex]
+\displaystyle \frac{1-\hdelta}{1+\hdelta} \left[\frac{1-\theta}{\theta} +\abs{\hmu_{n_i}}\right], & 
+\displaystyle \frac{(1-\hdelta)(1-\theta)}{2 \hdelta \theta} \le \abs{\hmu_{n_i}}  < \infty,
+\end{cases}\\
+\hvareps_{i+1} = \max(\min(\hvareps_0, \tdelta \hvareps_i), \delta \hvareps_i).
+\end{gather*}
 
 
-\item \label{newhvarepsstep} Compute the next $\hvareps_i$
-If $\tvareps_i > \varepsilon \abs{\hmu_{n_i}}$, then reduce the width of the next confidence interval for the mean, 
-\[
-\tvareps_{i+1} = \min(\delta\tvareps_i, \varepsilon \max(\tvareps_i,\abs{\hmu_{n_i}}-\tvareps_i)).
-\]
-Define the next sample size, $n_{i+1} = N_{CB}(\tvareps_{i+1}/\hsigma,\alpha_{i+1},\kappa_{\max}^{3/4})$,
+\item Define the next sample size, $n_{i+1} = N_{CB}(\hvareps_{i+1}/\hsigma,\alpha_{i+1},\kappa_{\max}^{3/4})$,
 increase $i$ by one, and go to step a). 
 
-\item Else, let $\tmu = \hmu_{n_i}(1 - \tvareps_i^2/\hmu_{n_i}^2)$, and terminate the algorithm because the relative error criterion, \eqref{relerrcrit}, is satisfied.
+\end{enumerate}
+
+\item \label{hmufinalstep} {\bf Computing the sample mean to sufficient accuracy.} Compute the sample size  $n = N_{CB}(\fc \varepsilon/\hsigma,\alpha_\mu,\kappa_{\max}^{3/4})$. Compute $\tmu=\hmu_{n}$ using a simple random sample that is independent of those used to compute $\hv_{n_{\sigma}}$ and $\hmu_{n_1}, \ldots, \hmu_{n_{\tau}}$. Terminate the algorithm.
 
 \end{enumerate}
+If this algorithm terminates, then the general error criterion, \eqref{genrelerrcrit}, is satisfied.
+
 \end{theorem}
 
-\begin{proof} In this algorithm there are a number of important random variables:  the estimated upper bound on the standard deviation, $\hsigma$, the sample sizes $n_1, \ldots, n_\tau$, the number of confidence intervals computed, $\tau$, and the estimates of the mean, $\hmu_{n_1}, \ldots, \hmu_{n_{\tau}}$. These sample means are conditionally independent given the sequence of sample sizes.  The probability that the final confidence interval is correct, is then no less than the probability that all of the confidence intervals are correct, conditioned on the sample sizes.  Specifically,
+\begin{proof} In this algorithm there are a number of important random variables:  the estimated upper bound on the standard deviation, $\hsigma$, the sample sizes $n_1, \ldots, n_\tau, n$, the number of iterations, $\tau$, required to get a good  lower bound $\fc$, and the final estimate of the mean $\tmu=\hmu_n$. These sample means are conditionally independent given the sequence of sample sizes.  The probability that the final confidence interval is correct, is then no less than the probability that all of the confidence intervals are correct, conditioned on the sample sizes.  Specifically,
 \begin{align*}
-\Prob\left[\abs{\frac{\tmu-\mu}{\mu}} \le \varepsilon \right] & 
-\ge \Prob\left[\abs{\hmu_{n_{\tau}}-\mu} \le \tvareps_{n_{\tau}} \ \& \ \varepsilon \hmu_{n_{\tau}} \le \tvareps_{n_{\tau}} \right] \\
-& = E \left\{\Prob\left[\abs{\hmu_{n_{\tau}}-\mu} \le \tvareps_{n_{\tau}} \ \& \ \varepsilon \hmu_{n_{\tau}} \le \tvareps_{n_{\tau}} \ | \ \hsigma, \tau, n_1, \ldots, n_{\tau} \right] \right\} \\
-& \ge E \left\{\Prob\left[\abs{\hmu_{n_{i}}-\mu} \le \tvareps_{n_{i}}] \forall i \ \& \ \varepsilon \hmu_{n_{\tau}} \le \tvareps_{n_{\tau}} \ | \ \hsigma, \tau, n_1, \ldots, n_{\tau} \right] \right\} \\
-& \ge E_{\hsigma} \left\{[(1-\alpha_1)(1-\alpha_2) \cdots] 1_{[\sigma,\infty)}(\hsigma) \right\}\\
-& \ge (1-\alpha_{\sigma}) (1-\alpha_1)(1-\alpha_2) \cdots = 1-\alpha. \qquad \qed
+\Prob\left[\frac{\abs{\tmu-\mu}} {1-\theta + \theta\abs{\mu}} \le \varepsilon \right] & 
+\ge \Prob\left[\abs{\hmu_{n}-\mu} \le \fc \varepsilon \ \& \ \fc\le 1-\theta + \theta\abs{\mu} \right] \\
+& = E \left\{\Prob\left[\abs{\hmu_{n}-\mu} \le \fc \varepsilon \ \& \ \abs{\hmu_{n_{\tau}}-\mu} \le \hvareps_\tau \ | \ \hsigma, \tau, n_1, \ldots, n_{\tau},n \right] \right\} \\
+& \ge E \left\{\Prob\left[\abs{\hmu_{n}-\mu} \le \fc \varepsilon \ \& \ \abs{\hmu_{n_{i}}-\mu} \le \hvareps_i \ \forall i \ | \ \hsigma, \tau, n_1, \ldots, n_{\tau} \right] \right\} \\
+& \ge E_{\hsigma} \left\{[(1-\alpha_\mu)(1-\alpha_1) )(1-\alpha_2) \cdots ] 1_{[\sigma,\infty)}(\hsigma) \right\}\\
+& \ge (1-\alpha_{\sigma}) (1-\alpha_\mu) (1-\alpha_1)(1-\alpha_2) \cdots = 1-\alpha. \qquad \qed
 \end{align*}
 \end{proof}
 
-
-\section{Numerical Examples}
+\begin{remark} Step \ref{boundcstep} in this algorithm is not needed for the case of pure absolute error $\theta=0$, because $\fc=1$ automatically, which is large enough.  As suggested earlier, a difficulty may arise if $\mu \approx 0$ and $\theta \approx 1$, in which the algorithm may fail to converge in a reasonable number of steps and overall sample size.  Step \ref{newhvarepsstep} has safeguards against making $\hvareps_{i+1}$ too small compared to $\hvareps_{i}$, but this may also increase the number of iterations, $\tau$, necessary for completion of Step \ref{boundcstep}.  Because it is difficult to knowing how large $\tau$ is for a given integrand, there is no rigorous bound on the cost of this algorithm yet.
+\end{remark}
 
 \section*{Acknowledgements} The authors gratefully acknowledge discussions with Erich Novak and Henryk Wo\'zniakowski.
 
