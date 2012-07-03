@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  2 JUL 2012 14:42
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  2 JUL 2012 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -460,7 +460,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 
 ] [2]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 146.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
 
 [3]
 File: Foolquadbw.eps Graphic file (type eps)
@@ -470,26 +470,25 @@ File: Foolquadgkbw.eps Graphic file (type eps)
 File: Foolchebintbw.eps Graphic file (type eps)
  <Foolchebintbw.eps>
 
-LaTeX Warning: Reference `???' on page 4 undefined on input line 166.
+LaTeX Warning: Reference `???' on page 4 undefined on input line 170.
 
 File: Foolquadbw.eps Graphic file (type eps)
 <Foolquadbw.eps>
 File: Foolquadgkbw.eps Graphic file (type eps)
  <Foolquadgkbw.eps>
 File: Foolchebintbw.eps Graphic file (type eps)
- <Foolchebintbw.eps> [4]
+ <Foolchebintbw.eps> [4] [5]
 
-Package natbib Warning: Citation `??' on page 5 undefined on input line 216.
+Package natbib Warning: Citation `??' on page 6 undefined on input line 222.
 
-[5]
 File: kurtmaxfig.eps Graphic file (type eps)
- <kurtmaxfig.eps>
+<kurtmaxfig.eps>
 File: alphacompare.eps Graphic file (type eps)
  <alphacompare.eps> [6] [7]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 309.
- [8] [9] [10] [11]
-(./AdaptiveMCProbErrAnalf.bbl [12])
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 315.
+ [8] [9] [10] [11] [12]
+(./AdaptiveMCProbErrAnalf.bbl)
 
 Package natbib Warning: There were undefined citations.
 
@@ -501,10 +500,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  3384 strings out of 493630
  40015 string characters out of 3143346
- 107894 words of memory out of 3000000
+ 109895 words of memory out of 3000000
  6621 multiletter control sequences out of 15000+200000
  39114 words of font info for 118 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  29i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalf.dvi (13 pages, 67904 bytes).
+Output written on AdaptiveMCProbErrAnalf.dvi (13 pages, 68200 bytes).

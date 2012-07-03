@@ -90,6 +90,8 @@ Here $\rho: \reals^d \to [0,\infty)$ is a specified probability density function
 
 It is natural to that practitioners would want an automatic Monte Carlo algorithm that takes as its input the integrand, $f$, the probability density, $\rho$, and an error tolerance $\varepsilon$, and produces a value $\hmu_n$ that is within $\varepsilon$ of $\mu$ while requiring only a reasonable sample size, $n$.  While there is an extensive theory on Monte Carlo algorithms, there are some key gaps that must be filled to make it an automatic algorithm.  The aim of this article is to provide such an algorithm.  Next this problem of approximating $\mu$ is summarized from the perspective of a statistician and then from the perspective of an information-based complexity theorist or numerical analyst.
 
+{\bf Art will add and edit this material in this section, especially the next subsection.}
+
 \subsection{The Statistician's Perspective} \label{statperspsec}  
 The statistician's sees this a problem of constructing non-parametric, fixed-width confidence intervals for $\mu$.  Setting $Y=f(\vX)$, the goal is to approximate its mean, $\mu=E(Y)$, from an i.i.d.\ sample, $Y_i=f(\vX_i)$, $i=1, \ldots, n$, to obtain an expression
 \begin{equation} \label{abserr}
@@ -140,6 +142,8 @@ Again, it should be stressed that the algorithm to be presented here is automati
 
 \subsection{Illustrative Univariate Examples of Automatic Algorithms}
 
+{\bf Lan will be adding to this section.}
+
 Several commonly used software packages have automatic algorithms for integrating functions of a single variable.  These include 
 \begin{itemize} 
 
@@ -172,6 +176,8 @@ and the integral $\mu=\int_{[0,1]^d} f(\vx) \, \dif \vx$.  The parameters are ..
 
 \begin{figure}
 \centering
+{\bf These figures are placeholders.}
+
 \begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolquadbw.eps} \\ {\tt quad} \end{minipage}
 \begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolquadgkbw.eps} \\ {\tt quadgk} \end{minipage}
 \begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolchebintbw.eps} \\ {\tt chebfun} \end{minipage}
@@ -371,8 +377,9 @@ Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to 
 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
 
-\section{Numerical Examples}
+\section{More Numerical Examples}
 
+{\bf Lan will be adding to this section the multivariate examples.}
 
 \section{A General Error Criterion} \label{relerrsec}
 
@@ -508,237 +515,11 @@ If this algorithm terminates, then the general error criterion, \eqref{genrelerr
 \begin{remark} Step \ref{boundcstep} in this algorithm is not needed for the case of pure absolute error $\theta=0$, because $\fc=1$ automatically, which is large enough.  As suggested earlier, a difficulty may arise if $\mu \approx 0$ and $\theta \approx 1$, in which the algorithm may fail to converge in a reasonable number of steps and overall sample size.  Step \ref{newhvarepsstep} has safeguards against making $\hvareps_{i+1}$ too small compared to $\hvareps_{i}$, but this may also increase the number of iterations, $\tau$, necessary for completion of Step \ref{boundcstep}.  Because it is difficult to knowing how large $\tau$ is for a given integrand, there is no rigorous bound on the cost of this algorithm yet.
 \end{remark}
 
-\section*{Acknowledgements} The authors gratefully acknowledge discussions with Erich Novak and Henryk Wo\'zniakowski.
+\section{Discussion}
+
+
+\section*{Acknowledgements} The authors gratefully acknowledge discussions with Erich Novak and Henryk Wo\'zniakowski.  The plots of the univariate fooling functions were prepared with the help of Nicholas Clancy and Caleb Hamilton.
 
 \bibliographystyle{spbasic}
 \bibliography{FJH22,FJHown22}
-\end{document}
-
-\begin{prop}\label{latnetprop} For the situation described in Section \ref{qmcsec} with the operations $\oplus$, $\ominus$, and $\otimes$, the basis functions $\phi_{\vk}$, and any $\oplus$-closed set, $P$, with cardinality $\abs{P}$ and associated dual lattice $P^{\perp}$, it follows that 
-\begin{gather}
-\label{basisorth}
-\mu(\phi_{\vk})= \int_{\cube} \phi_{\vk}(\vx) \, \dif \vx = \int_{\cube} e^{2 \pi \sqrt{-1} \vk \otimes \vx} \, \dif \vx = \delta_{\vk, \vzero}, \\
-\label{duallatorth}
-Q(\phi_{\vk},P,\vDelta)= \frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx \oplus \vDelta) = \begin{cases} \phi_{\vk}(\vDelta), & \vk \in P^{\perp} \\ 0, & \vk \notin P^{\perp}
-\end{cases}
-\end{gather}
-\end{prop}
-\begin{proof}
-The properties assumed for the binary operations imply that for all $\vt \in \cube$,
-\begin{align*}
-\int_{\cube} \phi_{\vk}(\vx) \, \dif \vx &= \int_{\cube} \phi_{\vk}(\vx \oplus \vt) \, \dif \vx = \phi_{\vk}(\vt) \int_{\cube} \phi_{\vk}(\vx) \, \dif \vx\\
-0 & = \left [\phi_{\vk}(\vt) -1 \right] \int_{\cube} \phi_{\vk}(\vx) \, \dif \vx
-\end{align*}
-This inequality is satisfied iff $\vk=\vzero$ or $\int_{\cube} \phi_{\vk}(\vx) \, \dif \vx =0$.  This establishes \eqref{basisorth}. 
-
-A similar argument establishes \eqref{duallatorth}.  Note first that the sum can be simplified to a multiple of $\phi_{\vk}(\vDelta)$:
-\begin{equation*}
-\frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx \oplus \vDelta) 
-= \frac{1}{\abs{P}}\sum_{\vx \in P} [\phi_{\vk}(\vx) \phi_{\vk}(\vDelta)] = \phi_{\vk}(\vDelta) \frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx).
-\end{equation*}
-Next, note that for all $\vt \in P$ the remaining sum above is unchanged when the argument of $\phi_{\vk}$ is shifted by $\vt$:
-\begin{align*}
-\frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx) 
-& = \frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx+\vt) 
-= \frac{1}{\abs{P}}\sum_{\vx \in P} [\phi_{\vk}(\vx) \phi_{\vk}(\vt)] 
-= \phi_{\vk}(\vt) \frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx),\\
-0 & = \left (\phi_{\vk}(\vt) -1 \right) \frac{1}{\abs{P}}\sum_{\vx \in P} \phi_{\vk}(\vx).
-\end{align*}
-This inequality is satisfied iff $\phi_{\vk}(\vt)=0$ for all $\vt \in P$, i.e., $\vk \in P^{\perp}$, or $\sum_{\vx \in P} \phi_{\vk}(\vx) =0$.  This implies \eqref{duallatorth}. \qed
-\end{proof}
-
-
-\section{Quasi-Standard Error Estimation for Quasi-Monte Carlo Methods} \label{qmcrepsec}
-
-Quasi-Monte Carlo methods utilize low discrepancy node sets, in particular integration lattices and digital nets, to expedite the convergence of the sample mean to the true mean the sample size increases.  Like the case of i.i.d.\ sampling discussed in the previous section, one is faced with the question of how to choose the sample size in a data-driven way.
-
-One way used in practice is to compute independent randomizations of the low discrepancy sequence.  This means replacing $Y_i=f(\vX_i)$ in the equation for the sample mean, \eqref{simpleMCest}, and the equation for the variance estimate, \eqref{samplevar}, which are used to define the adaptive algorithm of Theorem \ref{mainadaptthm}, by
-\[
-Y_i = \frac{1}{n_1} \sum_{j=1}^{n_1} f(\vZ_{ij}).
-\]
-Here the set $\{\vZ_{i1},\ldots, \vZ_{in_1}\}$ is the $i^{\text{th}}$ independent randomization (replication) of an integration lattice or net with $n_1$ points.  
-
-If $n_1$ is fixed, then Theorems \ref{mainadaptthm} and \ref{costtheorem} may be extended in a natural way.  Now the number of integrand values required is $n_1$ times what the formulas in those theorems state, however, the total cost in practice may well be less than simple Monte Carlo because the sample variance using $n_{\sigma}$ replications of a low discrepancy node set with $n_1$ points may be much smaller than the corresponding sample variance using i.i.d.\ sampling with $n_{\sigma}n_1$ integrand values.  However, for this approach of fixed $n_1$, the sample variance only tells you how to choose \emph{more replications}.  It cannot tell you how to increase the size of the low discrepancy set while keeping the number of replications fixed.  Thus, the benefits of quasi-Monte Carlo methods are not fully realized.  
-
-If the size of the low discrepancy set is increased until the error tolerance is met, then the algorithm becomes somewhat more complex.  Let, $n_1, n_2, \dots$ be a sequence of sample sizes for which one may obtain low discrepancy node sets.  Moreover, let $\alpha_{11}, \ $
-
-Here there is an additional challenge.  
-
-\section{Quasi-Standard Error Estimation for Quasi-Monte Carlo Methods} \label{qmcqsesec}
-
-An alternative is to use the \emph{quasi-standard error}, also called \emph{internal replications} to estimate the error and then determine a reasonable sample size.  The quasi-standard error has been proposed by \cite{Hal05a}, but its implementation and justification have been criticized by \cite{Owe06a}.  A closer look at the quasi-standard error specifically applied to lattices and nets is provided here. 
-
-Integration lattices {\bf references} A general framework that encompasses both kinds of designs is employed so that the analysis of both can be combined.  Table \ref{discdestab} provides the definitions for the general notation introduced below.  For integration lattices the operations are done with modulo arithmetic, and for digital nets they are done with $b$-ary digit-wise arithmetic.
-
-\begin{table}
-\caption{Definitions for low discrepancy designs for $x,t \in [0,1)$, $\vx,\vt \in \cube$, $k, l \in \Omega^d$ and $\vk, \vl \in \Omega^d$ \label{discdestab}}
-\renewcommand{\arraystretch}{1.5}
-\[
-\begin{array}{c@{\qquad}c}
-\text{Integration Lattices} & \text{Digital Nets in Base } b\\
-\toprule
-x \oplus t := x + t \bmod 1  & \displaystyle x \oplus t =\sum_{\ell=1}^\infty x_{\ell}b^{-\ell} \oplus \sum_{\ell=1}^\infty t_{\ell}b^{-\ell} := \sum_{\ell=1}^\infty (x_{\ell} + t_{\ell} \bmod b) b^{-\ell} \pmod 1\\
-\ominus x := 1-x \bmod 1  & \displaystyle \ominus \sum_{\ell=1}^\infty x_{\ell}b^{-\ell}  := \sum_{\ell=1}^\infty (b - x_{\ell} \bmod b) b^{-\ell} \pmod 1\\
-\multicolumn{2}{c}{\vx \oplus \vt= (x_1, \ldots, x_d) \oplus (t_1, \ldots, t_d) = (x_1 \oplus t_1, \ldots, x_d \oplus t_d)} \\
-\multicolumn{2}{c}{\ominus\vx = \ominus (x_1, \ldots, x_d) = (\ominus x_1, \ldots, \ominus x_d)} \\
-\midrule
-\Omega:=\integers  & \Omega := \naturals_0 \\
-k \oplus l := k + l &  
-\displaystyle k \oplus l =\sum_{\ell=0}^\infty k_{\ell}b^{\ell} \oplus \sum_{\ell=0}^\infty l_{\ell}b^{\ell} := \sum_{\ell=0}^\infty (k_{\ell} + l_{\ell} \bmod b) b^{\ell}\\
-\ominus k := -k & 
-\displaystyle \ominus k = \ominus \sum_{\ell=0}^\infty k_{\ell}b^{\ell} := \sum_{\ell=0}^\infty (b - k_{\ell} \bmod b) b^{\ell}\\
-\multicolumn{2}{c}{\vk \oplus \vl= (k_1, \ldots, k_d) \oplus (l_1, \ldots, l_d) = (k_1 \oplus l_1, \ldots, k_d \oplus l_d)} \\
-\multicolumn{2}{c}{\ominus\vk = \ominus (k_1, \ldots, k_d) = (\ominus k_1, \ldots, \ominus k_d)} \\
-\midrule
-k \otimes x = kx \bmod 1 & \displaystyle k \otimes x =\sum_{\ell=0}^\infty k_{\ell}b^{\ell} \otimes \sum_{\ell=1}^\infty x_{\ell}b^{-\ell} := \sum_{\ell=0}^\infty k_{\ell} x_{\ell+1} \pmod 1\\
-\multicolumn{2}{c}{\vk \otimes \vx= (k_1, \ldots, k_d) \otimes (x_1, \ldots, x_d) = k_1 \otimes x_1 + \cdots + k_d \otimes x_d \pmod 1}\\
-\bottomrule
-\end{array}
-\] 
-\end{table}
-
-Consider the problem of integration over the half-open unit cube with respect to the uniform density, i.e., $\rho=1_{\cube}$.  Define a binary operation $\oplus : \cube \times \cube \to \cube$ that is commutative, i.e., $\vx \oplus \vt = \vt \oplus \vx$ for all $\vx, \vt \in \cube$.  It is not necessarily the case that $\oplus$ is associative.  For example, for the case corresponding to digital nets in base $2$,
-\[
-(1/3 \oplus 2/3) \oplus 2/3 = ({}_20.\overline{01} \oplus {}_20.\overline{10}) \oplus {}_20.\overline{10} = ({}_20.\overline{11} \bmod 1)  \oplus {}_20.\overline{10} = 0 \oplus {}_20.\overline{10}=2/3,
-\]
-whereas
-\[
-1/3 \oplus (2/3 \oplus 2/3) = {}_20.\overline{01} \oplus ({}_20.\overline{10} \oplus {}_20.\overline{10}) = {}_20.\overline{01} \oplus {}_20.\overline{00} = {}_20.\overline{01}=1/3.
-\]
-However, it is assumed that for some set $\tcube \subseteq \cube$, associativity does hold, i.e., 
-\[
-(\vx \oplus \vt) \oplus \vy = \vx \oplus (\vt \oplus \vy) \qquad \forall \vx,\vy \in \cube,\ \vt \in \tcube.
-\]
-
-
-Assume that shifting a measurable set $B \subseteq \cube$ by $\vx$, keeps its volume unchanged, i.e., $\mu(1_{B \oplus {\vx}}) = \mu(1_{B})$.  Also define $\ominus: \cube \to \cube$ such that $\vx \oplus (\ominus \vx) = \vzero$ for all $\vx \in \cube$, and let $\vx \ominus \vt$ be a short-cut for $\vx \oplus (\ominus \vt)$.  
-A $\oplus$-closed node set, $P \subset \tcube$ is a finite cardinality group under $\oplus$.  For any such node set, $P$, and a shift $\vDelta \in \cube$, a shifted cubature rule is defined as 
-\[
-Q(f;P,\vDelta) = \frac{1}{\abs{P}}\sum_{\vx \in P} f(\vx \oplus \vDelta),
-\]
-where $\abs{P}$ denotes the cardinality of $P$.  
-
-The proposed integration rule using lattices or net node sets is based on an infinite sequences of embedded $\oplus$-closed node sets, 
-\begin{equation} \label{embeddedsets}
-P_0 \subset P_1 \subset P_2 \subset \cdots,
-\end{equation}
-and an offset, $m$.  Since these node sets are groups, it follows that they can be written as direct sums, $P_{\ell+m} = P_{\ell} \oplus \tP_{\ell m}$, where the $\tP_{\ell m}$ are $\oplus$-closed node sets of cardinality $\abs{P_{\ell+m}}/\abs{P_{\ell}}$.  The quasi-standard error is defined analogously to the standard error for i.i.d.\ sampling:
-\begin{equation} \label{qsedef}
-\qse(f;P_{\ell+m},\vDelta,m) = \sqrt{\frac{1}{\lvert\tP_{\ell m}\rvert  (\lvert\tP_{\ell m}\rvert -1)} \sum_{\vt \in \tP_{\ell m}}  [Q(f;P_{\ell},\vt\oplus\vDelta) - Q(f;P_{\ell+m},\vDelta)]^2}.
-\end{equation}
-Given an error tolerance, $\varepsilon$, and a variance inflation factor, $\fudge$, the algorithm computes the approximation to the integral $Q(f;P_{\ell+m},\vDelta)$ and the error estimate $\fudge \cdot qse(f;P_{\ell+m},\vDelta,m)$ for $\ell=0, 1, \ldots$ until the error estimate is no greater than the tolerance, i.e.,
-\begin{equation} \label{qsealg}
-\hmu=Q(f;P_n,\vDelta), \qquad \text{where } n=\min \left \{\ell+m : \fudge \cdot \qse(f;P_{\ell+m},\vDelta,m) \le \varepsilon \right\}.
-\end{equation}
-
-The argument must now be made to show for what kinds of integrands, this algorithm works and how much it will cost.  To this end the space of possible integrands, $\cf$, is defined as the vector space of functions that can be expressed as absolutely convergent sequences:
-\[
-f = \sum_{\vk \in \Omega^d} \hf_{\vk} \phi_{\vk}, \qquad \norm[1]{(\hf_{\vk})_{\vk \in \Omega^d}}<\infty, \qquad \phi_{\vk}(\vx) = \me^{2 \pi \sqrt{-1} \vk \otimes \vx} \quad \forall \vx \in\cube.
-\]
-Here $\Omega \subseteq \integers$ is the set of wavenumbers, and $\otimes : \Omega^d \times \cube \to [0,1)$ is like a dot product.  It is assumed to satisfy
-\begin{gather*}
-\vk \otimes \vx = 0 \iff \vk=\vzero \text{ or } \vx=\vzero, \qquad \forall \vk \in \Omega^d,\ \vx \in \cube,\\
-\vk\otimes(\vx \oplus \vt) = (\vk \otimes \vx) + (\vk \otimes \vt) \bmod 1 \qquad \forall \vk \in \Omega^d, \ \vx \in \tcube,\ \vt \in \cube.
-\end{gather*}
-Note that the space $\cf$ is shift invariant, i.e., $f \in \cf \implies f(\cdot \oplus \vt) \in \cf$ for all $\vt \in \cube$. Moreover, the notation $\oplus$ and $\ominus$ are extended to $\Omega^d$ such that
-\[
-\vk \oplus \vl = \vl \oplus \vk, \quad \vk \oplus (\ominus \vk) = \vzero, \quad (\vk \oplus \vl) \otimes \vx = (\vk \otimes \vx) +  (\vl \otimes \vx) \bmod 1 \quad \forall \vk, \vl \in \Omega^d,\ \vx \in \cube.
-\]
-
-The properties assumed here for these binary operations imply that 
-\[
-\phi_{\vzero}=1, \quad \phi_{\vk} \phi_{\vl} = \phi_{\vk\oplus\vl}, \quad \phi_{\vk}(\vx \oplus \vt) = \phi_{\vk}(\vx) \phi_{\vk}(\vt), \qquad \forall \vk,\vl \in \Omega^d,\ \vx \in \tcube, \ \vt \in \cube. 
-\]
-As shown in Proposition \ref{latnetprop} they also imply that $\int_{\cube} \phi_{\vk}(\vx) \, \dif \vx = \delta_{\vk, \vzero}$.  These two facts combine to yield the orthogonality of the $\phi_{\vk}$ and an integral expression for the series coefficients:
-\[
-\int_{\cube} \phi_{\vk}(\vx) \phi_{\ominus \vl}(\vx) \, \dif \vx = \delta_{\vk \ominus \vl, \vzero}, \qquad \hf_{\vk} = \int_{\cube} f(\vx) \phi_{\ominus \vk}(\vx) \, \dif \vx.
-\]
-
-For any $\oplus$-closed node set $P$, the corresponding dual set of wavenumbers, $P^{\perp}$, figures prominently in the error analysis of $Q(f;P,\vDelta)$.  The dual set is defined as
-\[
-P^{\perp} := \{ \vk \in \Omega^d : \vk \otimes \vx = 0 \ \forall \vx \in P\}.
-\]
-Note that by definition, $\vzero \in P^{\perp}$.  The dual set minus the zero vector is denoted $P^{\perp}{}'$.  Proposition \ref{latnetprop} then allows one to express the integral of a function, the approximation to the integral, and the error, all conveniently in terms of the series coefficients:
-\begin{align}
-\nonumber
-\mu(f) &= \sum_{\vk \in \Omega_d} \hf_{\vk} \mu(\phi_{\vk}) = \hf_{\vzero} = (S_{\vzero}f)(\vDelta)\\
-\nonumber
-Q(f;P,\vDelta) &= \sum_{\vk \in \Omega_d} \hf_{\vk} Q(\phi_{\vk};P,\vDelta) = \sum_{\vk \in P^{\perp}} \hf_{\vk}\phi_{\vk}(\vDelta) = (S_{P^{\perp}}f)(\vDelta) \\
-\label{errorasfiltered}
-e(f;P,\vDelta) &:= \mu(f) - Q(f;P,\vDelta) = - \sum_{\vk \in P^{\perp}{}'}  \hf_{\vk}\phi_{\vk}(\vDelta) = -(S_{P^{\perp}{}'}f)(\vDelta),
-\end{align}
-where for any $\Xi \subseteq \Omega^d$, the filtering operator $S_{\Xi}:\cf \to \cf$ keeps only the terms with wavenumbers contained in $\Xi$: 
-\[
-S_{\Xi}f := \sum_{\vk \in \Xi} \hf_{\vk} \phi_{\vk}.
-\]
-
-The quasi-standard error can also be expressed in terms of the dual set and the filtering operator.  From the definition in \eqref{qsedef} it follows that
-\begin{align*}
-\qse^2(f;P_{\ell+m},\vDelta,m) &= \frac{1}{\lvert\tP_{\ell m}\rvert  (\lvert\tP_{\ell m}\rvert -1)} \sum_{\vt \in \tP_{\ell m}}  [e(f;P_{\ell},\vt\oplus\vDelta) - e(f;P_{\ell+m},\vDelta)]^2 \\
-&= \frac{1}{\lvert \tP_{\ell m}\rvert -1} \Bigg[\frac{1}{\lvert\tP_{\ell m}\rvert} \sum_{\vt \in \tP_{\ell m}}  e^2(f;P_{\ell},\vt\oplus\vDelta) - e^2(f;P_{\ell+m},\vDelta) \Bigg] \\
-&= \frac{1}{\lvert \tP_{\ell m}\rvert -1} \Bigg[\frac{1}{\lvert\tP_{\ell m}\rvert} \sum_{\vt \in \tP_{\ell m}}  (S_{P_{\ell}^{\perp}{}'}f)^2(\vt\oplus\vDelta) - (S_{P_{\ell+m}^{\perp}\!\!\!\!\!\!{}'}\ \, f)^2(\vDelta) \Bigg].
-\end{align*}
-Since $\tP_{\ell m}$ is a $\oplus$-closed set, the sum above can be rewritten as a filtering of the square of the filtered integrand evaluated at the shift:
-\[
-\frac{1}{\lvert\tP_{\ell m}\rvert} \sum_{\vt \in \tP_{\ell m}}  (S_{P_{\ell}^{\perp}{}'}f)^2(\vt\oplus\vDelta) =Q((S_{P_{\ell}^{\perp}{}'}f)^2,\tP_{\ell m},\vDelta) = S_{\tP_{\ell m}^{\perp}}\left((S_{P_{\ell}^{\perp}{}'}f)^2\right)(\vDelta).
-\]
-Since the integrand is real-valued, the square of its filtered version may be written as 
-\begin{align*}
-(S_{P_{\ell}^{\perp}{}'}f)^2
-& = \sum_{\vk,\vl \in P_{\ell}^{\perp}{}'} \hf_{\vk} \hf_{\vl}^* \phi_{\vk} \phi_{\ominus \vl} = \sum_{\vk,\vl \in P_{\ell}^{\perp}{}'} \hf_{\vk} \hf_{\vl}^* \phi_{\vk \ominus \vl} \\
-S_{\tP_{\ell m}^{\perp}}\left( (S_{P_{\ell}^{\perp}{}'}f)^2 \right) &
-= \sum_{\substack{\vk,\vl \in P_{\ell}^{\perp}{}' \\ \vk \ominus \vl \in \tP_{\ell m}^{\perp}} } \hf_{\vk} \hf_{\vl}^* \phi_{\vk \ominus \vl}
-= \sum_{\substack{\vk,\vl \in P_{\ell}^{\perp}{}' \\ \vk \ominus \vl \in P_{\ell + m}^{\perp} } } \hf_{\vk} \hf_{\vl}^* \phi_{\vk \ominus \vl}
-\end{align*}
-since $\vk,\vl \in P_{\ell}^{\perp}{}'$ implies $\vk \ominus \vl \in P_{\ell}^{\perp}$ and $P_{\ell}^{\perp} \cap \tP_{\ell m}^{\perp} =  P_{\ell + m}^{\perp}$.  The dual set $P_{\ell}^{\perp}$ may be written as a direct sum, $P_{\ell + m}^{\perp} \oplus \hP_{\ell m}$, for some $\hP_{\ell m} \subset \Omega^d$ with the same cardinality as $\tP_{\ell m}$.  For any pair $\vk,\vl \in P_{\ell}^{\perp}{}'$ with $\vk \ominus \vl \in P_{\ell + m}^{\perp}$, it follows that $\vk,\vl \in P_{\ell + m}^{\perp} \oplus \{\vr\}$ for some $\vr \in \hP_{\ell m}$.  This observation allows the sum above to be understood as a sum of squares of filtered versions of the integrand: 
-\begin{align*}
-S_{\tP_{\ell m}^{\perp}}\left( (S_{P_{\ell}^{\perp}{}'}f)^2 \right) &
-= \sum_{\vk,\vl \in P_{\ell+m}^{\perp}\!\!\!\!\!\!{}'}  \hf_{\vk} \hf_{\vl}^* \phi_{\vk \ominus \vl} + \sum_{\vr \in \hP_{\ell m}'} \ \sum_{\vk,\vl \in P_{\ell+m}^{\perp} \oplus \{\vr\} } \hf_{\vk} \hf_{\vl}^* \phi_{\vk \ominus \vl} \\
-& = (S_{P_{\ell+m}^{\perp}\!\!\!\!\!\!{}'}\ \, f)^2 + \sum_{\vr \in \hP_{\ell m}'} (S_{P_{\ell+m}^{\perp} \oplus \{\vr\}}f)^2,
-\end{align*}
-where $\hP_{\ell m}' = \hP_{\ell m} \setminus \{\vzero\}$.  This expression then leads to the following expression for the quasi-standard error.
-
-\begin{lemma} \label{qselemma} For cubature rules based on a sequence of embedded  $\oplus$-closed node sets, as in \eqref{embeddedsets}, the quasi-standard error as defined in \eqref{qsedef} may be expressed in terms of filtered versions of the integrand as follows:
-\[
-\qse(f;P_{\ell+m},\vDelta,m) = \sqrt{\frac{1}{\lvert \hP_{\ell m} \rvert -1} \sum_{\vr \in \hP_{\ell m}'} (S_{P_{\ell+m}^{\perp} \oplus \{\vr\}}f)^2(\vDelta)} .
-\]
-\end{lemma}
-
-The absolute error of the cubature rule based on node set $P_{\ell+m}$ with shift $\vDelta$ is $\lvert(S_{P_{\ell+m}^{\perp}\!\!\!\!\!\!{}'}\ \, f)(\vDelta)\rvert$ according to \eqref{errorasfiltered}, i.e., the filtered version of the integrand keeping just wavenumbers in $P_{\ell+m}^{\perp}\!\!\!\!\!\!{}'$\ \,  and then evaluated at the shift. The quasi-standard error is root mean square of filtered versions of the integrand using shifts of the dual node set, $P_{\ell+m}^{\perp}$.
-
-
-
-
-
-In practice, one usually does not know, $\kappa$, the kurtosis of the integrand. The choice of $n_{\sigma}$, $\fudge$, and $\alpha$ imply a $\kappa_{\max}$ which one is willing to accept.  However, there is a way to check whether the implicit assumption about the integrand's kurtosis is reasonable.  The sample of size $n$ used to estimate the integral as $\hmu_n$, may also be used to compute the sample variance, $\hv_n$, which is independent of the sample variance, $\hv_{n_{\sigma}}$, used to determine the sample size $n$. Using Cantelli's inequality
-
-\begin{align*}
-\Prob(\hv_n \ge \hsigma^2) & = \Prob(\hv_n - L^2 \hv_{n_{\sigma}}\ge 0) \\
-& = \Prob[\hv_n - L^2 \hv_{n_{\sigma}} - (1 - L^2) \sigma^2 \ge (L^2 - 1) \sigma^2] \\
-& \le \frac{\var(\hv_n - L^2 \hv_{n_{\sigma}})}{\var(\hv_n - L^2 \hv_{n_{\sigma}}) + \{(L^2 - 1) \sigma^2\}^2} = \frac{1}{1 + \frac{(L^2 - 1)^2 \sigma^4}{\var(\hv_n - L^2 \hv_{n_{\sigma}})}}.
-\end{align*}
-This above quotient in the denominator can be further simplified by noticing that $\hv_n$ and $\hv_{n_{\sigma}}$ are independent.  Thus,
-\begin{align*}
-\frac{\var(\hv_n - L^2 \hv_{n_{\sigma}})}{(L^2 - 1)^2 \sigma^4}
-& = \frac{\var(\hv_n) + L^4 \var(\hv_{n_{\sigma}})}{(L^2 - 1)^2 \sigma^4} \\
-& = \frac{\frac{1}{n} \left ( \kappa  - \frac{n-3}{n-1} \right) + L^4 \frac{1}{n_{\sigma}} \left ( \kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1} \right)}{(L^2 - 1)^2} \\
-& = \frac{\left(\frac{1}{n} + L^4 \frac{1}{n_{\sigma}} \right)\left ( \kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1} \right) + \frac{1}{n} \left ( \frac{n_{\sigma}-3}{n_{\sigma}-1}  - \frac{n-3}{n-1} \right)}{(L^2 - 1)^2} \\
-& \le \frac{\left(\frac{1}{n} + L^4 \frac{1}{n_{\sigma}} \right) \left(\frac{ \alpha_1 n_{\sigma}}{1-\alpha_1}\right) \left(1 - \frac{1}{L^2}\right)^2 - \frac{2}{n} \left ( \frac{1}{n_{\sigma}-1}  - \frac{1}{n-1} \right)}{(L^2 - 1)^2} \\
-& = \left(1 + \frac{n_{\sigma}}{nL^4} \right) \left(\frac{ \alpha_1}{1-\alpha_1}\right)  - \frac{2(n-n_{\sigma})}{n(n_{\sigma}-1)(n-1)(L^2 - 1)^2},
-\end{align*}
-which implies that 
-\begin{align} \label{probfail}
-\Prob(\hv_n \ge \hsigma^2) 
- & \le \frac{\left(1 + \frac{n_{\sigma}}{nL^4} \right) \left(\frac{ \alpha_1}{1-\alpha_1}\right)  - \frac{2(n-n_{\sigma})} {n(n_{\sigma}-1)(n-1)(L^2 - 1)^2}} {1+\left(1 + \frac{n_{\sigma}}{nL^4} \right) \left(\frac{ \alpha_1}{1-\alpha_1}\right)  - \frac{2(n-n_{\sigma})}{n(n_{\sigma}-1)(n-1)(L^2 - 1)^2}}\\
-\nonumber & \le \left(1 + \frac{n_{\sigma}}{nL^4} \right) \left(\frac{ \alpha_1}{1-\alpha_1}\right) \quad \text{for } n \ge n_{\sigma}.
-\end{align}
-
-This inequality shows that $\hv_n \ge \hsigma^2$ with a small probability.  Thus, if $\hv_n \ge \hsigma^2$ occurs in practice, then one may have reason to question whether $\sigma^2 \le \hsigma^2$, and thus question the implicit assumption on the kurtosis. Figure \ref{probfailfig} shows the upper bound on this probability for typical choices of $\alpha_1, L, n_{\sigma}$, and $n$.
-
-\begin{figure}
-\centering
-\includegraphics[width=3in]{probfailfig.eps}
-\caption{The upper bound on the probability that $\hv_n \ge \hsigma^2$ in \eqref{probfail} for $\alpha_1 = 1 - \sqrt{95\%} \approx 2.5\%$ and $L=1.5$. \label{probfailfig}}
-\end{figure}
-
 \end{document}
