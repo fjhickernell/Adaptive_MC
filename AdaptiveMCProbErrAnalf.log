@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  4 JUL 2012 23:11
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  5 JUL 2012 15:10
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **AdaptiveMCProbErrAnalf.tex
 (./AdaptiveMCProbErrAnalf.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2011-07-01, ngerman-x-2011-07-01, afrikaans, ancientgreek, ibycus, arabi
 c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
 h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
 h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
@@ -171,32 +171,24 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 91.
 
-(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
-)
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count109
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen124
 \Gin@req@width=\dimen125
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
-\c@tracingmulticols=\count110
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count109
 \mult@box=\box28
 \multicol@leftmargin=\dimen126
-\c@unbalance=\count111
-\c@collectmore=\count112
-\doublecol@number=\count113
-\multicoltolerance=\count114
-\multicolpretolerance=\count115
+\c@unbalance=\count110
+\c@collectmore=\count111
+\doublecol@number=\count112
+\multicoltolerance=\count113
+\multicolpretolerance=\count114
 \full@width=\dimen127
 \page@free=\dimen128
 \premulticols=\dimen129
@@ -226,16 +218,17 @@ Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count116
-\c@finalcolumnbadness=\count117
+\c@columnbadness=\count115
+\c@finalcolumnbadness=\count116
 \last@try=\dimen131
 \multicolovershoot=\dimen132
 \multicolundershoot=\dimen133
 \mult@nat@firstbox=\box52
 \colbreak@box=\box53
+\multicol@sort@counter=\count117
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/footmisc/footmisc.sty
-Package: footmisc 2009/09/15 v5.5a a miscellany of footnote facilities
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks19
 \footnotemargin=\dimen134
 \c@pp@next@reset=\count118
@@ -363,8 +356,8 @@ Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(/usr/local/texlive/2011/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
+(/Users/fred/Library/texmf/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
 \bibhang=\skip48
 \bibsep=\skip49
 LaTeX Info: Redefining \cite on input line 694.
@@ -402,66 +395,6 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 51.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count136
-\scratchdimen=\dimen160
-\scratchbox=\box56
-\nofMPsegments=\count137
-\nofMParguments=\count138
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count139
-\MPscratchDim=\dimen161
-\MPnumerator=\count140
-\makeMPintoPDFobject=\count141
-\everyMPtoPDFconversion=\toks26
-) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
-))
-(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
-
-(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 
@@ -525,333 +458,71 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 
 
 
-{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+] [2]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
- [3]
-Package epstopdf Info: Source file: <Foolquadbw.eps>
-(epstopdf)                    date: 2012-06-28 15:34:23
-(epstopdf)                    size: 14230 bytes
-(epstopdf)             Output file: <Foolquadbw-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 10486 bytes
-(epstopdf)             Command: <epstopdf --outfile=Foolquadbw-eps-converted-to
-.pdf Foolquadbw.eps>
-(epstopdf)             \includegraphics on input line 164.
-Package epstopdf Info: Output file is already uptodate.
 
-<Foolquadbw-eps-converted-to.pdf, id=25, 510.90875pt x 405.515pt>
-File: Foolquadbw-eps-converted-to.pdf Graphic file (type pdf)
+[3]
+File: Foolquadbw.eps Graphic file (type eps)
+ <Foolquadbw.eps>
+File: Foolquadgkbw.eps Graphic file (type eps)
+ <Foolquadgkbw.eps>
+File: Foolchebintbw.eps Graphic file (type eps)
+ <Foolchebintbw.eps>
+File: iid.eps Graphic file (type eps)
+ <iid.eps>
+File: iidheavy.eps Graphic file (type eps)
 
-<use Foolquadbw-eps-converted-to.pdf>
-Package pdftex.def Info: Foolquadbw-eps-converted-to.pdf used on input line 164
-.
-(pdftex.def)             Requested size: 105.2751pt x 83.55804pt.
-Package epstopdf Info: Source file: <Foolquadgkbw.eps>
-(epstopdf)                    date: 2012-06-28 15:34:23
-(epstopdf)                    size: 13777 bytes
-(epstopdf)             Output file: <Foolquadgkbw-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 10326 bytes
-(epstopdf)             Command: <epstopdf --outfile=Foolquadgkbw-eps-converted-
-to.pdf Foolquadgkbw.eps>
-(epstopdf)             \includegraphics on input line 165.
-Package epstopdf Info: Output file is already uptodate.
+<iidheavy.eps>
+File: sobol.eps Graphic file (type eps)
+ <sobol.eps>
+File: sobolheavy.eps Graphic file (type eps)
+ <sobolheavy.eps>
+File: quad.eps Graphic file (type eps)
+ <quad.eps>
+File: quadgk.eps Graphic file (type eps)
+ <quadgk.eps>
+File: chebfun.eps Graphic file (type eps)
 
-<Foolquadgkbw-eps-converted-to.pdf, id=26, 522.95375pt x 405.515pt>
-File: Foolquadgkbw-eps-converted-to.pdf Graphic file (type pdf)
+<chebfun.eps>
+File: chebfunheavy.eps Graphic file (type eps)
+ <chebfunheavy.eps>
 
-<use Foolquadgkbw-eps-converted-to.pdf>
-Package pdftex.def Info: Foolquadgkbw-eps-converted-to.pdf used on input line 1
-65.
-(pdftex.def)             Requested size: 105.2751pt x 81.6337pt.
-Package epstopdf Info: Source file: <Foolchebintbw.eps>
-(epstopdf)                    date: 2012-06-28 15:34:23
-(epstopdf)                    size: 13919 bytes
-(epstopdf)             Output file: <Foolchebintbw-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 10391 bytes
-(epstopdf)             Command: <epstopdf --outfile=Foolchebintbw-eps-converted
--to.pdf Foolchebintbw.eps>
-(epstopdf)             \includegraphics on input line 166.
-Package epstopdf Info: Output file is already uptodate.
-
-<Foolchebintbw-eps-converted-to.pdf, id=27, 510.90875pt x 405.515pt>
-File: Foolchebintbw-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Foolchebintbw-eps-converted-to.pdf>
-Package pdftex.def Info: Foolchebintbw-eps-converted-to.pdf used on input line 
-166.
-(pdftex.def)             Requested size: 105.2751pt x 83.55804pt.
-Package epstopdf Info: Source file: <Foolquadbw.eps>
-(epstopdf)                    date: 2012-06-28 15:34:23
-(epstopdf)                    size: 14230 bytes
-(epstopdf)             Output file: <Foolquadbw-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 10486 bytes
-(epstopdf)             Command: <epstopdf --outfile=Foolquadbw-eps-converted-to
-.pdf Foolquadbw.eps>
-(epstopdf)             \includegraphics on input line 174.
-Package epstopdf Info: Output file is already uptodate.
-File: Foolquadbw-eps-converted-to.pdf Graphic file (type pdf)
- <use Foolquadbw-eps-converted-to.pdf>
-Package pdftex.def Info: Foolquadbw-eps-converted-to.pdf used on input line 174
-.
-(pdftex.def)             Requested size: 105.2751pt x 83.55804pt.
-Package epstopdf Info: Source file: <Foolquadgkbw.eps>
-(epstopdf)                    date: 2012-06-28 15:34:23
-(epstopdf)                    size: 13777 bytes
-(epstopdf)             Output file: <Foolquadgkbw-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 10326 bytes
-(epstopdf)             Command: <epstopdf --outfile=Foolquadgkbw-eps-converted-
-to.pdf Foolquadgkbw.eps>
-(epstopdf)             \includegraphics on input line 175.
-Package epstopdf Info: Output file is already uptodate.
-File: Foolquadgkbw-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Foolquadgkbw-eps-converted-to.pdf>
-Package pdftex.def Info: Foolquadgkbw-eps-converted-to.pdf used on input line 1
-75.
-(pdftex.def)             Requested size: 105.2751pt x 81.6337pt.
-Package epstopdf Info: Source file: <Foolchebintbw.eps>
-(epstopdf)                    date: 2012-06-28 15:34:23
-(epstopdf)                    size: 13919 bytes
-(epstopdf)             Output file: <Foolchebintbw-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 10391 bytes
-(epstopdf)             Command: <epstopdf --outfile=Foolchebintbw-eps-converted
--to.pdf Foolchebintbw.eps>
-(epstopdf)             \includegraphics on input line 176.
-Package epstopdf Info: Output file is already uptodate.
-File: Foolchebintbw-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Foolchebintbw-eps-converted-to.pdf>
-Package pdftex.def Info: Foolchebintbw-eps-converted-to.pdf used on input line 
-176.
-(pdftex.def)             Requested size: 105.2751pt x 83.55804pt.
-Package epstopdf Info: Source file: <iid.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 49307 bytes
-(epstopdf)             Output file: <iid-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 39280 bytes
-(epstopdf)             Command: <epstopdf --outfile=iid-eps-converted-to.pdf ii
-d.eps>
-(epstopdf)             \includegraphics on input line 180.
-Package epstopdf Info: Output file is already uptodate.
-
-<iid-eps-converted-to.pdf, id=28, 562.1pt x 421.575pt>
-File: iid-eps-converted-to.pdf Graphic file (type pdf)
-
-<use iid-eps-converted-to.pdf>
-Package pdftex.def Info: iid-eps-converted-to.pdf used on input line 180.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <iidheavy.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 62907 bytes
-(epstopdf)             Output file: <iidheavy-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 36269 bytes
-(epstopdf)             Command: <epstopdf --outfile=iidheavy-eps-converted-to.p
-df iidheavy.eps>
-(epstopdf)             \includegraphics on input line 181.
-Package epstopdf Info: Output file is already uptodate.
-
-<iidheavy-eps-converted-to.pdf, id=29, 562.1pt x 421.575pt>
-File: iidheavy-eps-converted-to.pdf Graphic file (type pdf)
-
-<use iidheavy-eps-converted-to.pdf>
-Package pdftex.def Info: iidheavy-eps-converted-to.pdf used on input line 181.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <sobol.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 35869 bytes
-(epstopdf)             Output file: <sobol-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 27253 bytes
-(epstopdf)             Command: <epstopdf --outfile=sobol-eps-converted-to.pdf 
-sobol.eps>
-(epstopdf)             \includegraphics on input line 182.
-Package epstopdf Info: Output file is already uptodate.
-
-<sobol-eps-converted-to.pdf, id=30, 562.1pt x 421.575pt>
-File: sobol-eps-converted-to.pdf Graphic file (type pdf)
-
-<use sobol-eps-converted-to.pdf>
-Package pdftex.def Info: sobol-eps-converted-to.pdf used on input line 182.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <sobolheavy.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 32113 bytes
-(epstopdf)             Output file: <sobolheavy-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 17771 bytes
-(epstopdf)             Command: <epstopdf --outfile=sobolheavy-eps-converted-to
-.pdf sobolheavy.eps>
-(epstopdf)             \includegraphics on input line 183.
-Package epstopdf Info: Output file is already uptodate.
-
-<sobolheavy-eps-converted-to.pdf, id=31, 562.1pt x 421.575pt>
-File: sobolheavy-eps-converted-to.pdf Graphic file (type pdf)
-
-<use sobolheavy-eps-converted-to.pdf>
-Package pdftex.def Info: sobolheavy-eps-converted-to.pdf used on input line 183
-.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <quad.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 40461 bytes
-(epstopdf)             Output file: <quad-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 38267 bytes
-(epstopdf)             Command: <epstopdf --outfile=quad-eps-converted-to.pdf q
-uad.eps>
-(epstopdf)             \includegraphics on input line 184.
-Package epstopdf Info: Output file is already uptodate.
-
-<quad-eps-converted-to.pdf, id=32, 562.1pt x 421.575pt>
-File: quad-eps-converted-to.pdf Graphic file (type pdf)
-
-<use quad-eps-converted-to.pdf>
-Package pdftex.def Info: quad-eps-converted-to.pdf used on input line 184.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <quadgk.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 34788 bytes
-(epstopdf)             Output file: <quadgk-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 25100 bytes
-(epstopdf)             Command: <epstopdf --outfile=quadgk-eps-converted-to.pdf
- quadgk.eps>
-(epstopdf)             \includegraphics on input line 185.
-Package epstopdf Info: Output file is already uptodate.
-
-<quadgk-eps-converted-to.pdf, id=33, 562.1pt x 421.575pt>
-File: quadgk-eps-converted-to.pdf Graphic file (type pdf)
-
-<use quadgk-eps-converted-to.pdf>
-Package pdftex.def Info: quadgk-eps-converted-to.pdf used on input line 185.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <chebfun.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 36224 bytes
-(epstopdf)             Output file: <chebfun-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 30057 bytes
-(epstopdf)             Command: <epstopdf --outfile=chebfun-eps-converted-to.pd
-f chebfun.eps>
-(epstopdf)             \includegraphics on input line 186.
-Package epstopdf Info: Output file is already uptodate.
-
-<chebfun-eps-converted-to.pdf, id=34, 562.1pt x 421.575pt>
-File: chebfun-eps-converted-to.pdf Graphic file (type pdf)
-
-<use chebfun-eps-converted-to.pdf>
-Package pdftex.def Info: chebfun-eps-converted-to.pdf used on input line 186.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
-Package epstopdf Info: Source file: <chebfunheavy.eps>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 31116 bytes
-(epstopdf)             Output file: <chebfunheavy-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-07-04 23:07:30
-(epstopdf)                    size: 19832 bytes
-(epstopdf)             Command: <epstopdf --outfile=chebfunheavy-eps-converted-
-to.pdf chebfunheavy.eps>
-(epstopdf)             \includegraphics on input line 187.
-Package epstopdf Info: Output file is already uptodate.
-
-<chebfunheavy-eps-converted-to.pdf, id=35, 562.1pt x 421.575pt>
-File: chebfunheavy-eps-converted-to.pdf Graphic file (type pdf)
-
-<use chebfunheavy-eps-converted-to.pdf>
-Package pdftex.def Info: chebfunheavy-eps-converted-to.pdf used on input line 1
-87.
-(pdftex.def)             Requested size: 162.18062pt x 121.63606pt.
+LaTeX Warning: Reference `???' on page 4 undefined on input line 179.
 
 
-LaTeX Warning: Float too large for page by 161.26485pt on input line 190.
+LaTeX Warning: Reference `???' on page 4 undefined on input line 179.
 
-[4 <./Foolquadbw-eps-converted-to.pdf> <./Foolquadgkbw-eps-converted-to.pdf> <.
-/Foolchebintbw-eps-converted-to.pdf>] [5 <./iid-eps-converted-to.pdf> <./iidhea
-vy-eps-converted-to.pdf> <./sobol-eps-converted-to.pdf> <./sobolheavy-eps-conve
-rted-to.pdf> <./quad-eps-converted-to.pdf> <./quadgk-eps-converted-to.pdf> <./c
-hebfun-eps-converted-to.pdf> <./chebfunheavy-eps-converted-to.pdf>] [6]
 
-Package natbib Warning: Citation `??' on page 7 undefined on input line 255.
+LaTeX Warning: Float too large for page by 61.14569pt on input line 180.
 
-Package epstopdf Info: Source file: <kurtmaxfig.eps>
-(epstopdf)                    date: 2012-06-21 15:59:40
-(epstopdf)                    size: 99119 bytes
-(epstopdf)             Output file: <kurtmaxfig-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-06-21 16:14:46
-(epstopdf)                    size: 13229 bytes
-(epstopdf)             Command: <epstopdf --outfile=kurtmaxfig-eps-converted-to
-.pdf kurtmaxfig.eps>
-(epstopdf)             \includegraphics on input line 286.
-Package epstopdf Info: Output file is already uptodate.
-<kurtmaxfig-eps-converted-to.pdf, id=133, 540.0175pt x 420.57124pt>
-File: kurtmaxfig-eps-converted-to.pdf Graphic file (type pdf)
+[4] [5] [6]
 
-<use kurtmaxfig-eps-converted-to.pdf>
-Package pdftex.def Info: kurtmaxfig-eps-converted-to.pdf used on input line 286
-.
-(pdftex.def)             Requested size: 151.76744pt x 118.19553pt.
-Package epstopdf Info: Source file: <alphacompare.eps>
-(epstopdf)                    date: 2012-06-21 15:59:37
-(epstopdf)                    size: 18497 bytes
-(epstopdf)             Output file: <alphacompare-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-06-21 16:14:46
-(epstopdf)                    size: 10901 bytes
-(epstopdf)             Command: <epstopdf --outfile=alphacompare-eps-converted-
-to.pdf alphacompare.eps>
-(epstopdf)             \includegraphics on input line 291.
-Package epstopdf Info: Output file is already uptodate.
+Package natbib Warning: Citation `??' on page 7 undefined on input line 245.
 
-<alphacompare-eps-converted-to.pdf, id=134, 499.8675pt x 422.57875pt>
-File: alphacompare-eps-converted-to.pdf Graphic file (type pdf)
-
-<use alphacompare-eps-converted-to.pdf>
-Package pdftex.def Info: alphacompare-eps-converted-to.pdf used on input line 2
-91.
-(pdftex.def)             Requested size: 151.76744pt x 128.30278pt.
- [7] [8 <./kurtmaxfig-eps-converted-to.pdf> <./alphacompare-eps-converted-to.pd
-f>]
+File: kurtmaxfig.eps Graphic file (type eps)
+<kurtmaxfig.eps>
+File: alphacompare.eps Graphic file (type eps)
+ <alphacompare.eps> [7] [8]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 348.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 338.
  [9] [10] [11] [12] [13]
 (./AdaptiveMCProbErrAnalf.bbl)
 
 Package natbib Warning: There were undefined citations.
 
-[14] (./AdaptiveMCProbErrAnalf.aux) ) 
-Here is how much of TeX's memory you used:
- 4383 strings out of 493633
- 56328 string characters out of 3143378
- 129471 words of memory out of 3000000
- 7527 multiletter control sequences out of 15000+200000
- 59387 words of font info for 154 fonts, out of 3000000 for 9000
- 831 hyphenation exceptions out of 8191
- 38i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/texmf-dist/fonts/
-enc/dvips/base/8r.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
-euler/eufm10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfont
-s/symbols/msbm10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/rsf
-s/rsfs10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a
-.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/
-local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texli
-ve/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on AdaptiveMCProbErrAnalf.pdf (14 pages, 426539 bytes).
-PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+[14] (./AdaptiveMCProbErrAnalf.aux)
 
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3399 strings out of 493630
+ 40182 string characters out of 3143346
+ 109895 words of memory out of 3000000
+ 6629 multiletter control sequences out of 15000+200000
+ 39114 words of font info for 118 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 29i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on AdaptiveMCProbErrAnalf.dvi (14 pages, 72508 bytes).
