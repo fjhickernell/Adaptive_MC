@@ -170,13 +170,18 @@ Accuracy and timing results have been recorded for the test function
 \begin{equation} \label{GaussianTestFun}
 f(\vx)=a_0 + b_0\prod_{j=1}^d\left[ 1 +b_j \exp \left(-\frac{(x_j-h_j)^2}{c_j^2}\right) \right].
 \end{equation}
+<<<<<<< HEAD
 Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$ being are performed.  For each instance of $f$, the parameters are chosen as follows:
+=======
+Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussianTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$ being are performed.  For each replication, the parameters determining $f$ are chosen as follows:
+>>>>>>> change the parameter of bj [0.1 ,10]
 \begin{itemize} 
-\item $b_j \in [0.1,1]$ with $\log(b_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $b_j \in [0.1,10]$ with $\log(b_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
 \item $c_j \in [10^{-6},1]$ with $\log(c_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
 \item $h_j \in [0,1]$ with $h_j$ being i.i.d.\ uniform, $j=1, \ldots, d$,
 \item $b_0$ chosen in terms of the $b_j$, $c_j$, and $h_j$ in order to make $\sigma^2(f) \in [10^{-2}, 10^2]$, with $\log(\sigma(f))$ being i.i.d.\ uniform for each instance, and
 \item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
+<<<<<<< HEAD
 \end{itemize}
 
 <<<<<<< HEAD
@@ -204,28 +209,22 @@ f(\vx)=b_0\prod_{j=1}^d\left (a_j+b_j e^{-\frac{(x_j-h_j)^2}{c_j^2}}\right)+a_0
 where $\vx$ is the $d$ dimensional vector , $a_j$ is the addition parameter, $b_j$ is the function scale parameter, $c_j$ is the function shape parameter, $h_j$ is the center of the kernel, $b_0$ is the over multiplicity parameter, and $a_0$ is the over addition parameter. The exact integral is $\mu=\int_{[0,1]^d} f(\vx) \rho(\vx)\, \dif \vx$. where $\rho(\vx)$ is the probability density function.
 
 In our numerical experiment, we did 500 replications and choose:
+=======
+\end{itemize} \label{FunPara}
+>>>>>>> change the parameter of bj [0.1 ,10]
 
-Function parameters
 \begin{itemize} 
 \item dimension $d=1$ 
 \item the probability density function $\rho=1$ which is uniformly distributed between $[0,1]$
-\item the addition parameter $a_j=1$
-\item the scale parameter $b_j$ between $[0.1,10]$ log uniformly distributed
-\item the shape parameter $c_j$ between $[10^{-6},1]$ log uniformly distributed
-\item the center of the kernel $h_j$ uniformly random between $[0,1]$
-\item the over multiplicity parameter $b_0$ in terms of addition,scale,shape and center parameter in order to make the variance between $[10^{-2}, 10^2]$, log uniformly distributed.
-\item the over addition parameter $a_0$ in terms of addition,scale,shape, center and over multiplicity parameter in order to make the exact integral be 1.
-\end{itemize} \label{FunPara}
-
-Algorithm parameters 
-\begin{itemize} 
-\item variance inflation factor $\fudge=1.5$
-\item the tolerance $\epsilon=0.001$
-\item level of uncertainty $\alpha=5\%$
 \item $n_0=1024$ for the simple algorithm and $n_0=1024\cdot128$ for the heavy duty algorithm.
 \item For the iid sampling, kurtosis max  is 9.2085; for the iid heavy duty sampling ,it is 1051.9.
 <<<<<<< HEAD
+<<<<<<< HEAD
 \end{itemize}\label{AlgorPara}
+=======
+\end{itemize}
+
+>>>>>>> change the parameter of bj [0.1 ,10]
 \begin{figure}
 \centering
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
