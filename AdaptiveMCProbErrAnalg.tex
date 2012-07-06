@@ -73,7 +73,7 @@ Art's address here \texttt{with email here}
 %
 \maketitle
 
-\abstract{We attempt a probabilistic analysis of simple Monte Carlo, achieving probabilistic error bounds when the kurtosis is controlled.  The algorithm uses a sample size that depends adaptively on the estimated variance of the integrand.  Thus, the algorithm is nonlinear (depending essentially on the function).  The advantage of what is done here over standard error analysis (complexity theory) is that the algorithm does not depend a priori on the scale of the problem (in this case the variance) to determine the number of samples.   Our intention, if what is done here is correct, is to try to extend this to the more sophisticated sampling schemes and infinite dimensional problems.}
+\abstract{{\bf When we are done, we will write this.}}
 
 
 \section{Introduction}
@@ -402,20 +402,20 @@ Figure \ref{GaussianTestFunFig} also exhibits the results of using \aMC with scr
 \end{equation}
 where $\hmu^{(j)}$ corresponds to the sample mean of the function values for the $j^{\text{th}}$ partition out of the Sobol' net.  In \aMC the error of $\hmu_n$ is assumed to be no greater than  $\fudge \qse(f;m)$ with $m=8$ and $\fudge=1.5$.  The number of samples, $n$, is doubled until $\fudge \qse(f;m) \le \varepsilon$.  Unfortunately, there is no theory yet that intuitively describes the cone of integrands for which this stopping criterion guarantees that the error tolerance is met.  This is an area of ongoing research.
 
-For the iid sampling, the successful rate is only 70\% whereas the heavy duty iid sampling, the successful 
-rate is above 95\%. in the graph, the square means it reaches the sample limit; the star mean the kurtosis is less than the kurtosis maximum. the dot is the general case.
-For the Sobol sampling the successful rate is around 70\% , the heavy duty case, the successful rate is almost 100\%. Clearly, Sobol takes less time than iid sampling.For the quad,quadgk, chebfun and chebfun heavy duty, they take less time but could not reach a higher tolerance as we expected.
+Clearly, from Figure \ref{GaussianTestFunFig}, the Sobol' sampling option is more reliable and takes less time than the i.i.d.\ option of \aMC.  This is due primarily to the fact that in dimension one, Sobol' sampling is equivalent to stratified sampling, where the points are more evenly spread.
 
-We are using the function \eqref{GaussianTestFun} and the parameters on page \pageref{FunPara} to test the higher dimension case, set the dimension $d$ be random between 2 to 8, then we have the graphs below:
+Figure \ref{GaussianTestFunHDFig} repeats the simulation shown in Figure \ref{GaussianTestFunFig} for the same test function \eqref{GaussianTestFun}, but now with $d=2, \ldots, 8$ chosen randomly and uniformly.  For this case the univariate integration algorithms are inapplicable, but \aMC with both sampling schemes, i.i.d.\ and Sobol', can be used.  There are more cases where the \aMC tries to exceed the maximum sample size allowed, but the behavior seen for $d=1$ still generally apply.  
+
 \begin{figure}
 \centering
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d heavy \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolErrTime.eps} \\ {\tt Sobol} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolheavyErrTime.eps} \\ {\tt Sobolheavy} \end{minipage}
-\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=7$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GausstianTestFunHDFig}}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d heavy duty \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolErrTime.eps} \\ {\tt cubMC} Sobol' \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=2, \ldots, 8$ and $\varepsilon=10^{-3}$, with the rest of the parameters as in Figure \ref{GaussianTestFunFig}.\label{GaussianTestFunHDFig}}
 \end{figure}
 
+{\bf We will put one more finance example here.}
 
 \section{A General Error Criterion} \label{relerrsec}
 

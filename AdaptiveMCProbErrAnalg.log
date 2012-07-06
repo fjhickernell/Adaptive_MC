@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  6 JUL 2012 15:40
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  6 JUL 2012 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -503,10 +503,8 @@ File: alphacompare.eps Graphic file (type eps)
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 328.
  [9] [10] [11]
-
-LaTeX Warning: Reference `FunPara' on page 12 undefined on input line 409.
-
 File: gaussiand=7iidErrTime.eps Graphic file (type eps)
+
 <gaussiand=7iidErrTime.eps>
 File: gaussiand=7iidheavyErrTime.eps Graphic file (type eps)
  <gaussiand=7iidheavyErrTime.eps>
@@ -517,16 +515,16 @@ File: gaussiand=7SobolheavyErrTime.eps Graphic file (type eps)
  <gaussiand=7SobolheavyErrTime.eps> [12] [13]
 [14] (./AdaptiveMCProbErrAnalg.bbl [15]) [16] (./AdaptiveMCProbErrAnalg.aux)
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3478 strings out of 493630
- 41859 string characters out of 3143346
+ 3477 strings out of 493630
+ 41849 string characters out of 3143346
  108498 words of memory out of 3000000
- 6697 multiletter control sequences out of 15000+200000
+ 6696 multiletter control sequences out of 15000+200000
  42833 words of font info for 132 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  29i,17n,26p,1296b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalg.dvi (16 pages, 80740 bytes).
+Output written on AdaptiveMCProbErrAnalg.dvi (16 pages, 79692 bytes).
