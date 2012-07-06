@@ -157,7 +157,7 @@ Several commonly used software packages have automatic algorithms for integratin
 
 \end{itemize}
 
-For the first three of these automatic algorithms one can easily probe where they sample the integrand, feed the algorithms zero values, and then construct fooling functions that the automatic algorithms will return a zero value for the integral.  Figure \ref{foolfunfig} displays these fooling functions for the problem $\mu=\int_0^1 f(x) \, \dif x$ for the first three algorithms. Each of these algorithms is asked to provide an answer with an absolute error no greater than $10^{14}$, but in fact the the absolute error is $1$ for these fooling functions.  The algorithms {\tt quad} and {\tt chebfun} sample only about a dozen points before concluding that the function is zero, whereas the algorithm {\tt quadgk} samples a much larger number of points (only those between $0$ and $0.01$ are shown in the plot). algorithm
+For the first three of these automatic algorithms one can easily probe where they sample the integrand, feed the algorithms zero values, and then construct fooling functions that the automatic algorithms will return a zero value for the integral.  Figure \ref{foolfunfig} displays these fooling functions for the problem $\mu=\int_0^1 f(x) \, \dif x$ for the first three algorithms. Each of these algorithms is asked to provide an answer with an absolute error no greater than $10^{14}$, but in fact the the absolute error is $1$ for these fooling functions.  The algorithms {\tt quad} and {\tt chebfun} sample only about a dozen points before concluding that the function is zero, whereas the algorithm {\tt quadgk} samples a much larger number of points (only those between $0$ and $0.01$ are shown in the plot). Algorithm {\tt NIntegrate} is hard snoop, but it is examined for the next example.
 
 \begin{figure}
 \centering
@@ -166,26 +166,20 @@ For the first three of these automatic algorithms one can easily probe where the
 \begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolchebintbw.eps} \\ {\tt chebfun} \end{minipage}
 \caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
 \end{figure}
-\begin{figure}
-\centering
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iid.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iidheavy.eps} \\ {\tt iidheavy} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobol.eps} \\ {\tt sobol} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobolheavy.eps} \\ {\tt sobolheavy} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quad.eps} \\ {\tt quad} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quadgk.eps} \\ {\tt quadgk} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfun.eps} \\ {\tt chebfun} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfunheavy.eps} \\ {\tt chebfunheavy} \end{minipage}
-\caption{Execution times and errors for test function \eqref{???} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance. \label{GaussTestFun}}
-\end{figure}
 
-Another example is illustrated in Figure \ref{GaussTestFun} for the test function
-\begin{align*}
-f(\vx)=b_0\prod_{j=1}^d\left (a_j+b_j e^{-\frac{(x_j-h_j)^2}{c_j^2}}\right)+a_0
-\end{align*}
-where $\vx$ is the $d$ dimensional vector , $a_j$ is the addition parameter, $b_j$ is the function scale parameter, $c_j$ is the function shape parameter, $h_j$ is the center of the kernel, $b_0$ is the over multiplicity parameter, and $a_0$ is the over addition parameter. The exact integral is $\mu=\int_{[0,1]^d} f(\vx) \rho(\vx)\, \dif \vx$. where $\rho(\vx)$ is the probability density function.
+Accuracy and timing results have been recorded for the test function
+\begin{equation} \label{GaussTestFun}
+f(\vx)=a_0 + b_0\prod_{j=1}^d\left[ 1 +b_j \exp \left(-\frac{(x_j-h_j)^2}{c_j^2}\right) \right].
+\end{equation}
+Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$ being are performed.  For each replication, the parameters determining $f$ are chosen as follows:
+\begin{itemize} 
+\item $b_j \in [0.1,1]$ with $\log(b_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $c_j \in [10^{-6},1]$ with $\log(c_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $h_j \in [0,1]$ with $h_j$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $b_0$ chosen in terms of the $b_j$, $c_j$, and $h_j$ in order to make $\sigma^2(f) \in [10^{-2}, 10^2]$, with $\log(\sigma(f))$ being i.i.d.\ uniform for each instance, and
+\item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
+\end{itemize}
 
-In our numerical experiment, we choose 
 \begin{itemize} 
 \item dimension $d=1$ 
 \item the probability density function $\rho=1$ which is uniformly distributed between $[0,1]$
@@ -202,6 +196,22 @@ In our numerical experiment, we choose
 \item $n_0=1024$ for the simple algorithm and $n_0=1024*128$ for the heavy duty algorithm.
 \item For the iid sampling, kurtosis max  is 9.2085; for the iid heavy duty sampling ,it is 1051.9.
 \end{itemize}
+
+\begin{figure}
+\centering
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quad.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quadgk.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfun.eps} \\ {\tt chebfun} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfunheavy.eps} \\ {\tt chebfun} heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iid.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iidheavy.eps} \\ {\tt cubMC} i.i.d. heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobol.eps} \\ {\tt cubMC} Sobol' \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobolheavy.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance. \label{GaussTestFunFig}}
+\end{figure}
+
+
+
 For the iid sampling, the successful rate is only 70\% whereas the heavy duty iid sampling, the successful 
 rate is above 95\%. in the graph, the square means it reaches the sample limit; the star mean the kurtosis is less than the kurtosis maximum. the dot is the general case.
 For the Sobol sampling the successful rate is around 70\% , the heavy duty case, the successful rate is almost 100\%. Clearly, Sobol takes less time than iid sampling.For the quad,quadgk, chebfun and chebfun heavy duty, they take less time but could not reach a higher tolerance as we expected.

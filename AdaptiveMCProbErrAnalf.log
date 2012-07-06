@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  5 JUL 2012 15:10
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  5 JUL 2012 23:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -468,61 +468,51 @@ File: Foolquadbw.eps Graphic file (type eps)
 File: Foolquadgkbw.eps Graphic file (type eps)
  <Foolquadgkbw.eps>
 File: Foolchebintbw.eps Graphic file (type eps)
- <Foolchebintbw.eps>
-File: iid.eps Graphic file (type eps)
- <iid.eps>
-File: iidheavy.eps Graphic file (type eps)
-
-<iidheavy.eps>
-File: sobol.eps Graphic file (type eps)
- <sobol.eps>
-File: sobolheavy.eps Graphic file (type eps)
- <sobolheavy.eps>
+ <Foolchebintbw.eps> [4]
 File: quad.eps Graphic file (type eps)
  <quad.eps>
 File: quadgk.eps Graphic file (type eps)
- <quadgk.eps>
-File: chebfun.eps Graphic file (type eps)
 
-<chebfun.eps>
+<quadgk.eps>
+File: chebfun.eps Graphic file (type eps)
+ <chebfun.eps>
 File: chebfunheavy.eps Graphic file (type eps)
  <chebfunheavy.eps>
+File: iid.eps Graphic file (type eps)
+ <iid.eps>
+File: iidheavy.eps Graphic file (type eps)
+ <iidheavy.eps>
+File: sobol.eps Graphic file (type eps)
 
-LaTeX Warning: Reference `???' on page 4 undefined on input line 179.
+<sobol.eps>
+File: sobolheavy.eps Graphic file (type eps)
+ <sobolheavy.eps>
 
+LaTeX Warning: Float too large for page by 62.75212pt on input line 211.
 
-LaTeX Warning: Reference `???' on page 4 undefined on input line 179.
+[5] [6]
 
-
-LaTeX Warning: Float too large for page by 61.14569pt on input line 180.
-
-[4] [5] [6]
-
-Package natbib Warning: Citation `??' on page 7 undefined on input line 245.
+Package natbib Warning: Citation `??' on page 7 undefined on input line 255.
 
 File: kurtmaxfig.eps Graphic file (type eps)
 <kurtmaxfig.eps>
 File: alphacompare.eps Graphic file (type eps)
  <alphacompare.eps> [7] [8]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 338.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 348.
  [9] [10] [11] [12] [13]
-(./AdaptiveMCProbErrAnalf.bbl)
+(./AdaptiveMCProbErrAnalf.bbl [14])
 
 Package natbib Warning: There were undefined citations.
 
-[14] (./AdaptiveMCProbErrAnalf.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[15] (./AdaptiveMCProbErrAnalf.aux) ) 
 Here is how much of TeX's memory you used:
  3399 strings out of 493630
- 40182 string characters out of 3143346
- 109895 words of memory out of 3000000
+ 40194 string characters out of 3143346
+ 107905 words of memory out of 3000000
  6629 multiletter control sequences out of 15000+200000
  39114 words of font info for 118 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  29i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalf.dvi (14 pages, 72508 bytes).
+Output written on AdaptiveMCProbErrAnalf.dvi (15 pages, 73476 bytes).
