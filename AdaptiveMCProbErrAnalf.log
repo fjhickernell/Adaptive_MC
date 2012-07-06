@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  5 JUL 2012 23:44
+=======
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  6 JUL 2012 14:50
+>>>>>>> add example of high dimension
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **AdaptiveMCProbErrAnalf.tex
 (./AdaptiveMCProbErrAnalf.tex
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman-x-2011-07-01, ngerman-x-2011-07-01, afrikaans, ancientgreek, ibycus, arabi
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
 c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
 h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
 h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
@@ -171,24 +175,32 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count109
 ))
 \Gin@req@height=\dimen124
 \Gin@req@width=\dimen125
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count109
+Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
+\c@tracingmulticols=\count110
 \mult@box=\box28
 \multicol@leftmargin=\dimen126
-\c@unbalance=\count110
-\c@collectmore=\count111
-\doublecol@number=\count112
-\multicoltolerance=\count113
-\multicolpretolerance=\count114
+\c@unbalance=\count111
+\c@collectmore=\count112
+\doublecol@number=\count113
+\multicoltolerance=\count114
+\multicolpretolerance=\count115
 \full@width=\dimen127
 \page@free=\dimen128
 \premulticols=\dimen129
@@ -218,17 +230,16 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count115
-\c@finalcolumnbadness=\count116
+\c@columnbadness=\count116
+\c@finalcolumnbadness=\count117
 \last@try=\dimen131
 \multicolovershoot=\dimen132
 \multicolundershoot=\dimen133
 \mult@nat@firstbox=\box52
 \colbreak@box=\box53
-\multicol@sort@counter=\count117
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/footmisc/footmisc.sty
-Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+Package: footmisc 2009/09/15 v5.5a a miscellany of footnote facilities
 \FN@temptoken=\toks19
 \footnotemargin=\dimen134
 \c@pp@next@reset=\count118
@@ -356,8 +367,8 @@ Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(/Users/fred/Library/texmf/tex/latex/natbib/natbib.sty
-Package: natbib 2009/07/16 8.31 (PWD, AO)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip48
 \bibsep=\skip49
 LaTeX Info: Redefining \cite on input line 694.
@@ -395,6 +406,66 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 51.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
+(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count136
+\scratchdimen=\dimen160
+\scratchbox=\box56
+\nofMPsegments=\count137
+\nofMParguments=\count138
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count139
+\MPscratchDim=\dimen161
+\MPnumerator=\count140
+\makeMPintoPDFobject=\count141
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 
@@ -458,9 +529,10 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 
 
 
-] [2]
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
+<<<<<<< HEAD
 
 [3]
 File: Foolquadbw.eps Graphic file (type eps)
@@ -502,17 +574,394 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 348.
  [9] [10] [11] [12] [13]
 (./AdaptiveMCProbErrAnalf.bbl [14])
+=======
+ [3]
+Package epstopdf Info: Source file: <Foolquadbw.eps>
+(epstopdf)                    date: 2012-06-28 15:34:23
+(epstopdf)                    size: 14230 bytes
+(epstopdf)             Output file: <Foolquadbw-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-07-04 23:07:30
+(epstopdf)                    size: 10486 bytes
+(epstopdf)             Command: <epstopdf --outfile=Foolquadbw-eps-converted-to
+.pdf Foolquadbw.eps>
+(epstopdf)             \includegraphics on input line 164.
+Package epstopdf Info: Output file is already uptodate.
+
+<Foolquadbw-eps-converted-to.pdf, id=25, 510.90875pt x 405.515pt>
+File: Foolquadbw-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Foolquadbw-eps-converted-to.pdf>
+Package pdftex.def Info: Foolquadbw-eps-converted-to.pdf used on input line 164
+.
+(pdftex.def)             Requested size: 105.2751pt x 83.55804pt.
+Package epstopdf Info: Source file: <Foolquadgkbw.eps>
+(epstopdf)                    date: 2012-06-28 15:34:23
+(epstopdf)                    size: 13777 bytes
+(epstopdf)             Output file: <Foolquadgkbw-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-07-04 23:07:30
+(epstopdf)                    size: 10326 bytes
+(epstopdf)             Command: <epstopdf --outfile=Foolquadgkbw-eps-converted-
+to.pdf Foolquadgkbw.eps>
+(epstopdf)             \includegraphics on input line 165.
+Package epstopdf Info: Output file is already uptodate.
+
+<Foolquadgkbw-eps-converted-to.pdf, id=26, 522.95375pt x 405.515pt>
+File: Foolquadgkbw-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Foolquadgkbw-eps-converted-to.pdf>
+Package pdftex.def Info: Foolquadgkbw-eps-converted-to.pdf used on input line 1
+65.
+(pdftex.def)             Requested size: 105.2751pt x 81.6337pt.
+Package epstopdf Info: Source file: <Foolchebintbw.eps>
+(epstopdf)                    date: 2012-06-28 15:34:23
+(epstopdf)                    size: 13919 bytes
+(epstopdf)             Output file: <Foolchebintbw-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-07-04 23:07:30
+(epstopdf)                    size: 10391 bytes
+(epstopdf)             Command: <epstopdf --outfile=Foolchebintbw-eps-converted
+-to.pdf Foolchebintbw.eps>
+(epstopdf)             \includegraphics on input line 166.
+Package epstopdf Info: Output file is already uptodate.
+
+<Foolchebintbw-eps-converted-to.pdf, id=27, 510.90875pt x 405.515pt>
+File: Foolchebintbw-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Foolchebintbw-eps-converted-to.pdf>
+Package pdftex.def Info: Foolchebintbw-eps-converted-to.pdf used on input line 
+166.
+(pdftex.def)             Requested size: 105.2751pt x 83.55804pt.
+Package epstopdf Info: Source file: <gaussiand=1iidErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:26
+(epstopdf)                    size: 51827 bytes
+(epstopdf)             Output file: <gaussiand=1iidErrTime-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2012-07-06 14:02:25
+(epstopdf)                    size: 39429 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1iidErrTime-eps-c
+onverted-to.pdf gaussiand=1iidErrTime.eps>
+(epstopdf)             \includegraphics on input line 171.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1iidErrTime-eps-converted-to.pdf, id=28, 554.07pt x 427.5975pt>
+File: gaussiand=1iidErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=1iidErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1iidErrTime-eps-converted-to.pdf used on inp
+ut line 171.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1iidheavyErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:26
+(epstopdf)                    size: 65452 bytes
+(epstopdf)             Output file: <gaussiand=1iidheavyErrTime-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2012-07-06 14:02:26
+(epstopdf)                    size: 36324 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1iidheavyErrTime-
+eps-converted-to.pdf gaussiand=1iidheavyErrTime.eps>
+(epstopdf)             \includegraphics on input line 172.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1iidheavyErrTime-eps-converted-to.pdf, id=29, 554.07pt x 427.5975pt>
+File: gaussiand=1iidheavyErrTime-eps-converted-to.pdf Graphic file (type pdf)
+<use gaussiand=1iidheavyErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1iidheavyErrTime-eps-converted-to.pdf used o
+n input line 172.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1SobolErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:27
+(epstopdf)                    size: 38359 bytes
+(epstopdf)             Output file: <gaussiand=1SobolErrTime-eps-converted-to.p
+df>
+(epstopdf)                    date: 2012-07-06 14:02:26
+(epstopdf)                    size: 27179 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1SobolErrTime-eps
+-converted-to.pdf gaussiand=1SobolErrTime.eps>
+(epstopdf)             \includegraphics on input line 173.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1SobolErrTime-eps-converted-to.pdf, id=30, 554.07pt x 427.5975pt>
+File: gaussiand=1SobolErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=1SobolErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1SobolErrTime-eps-converted-to.pdf used on i
+nput line 173.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1SobolheavyErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:27
+(epstopdf)                    size: 34578 bytes
+(epstopdf)             Output file: <gaussiand=1SobolheavyErrTime-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2012-07-06 14:02:26
+(epstopdf)                    size: 17736 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1SobolheavyErrTim
+e-eps-converted-to.pdf gaussiand=1SobolheavyErrTime.eps>
+(epstopdf)             \includegraphics on input line 174.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1SobolheavyErrTime-eps-converted-to.pdf, id=31, 554.07pt x 427.5975p
+t>
+File: gaussiand=1SobolheavyErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use gaussiand=1SobolheavyErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1SobolheavyErrTime-eps-converted-to.pdf used
+ on input line 174.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1quadErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:28
+(epstopdf)                    size: 42967 bytes
+(epstopdf)             Output file: <gaussiand=1quadErrTime-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2012-07-06 14:02:26
+(epstopdf)                    size: 38062 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1quadErrTime-eps-
+converted-to.pdf gaussiand=1quadErrTime.eps>
+(epstopdf)             \includegraphics on input line 175.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1quadErrTime-eps-converted-to.pdf, id=32, 554.07pt x 427.5975pt>
+File: gaussiand=1quadErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=1quadErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1quadErrTime-eps-converted-to.pdf used on in
+put line 175.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1quadgkErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:28
+(epstopdf)                    size: 37192 bytes
+(epstopdf)             Output file: <gaussiand=1quadgkErrTime-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2012-07-06 14:02:27
+(epstopdf)                    size: 24977 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1quadgkErrTime-ep
+s-converted-to.pdf gaussiand=1quadgkErrTime.eps>
+(epstopdf)             \includegraphics on input line 176.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1quadgkErrTime-eps-converted-to.pdf, id=33, 554.07pt x 427.5975pt>
+File: gaussiand=1quadgkErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=1quadgkErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1quadgkErrTime-eps-converted-to.pdf used on 
+input line 176.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1chebfunErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:29
+(epstopdf)                    size: 38554 bytes
+(epstopdf)             Output file: <gaussiand=1chebfunErrTime-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2012-07-06 14:02:27
+(epstopdf)                    size: 30020 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1chebfunErrTime-e
+ps-converted-to.pdf gaussiand=1chebfunErrTime.eps>
+(epstopdf)             \includegraphics on input line 177.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1chebfunErrTime-eps-converted-to.pdf, id=34, 554.07pt x 427.5975pt>
+File: gaussiand=1chebfunErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=1chebfunErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1chebfunErrTime-eps-converted-to.pdf used on
+ input line 177.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=1chebfunheavyErrTime.eps>
+(epstopdf)                    date: 2012-07-06 13:58:29
+(epstopdf)                    size: 33283 bytes
+(epstopdf)             Output file: <gaussiand=1chebfunheavyErrTime-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2012-07-06 14:02:27
+(epstopdf)                    size: 19740 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=1chebfunheavyErrT
+ime-eps-converted-to.pdf gaussiand=1chebfunheavyErrTime.eps>
+(epstopdf)             \includegraphics on input line 178.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=1chebfunheavyErrTime-eps-converted-to.pdf, id=35, 554.07pt x 427.597
+5pt>
+File: gaussiand=1chebfunheavyErrTime-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use gaussiand=1chebfunheavyErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=1chebfunheavyErrTime-eps-converted-to.pdf us
+ed on input line 178.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+
+
+LaTeX Warning: Float too large for page by 75.78157pt on input line 180.
+
+[4 <./Foolquadbw-eps-converted-to.pdf> <./Foolquadgkbw-eps-converted-to.pdf> <.
+/Foolchebintbw-eps-converted-to.pdf>] [5 <./gaussiand=1iidErrTime-eps-converted
+-to.pdf> <./gaussiand=1iidheavyErrTime-eps-converted-to.pdf> <./gaussiand=1Sobo
+lErrTime-eps-converted-to.pdf> <./gaussiand=1SobolheavyErrTime-eps-converted-to
+.pdf> <./gaussiand=1quadErrTime-eps-converted-to.pdf> <./gaussiand=1quadgkErrTi
+me-eps-converted-to.pdf> <./gaussiand=1chebfunErrTime-eps-converted-to.pdf> <./
+gaussiand=1chebfunheavyErrTime-eps-converted-to.pdf>] [6]
+
+Package natbib Warning: Citation `??' on page 7 undefined on input line 251.
+
+Package epstopdf Info: Source file: <kurtmaxfig.eps>
+(epstopdf)                    date: 2012-06-21 15:59:40
+(epstopdf)                    size: 99119 bytes
+(epstopdf)             Output file: <kurtmaxfig-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:46
+(epstopdf)                    size: 13229 bytes
+(epstopdf)             Command: <epstopdf --outfile=kurtmaxfig-eps-converted-to
+.pdf kurtmaxfig.eps>
+(epstopdf)             \includegraphics on input line 282.
+Package epstopdf Info: Output file is already uptodate.
+<kurtmaxfig-eps-converted-to.pdf, id=133, 540.0175pt x 420.57124pt>
+File: kurtmaxfig-eps-converted-to.pdf Graphic file (type pdf)
+
+<use kurtmaxfig-eps-converted-to.pdf>
+Package pdftex.def Info: kurtmaxfig-eps-converted-to.pdf used on input line 282
+.
+(pdftex.def)             Requested size: 151.76744pt x 118.19553pt.
+Package epstopdf Info: Source file: <alphacompare.eps>
+(epstopdf)                    date: 2012-06-21 15:59:37
+(epstopdf)                    size: 18497 bytes
+(epstopdf)             Output file: <alphacompare-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-06-21 16:14:46
+(epstopdf)                    size: 10901 bytes
+(epstopdf)             Command: <epstopdf --outfile=alphacompare-eps-converted-
+to.pdf alphacompare.eps>
+(epstopdf)             \includegraphics on input line 287.
+Package epstopdf Info: Output file is already uptodate.
+
+<alphacompare-eps-converted-to.pdf, id=134, 499.8675pt x 422.57875pt>
+File: alphacompare-eps-converted-to.pdf Graphic file (type pdf)
+
+<use alphacompare-eps-converted-to.pdf>
+Package pdftex.def Info: alphacompare-eps-converted-to.pdf used on input line 2
+87.
+(pdftex.def)             Requested size: 151.76744pt x 128.30278pt.
+ [7] [8 <./kurtmaxfig-eps-converted-to.pdf> <./alphacompare-eps-converted-to.pd
+f>]
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 344.
+ [9] [10]
+Package epstopdf Info: Source file: <gaussiand=7iidErrTime.eps>
+(epstopdf)                    date: 2012-07-06 12:24:33
+(epstopdf)                    size: 54202 bytes
+(epstopdf)             Output file: <gaussiand=7iidErrTime-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2012-07-06 14:23:42
+(epstopdf)                    size: 35742 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=7iidErrTime-eps-c
+onverted-to.pdf gaussiand=7iidErrTime.eps>
+(epstopdf)             \includegraphics on input line 413.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=7iidErrTime-eps-converted-to.pdf, id=183, 554.07pt x 427.5975pt>
+File: gaussiand=7iidErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=7iidErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=7iidErrTime-eps-converted-to.pdf used on inp
+ut line 413.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=7iidheavyErrTime.eps>
+(epstopdf)                    date: 2012-07-06 12:24:33
+(epstopdf)                    size: 90766 bytes
+(epstopdf)             Output file: <gaussiand=7iidheavyErrTime-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2012-07-06 14:23:43
+(epstopdf)                    size: 34188 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=7iidheavyErrTime-
+eps-converted-to.pdf gaussiand=7iidheavyErrTime.eps>
+(epstopdf)             \includegraphics on input line 414.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=7iidheavyErrTime-eps-converted-to.pdf, id=184, 554.07pt x 427.5975pt
+>
+File: gaussiand=7iidheavyErrTime-eps-converted-to.pdf Graphic file (type pdf)
+ <use gaussiand=7iidheavyErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=7iidheavyErrTime-eps-converted-to.pdf used o
+n input line 414.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=7SobolErrTime.eps>
+(epstopdf)                    date: 2012-07-06 12:24:34
+(epstopdf)                    size: 42959 bytes
+(epstopdf)             Output file: <gaussiand=7SobolErrTime-eps-converted-to.p
+df>
+(epstopdf)                    date: 2012-07-06 14:23:43
+(epstopdf)                    size: 38628 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=7SobolErrTime-eps
+-converted-to.pdf gaussiand=7SobolErrTime.eps>
+(epstopdf)             \includegraphics on input line 415.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=7SobolErrTime-eps-converted-to.pdf, id=185, 554.07pt x 427.5975pt>
+File: gaussiand=7SobolErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+<use gaussiand=7SobolErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=7SobolErrTime-eps-converted-to.pdf used on i
+nput line 415.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+Package epstopdf Info: Source file: <gaussiand=7SobolheavyErrTime.eps>
+(epstopdf)                    date: 2012-07-06 12:24:34
+(epstopdf)                    size: 40918 bytes
+(epstopdf)             Output file: <gaussiand=7SobolheavyErrTime-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2012-07-06 14:23:43
+(epstopdf)                    size: 32648 bytes
+(epstopdf)             Command: <epstopdf --outfile=gaussiand=7SobolheavyErrTim
+e-eps-converted-to.pdf gaussiand=7SobolheavyErrTime.eps>
+(epstopdf)             \includegraphics on input line 416.
+Package epstopdf Info: Output file is already uptodate.
+
+<gaussiand=7SobolheavyErrTime-eps-converted-to.pdf, id=186, 554.07pt x 427.5975
+pt>
+File: gaussiand=7SobolheavyErrTime-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use gaussiand=7SobolheavyErrTime-eps-converted-to.pdf>
+Package pdftex.def Info: gaussiand=7SobolheavyErrTime-eps-converted-to.pdf used
+ on input line 416.
+(pdftex.def)             Requested size: 162.18062pt x 125.16147pt.
+ [11] [12 <./gaussiand=7iidErrTime-eps-converted-to.pdf> <./gaussiand=7iidheavy
+ErrTime-eps-converted-to.pdf> <./gaussiand=7SobolErrTime-eps-converted-to.pdf> 
+<./gaussiand=7SobolheavyErrTime-eps-converted-to.pdf>] [13] [14] (./AdaptiveMCP
+robErrAnalf.bbl)
+>>>>>>> add example of high dimension
 
 Package natbib Warning: There were undefined citations.
 
 [15] (./AdaptiveMCProbErrAnalf.aux) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  3399 strings out of 493630
  40194 string characters out of 3143346
  107905 words of memory out of 3000000
  6629 multiletter control sequences out of 15000+200000
  39114 words of font info for 118 fonts, out of 3000000 for 9000
+=======
+ 4407 strings out of 493633
+ 58019 string characters out of 3143378
+ 127502 words of memory out of 3000000
+ 7546 multiletter control sequences out of 15000+200000
+ 59387 words of font info for 154 fonts, out of 3000000 for 9000
+>>>>>>> add example of high dimension
  831 hyphenation exceptions out of 8191
- 29i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/fonts/
+enc/dvips/base/8r.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
+euler/eufm10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/rsf
+s/rsfs10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a
+.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/
+local/texlive/2011/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/te
+xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on AdaptiveMCProbErrAnalf.pdf (15 pages, 555763 bytes).
+PDF statistics:
+ 285 PDF objects out of 1000 (max. 8388607)
+ 200 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+<<<<<<< HEAD
 Output written on AdaptiveMCProbErrAnalf.dvi (15 pages, 73476 bytes).
+=======
+>>>>>>> add example of high dimension

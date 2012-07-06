@@ -166,6 +166,7 @@ For the first three of these automatic algorithms one can easily probe where the
 \begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolchebintbw.eps} \\ {\tt chebfun} \end{minipage}
 \caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
 \end{figure}
+<<<<<<< HEAD
 
 Accuracy and timing results have been recorded for the test function
 \begin{equation} \label{GaussTestFun}
@@ -180,21 +181,49 @@ Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are para
 \item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
 \end{itemize}
 
+=======
+\begin{figure}
+\centering
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d. heavy \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\ {\tt sobol} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ {\tt sobolheavy} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadgkErrTime.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunErrTime.eps} \\ {\tt chebfun} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunheavyErrTime.eps} \\ {\tt chebfunheavy} \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
+\end{figure}
+
+Another example is illustrated in Figure \ref{GaussianTestFunFig} for the test function
+\begin{equation}
+f(\vx)=b_0\prod_{j=1}^d\left (a_j+b_j e^{-\frac{(x_j-h_j)^2}{c_j^2}}\right)+a_0
+\end{equation} \label{GaussianTestFun}
+where $\vx$ is the $d$ dimensional vector , $a_j$ is the addition parameter, $b_j$ is the function scale parameter, $c_j$ is the function shape parameter, $h_j$ is the center of the kernel, $b_0$ is the over multiplicity parameter, and $a_0$ is the over addition parameter. The exact integral is $\mu=\int_{[0,1]^d} f(\vx) \rho(\vx)\, \dif \vx$. where $\rho(\vx)$ is the probability density function.
+
+In our numerical experiment, we did 500 replications and choose:
+
+Function parameters
+>>>>>>> add example of high dimension
 \begin{itemize} 
 \item dimension $d=1$ 
 \item the probability density function $\rho=1$ which is uniformly distributed between $[0,1]$
 \item the addition parameter $a_j=1$
-\item the scale parameter $b_j$ between $[0.1,1]$ log uniformly distributed
+\item the scale parameter $b_j$ between $[0.1,10]$ log uniformly distributed
 \item the shape parameter $c_j$ between $[10^{-6},1]$ log uniformly distributed
 \item the center of the kernel $h_j$ uniformly random between $[0,1]$
-\item the over multiplicity parameter $b_0$ in terms of addition,scale,shape and center parameter in order to make the variance between $[10^{-2} 10^2]$, log uniformly distributed.
+\item the over multiplicity parameter $b_0$ in terms of addition,scale,shape and center parameter in order to make the variance between $[10^{-2}, 10^2]$, log uniformly distributed.
 \item the over addition parameter $a_0$ in terms of addition,scale,shape, center and over multiplicity parameter in order to make the exact integral be 1.
-\item 300 replications
+\end{itemize} \label{FunPara}
+
+Algorithm parameters 
+\begin{itemize} 
 \item variance inflation factor $\fudge=1.5$
 \item the tolerance $\epsilon=0.001$
 \item level of uncertainty $\alpha=5\%$
-\item $n_0=1024$ for the simple algorithm and $n_0=1024*128$ for the heavy duty algorithm.
+\item $n_0=1024$ for the simple algorithm and $n_0=1024\cdot128$ for the heavy duty algorithm.
 \item For the iid sampling, kurtosis max  is 9.2085; for the iid heavy duty sampling ,it is 1051.9.
+<<<<<<< HEAD
 \end{itemize}
 
 \begin{figure}
@@ -211,9 +240,12 @@ Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are para
 \end{figure}
 
 
+=======
+\end{itemize}\label{AlgorPara}
+>>>>>>> add example of high dimension
 
 For the iid sampling, the successful rate is only 70\% whereas the heavy duty iid sampling, the successful 
-rate is above 95\%. in the graph, the square means it reaches the sample limit; the star mean the kurtosis is less than the kurtosis maximum. the dot is the general case.
+rate is above 95\%. in the graph, the diamond means it reaches the sample limit; the star means the kurtosis is less than the kurtosis maximum. the dot is the general case.
 For the Sobol sampling the successful rate is around 70\% , the heavy duty case, the successful rate is almost 100\%. Clearly, Sobol takes less time than iid sampling.For the quad,quadgk, chebfun and chebfun heavy duty, they take less time but could not reach a higher tolerance as we expected.
 
 
@@ -411,8 +443,16 @@ Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
 
 \section{More Numerical Examples}
+We are using the function \ref{GaussianTestFun} and the parameters on page \pageref{FunPara} to test the higher dimension case, set the dimension $d$ be random between 2 to 8, then we have the graphs below:
+\begin{figure}
+\centering
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d heavy \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolErrTime.eps} \\ {\tt Sobol} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolheavyErrTime.eps} \\ {\tt Sobolheavy} \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=7$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GausstianTestFunHDFig}}
+\end{figure}
 
-{\bf Lan will be adding to this section the multivariate examples.}
 
 \section{A General Error Criterion} \label{relerrsec}
 
