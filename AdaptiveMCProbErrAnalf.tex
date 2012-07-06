@@ -166,10 +166,10 @@ For the first three of these automatic algorithms one can easily probe where the
 \begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolchebintbw.eps} \\ {\tt chebfun} \end{minipage}
 \caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
 \end{figure}
-<<<<<<< HEAD
+
 
 Accuracy and timing results have been recorded for the test function
-\begin{equation} \label{GaussTestFun}
+\begin{equation} \label{GaussianTestFun}
 f(\vx)=a_0 + b_0\prod_{j=1}^d\left[ 1 +b_j \exp \left(-\frac{(x_j-h_j)^2}{c_j^2}\right) \right].
 \end{equation}
 Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$ being are performed.  For each replication, the parameters determining $f$ are chosen as follows:
@@ -181,19 +181,6 @@ Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are para
 \item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
 \end{itemize}
 
-=======
-\begin{figure}
-\centering
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d. heavy \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\ {\tt sobol} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ {\tt sobolheavy} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadgkErrTime.eps} \\ {\tt quadgk} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunErrTime.eps} \\ {\tt chebfun} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunheavyErrTime.eps} \\ {\tt chebfunheavy} \end{minipage}
-\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
-\end{figure}
 
 Another example is illustrated in Figure \ref{GaussianTestFunFig} for the test function
 \begin{equation}
@@ -204,7 +191,6 @@ where $\vx$ is the $d$ dimensional vector , $a_j$ is the addition parameter, $b_
 In our numerical experiment, we did 500 replications and choose:
 
 Function parameters
->>>>>>> add example of high dimension
 \begin{itemize} 
 \item dimension $d=1$ 
 \item the probability density function $\rho=1$ which is uniformly distributed between $[0,1]$
@@ -223,26 +209,20 @@ Algorithm parameters
 \item level of uncertainty $\alpha=5\%$
 \item $n_0=1024$ for the simple algorithm and $n_0=1024\cdot128$ for the heavy duty algorithm.
 \item For the iid sampling, kurtosis max  is 9.2085; for the iid heavy duty sampling ,it is 1051.9.
-<<<<<<< HEAD
-\end{itemize}
-
+\end{itemize}\label{AlgorPara}
 \begin{figure}
 \centering
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quad.eps} \\ {\tt quad} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quadgk.eps} \\ {\tt quadgk} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfun.eps} \\ {\tt chebfun} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfunheavy.eps} \\ {\tt chebfun} heavy duty\end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iid.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iidheavy.eps} \\ {\tt cubMC} i.i.d. heavy duty\end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobol.eps} \\ {\tt cubMC} Sobol' \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobolheavy.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
-\caption{Execution times and errors for test function \eqref{GaussTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance. \label{GaussTestFunFig}}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadgkErrTime.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunErrTime.eps} \\ {\tt chebfun} heavy duty \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunheavyErrTime.eps} \\ {\tt chebfun} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d. heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\ {\tt cubMC}  Sobol'\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
+
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
 \end{figure}
-
-
-=======
-\end{itemize}\label{AlgorPara}
->>>>>>> add example of high dimension
 
 For the iid sampling, the successful rate is only 70\% whereas the heavy duty iid sampling, the successful 
 rate is above 95\%. in the graph, the diamond means it reaches the sample limit; the star means the kurtosis is less than the kurtosis maximum. the dot is the general case.
