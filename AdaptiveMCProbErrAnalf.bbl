@@ -1,5 +1,5 @@
 \def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
-\begin{thebibliography}{9}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -13,15 +13,45 @@
 Bahadur RR, Savage LJ (1956) The nonexistence of certain statistical procedures
   in nonparametric problems. Ann\ Math\ Stat 27:1115--1122
 
+\bibitem[{Dick and Pillichshammer(2010)}]{DicPil10a}
+Dick J, Pillichshammer F (2010) Digital Nets and Sequences: Discrepancy Theory
+  and Quasi-{M}onte {C}arlo Integration. Cambridge University Press, Cambridge
+
 \bibitem[{Gander and Gautschi(2000)}]{GanGau00a}
 Gander W, Gautschi W (2000) Adaptive quadrature --- revisited. BIT 40:84--101
 
 \bibitem[{Hale et~al(2012)Hale, Trefethen, and Driscoll}]{TrefEtal12}
 Hale N, Trefethen LN, Driscoll TA (2012) Chebfun Version 4
 
+\bibitem[{Hong and Hickernell(2003)}]{HonHic00a}
+Hong HS, Hickernell FJ (2003) Implementing scrambled digital nets. ACM Trans\
+  Math\ Software 29:95--109
+
 \bibitem[{Lin and Bai(2010)}]{LinBai10a}
 Lin Z, Bai Z (2010) Probability Inequalities. Science Press and
   Springer-Verlag, Beijing and Berlin
+
+\bibitem[{Matou\v{s}ek(1998)}]{Mat98}
+Matou\v{s}ek J (1998) On the {$L_2$}-discrepancy for anchored boxes. J
+  Complexity 14:527--556
+
+\bibitem[{Miller(1986)}]{Mil86}
+Miller R (1986) Beyond {ANOVA}, Basics of Applied Statistics. John Wiley \&
+  Sons, Inc., New York
+
+\bibitem[{Owen(1995)}]{Owe95}
+Owen AB (1995) Randomly permuted $(t,m,s)$-nets and $(t,s)$-sequences. In:
+  Niederreiter H, Shiue PJS (eds) {M}onte {C}arlo and Quasi-{M}onte {C}arlo
+  Methods in Scientific Computing, Springer-Verlag, New York, Lecture Notes in
+  Statistics, vol 106, pp 299--317
+
+\bibitem[{Owen(1997{\natexlab{a}})}]{Owe96}
+Owen AB (1997{\natexlab{a}}) Monte {C}arlo variance of scrambled net
+  quadrature. SIAM J Numer\ Anal 34:1884--1910
+
+\bibitem[{Owen(1997{\natexlab{b}})}]{Owe97}
+Owen AB (1997{\natexlab{b}}) Scrambled net variance for integrals of smooth
+  functions. Ann\ Stat 25:1541--1562
 
 \bibitem[{Petrov(1995)}]{Pet95a}
 Petrov VV (1995) Limit Theorems of Probability Theory:Sequences of Independent
@@ -38,8 +68,5 @@ Shampine LF (2008) Vectorized adaptive quadrature in matlab. J Comput\ Appl\
   Wo\'zniakowski}]{TraWasWoz88}
 Traub JF, Wasilkowski GW, Wo\'zniakowski H (1988) Information-Based Complexity.
   Academic Press, Boston
-
-\bibitem[{{Wolfram Research Inc.}(2011)}]{Mat8a}
-{Wolfram Research Inc} (2011) Mathematica 8
 
 \end{thebibliography}

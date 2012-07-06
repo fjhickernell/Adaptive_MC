@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  6 JUL 2012 15:13
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  5 JUL 2012 23:44
+=======
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  6 JUL 2012 14:50
+>>>>>>> add example of high dimension
+=======
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  6 JUL 2012 14:49
+>>>>>>> More changes
+>>>>>>> More changes
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -363,8 +375,16 @@ Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2011/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
+=======
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/Users/fred/Library/texmf/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
+>>>>>>> More changes
 \bibhang=\skip48
 \bibsep=\skip49
 LaTeX Info: Redefining \cite on input line 694.
@@ -527,7 +547,55 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
+<<<<<<< HEAD
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 148.
+>>>>>>> More changes
+
+[3]
+File: Foolquadbw.eps Graphic file (type eps)
+ <Foolquadbw.eps>
+File: Foolquadgkbw.eps Graphic file (type eps)
+ <Foolquadgkbw.eps>
+File: Foolchebintbw.eps Graphic file (type eps)
+ <Foolchebintbw.eps> [4]
+File: quad.eps Graphic file (type eps)
+ <quad.eps>
+File: quadgk.eps Graphic file (type eps)
+
+<quadgk.eps>
+File: chebfun.eps Graphic file (type eps)
+ <chebfun.eps>
+File: chebfunheavy.eps Graphic file (type eps)
+ <chebfunheavy.eps>
+File: iid.eps Graphic file (type eps)
+ <iid.eps>
+File: iidheavy.eps Graphic file (type eps)
+ <iidheavy.eps>
+File: sobol.eps Graphic file (type eps)
+
+<sobol.eps>
+File: sobolheavy.eps Graphic file (type eps)
+ <sobolheavy.eps>
+
+LaTeX Warning: Float too large for page by 62.75212pt on input line 194.
+
+[5] [6]
+File: kurtmaxfig.eps Graphic file (type eps)
+ <kurtmaxfig.eps>
+File: alphacompare.eps Graphic file (type eps)
+ <alphacompare.eps> [7] [8]
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
+<<<<<<< HEAD
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 348.
+ [9] [10] [11] [12] [13]
+(./AdaptiveMCProbErrAnalf.bbl [14])
+=======
+>>>>>>> More changes
  [3]
 Package epstopdf Info: Source file: <Foolquadbw.eps>
 (epstopdf)                    date: 2012-06-28 15:34:23
@@ -876,6 +944,7 @@ Package pdftex.def Info: gaussiand=7SobolheavyErrTime-eps-converted-to.pdf used
  [11] [12 <./gaussiand=7iidErrTime-eps-converted-to.pdf> <./gaussiand=7iidheavy
 ErrTime-eps-converted-to.pdf> <./gaussiand=7SobolErrTime-eps-converted-to.pdf> 
 <./gaussiand=7SobolheavyErrTime-eps-converted-to.pdf>] [13] [14] (./AdaptiveMCP
+<<<<<<< HEAD
 robErrAnalf.bbl
 [15])
 
@@ -894,6 +963,40 @@ Here is how much of TeX's memory you used:
  58050 string characters out of 3143378
  129512 words of memory out of 3000000
  7548 multiletter control sequences out of 15000+200000
+=======
+robErrAnalf.bbl)
+>>>>>>> add example of high dimension
+=======
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 327.
+ [9] [10]
+
+Package natbib Warning: Citation `Hal05a' on page 11 undefined on input line 39
+8.
+
+
+Package natbib Warning: Citation `Owe06a' on page 11 undefined on input line 39
+8.
+
+[11] [12] [13] [14] (./AdaptiveMCProbErrAnalf.bbl [15])
+>>>>>>> More changes
+
+Package natbib Warning: There were undefined citations.
+
+[16] (./AdaptiveMCProbErrAnalf.aux) ) 
+Here is how much of TeX's memory you used:
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 3399 strings out of 493630
+ 40194 string characters out of 3143346
+ 107905 words of memory out of 3000000
+ 6629 multiletter control sequences out of 15000+200000
+ 39114 words of font info for 118 fonts, out of 3000000 for 9000
+=======
+ 4407 strings out of 493633
+ 58019 string characters out of 3143378
+ 127502 words of memory out of 3000000
+ 7546 multiletter control sequences out of 15000+200000
+>>>>>>> More changes
  59387 words of font info for 154 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  38i,17n,26p,964b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -918,3 +1021,21 @@ PDF statistics:
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+Output written on AdaptiveMCProbErrAnalf.dvi (15 pages, 73476 bytes).
+=======
+>>>>>>> add example of high dimension
+=======
+ 3463 strings out of 493630
+ 41233 string characters out of 3143346
+ 109439 words of memory out of 3000000
+ 6687 multiletter control sequences out of 15000+200000
+ 42833 words of font info for 132 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 29i,17n,26p,1293b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on AdaptiveMCProbErrAnalf.dvi (16 pages, 78972 bytes).
+>>>>>>> More changes
+>>>>>>> More changes

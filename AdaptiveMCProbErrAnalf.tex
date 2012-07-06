@@ -14,7 +14,7 @@
                              % when including figure files
 \usepackage{multicol}        % used for the two-column index
 \usepackage[bottom]{footmisc}% places footnotes at page bottom
-\usepackage{latexsym,amsmath,amssymb,bm,booktabs,epsfig,multirow,bigstrut,graphicx,url,natbib}
+\usepackage{latexsym,amsmath,amssymb,bm,booktabs,epsfig,multirow,bigstrut,graphicx,url,xspace,natbib}
 %\usepackage{nath}
 
 % see the list of further useful packages
@@ -47,7 +47,7 @@
 \newtheorem{prop}[theorem]{Proposition}
 %\newtheorem{rem}{Remark}
 \DeclareMathOperator{\sMC}{sMC}
-\DeclareMathOperator{\aMC}{aMC}
+\newcommand{\aMC}{{\tt cubMC}\xspace}
 \begin{document}
 
 
@@ -115,7 +115,7 @@ While this fixed-width confidence interval may be often correct, it is not guara
 \begin{equation} \label{boundedkurt}
 \kappa=\kurt(Y) = \frac{E[(Y-\mu)^4]}{\sigma^4} \le \kappa_{\max}.
 \end{equation}
-A bounded kurtosis means that $Y$ has or does not have ????? A bounded kurtosis allows one to reliably bound $\var(Y)$ in terms of the sample variance, and also allows one to obtain a rigorous bound on the deviation of the sample mean from the true mean.  It was shown by \cite[Corollary 2]{BahSav56} that nonparametric confidence intervals are impossible for convex sets of distributions. Assuming bounded kurtosis produces a non-convex set of possible distributions for $Y$.
+(Note, sometimes in the literature, the kurtosis is defined as the expression above minus three.)  A bounded kurtosis means that $Y$ has or does not have ????? {\bf help Art}. A bounded kurtosis allows one to reliably bound $\var(Y)$ in terms of the sample variance, and also allows one to obtain a rigorous bound on the deviation of the sample mean from the true mean.  It was shown by \cite[Corollary 2]{BahSav56} that nonparametric confidence intervals are impossible for convex sets of distributions. Assuming bounded kurtosis produces a non-convex set of possible distributions for $Y$.
 
 Another approach to obtaining a fixed-width confidence interval for $\mu$ would be to assume an upper bound on $\sigma^2$ and apply Chebyshev's inequality.  The disadvantage of this approach is that while it might work for $Y=f(\vX)$, it would not work for $cY=cf(\vX)$ if $c$ were large enough, since $\var(cY)=c^2 \var(Y)$.  However, since $\kurt(cY)=\kurt(Y)$ if the procedure for obtaining a fixed-width confidence interval that is described in this article works for $Y$, it also works for $cY$.
 
@@ -142,18 +142,16 @@ Again, it should be stressed that the algorithm to be presented here is automati
 
 \subsection{Illustrative Univariate Examples of Automatic Algorithms}
 
-{\bf Lan will be adding to this section.}
-
 Several commonly used software packages have automatic algorithms for integrating functions of a single variable.  These include 
 \begin{itemize} 
 
 \item {\tt quad} in MATLAB \citep{MAT7.12}, adaptive Simpson's rule based on {\tt adaptsim} by \cite{GanGau00a},
 
-\item {\tt quadgk} in MATLAB \citep{MAT7.12}, adaptive Gauss-Kronrod quadrature based on {\tt quadva} by \cite{Sha08a}, 
+\item {\tt quadgk} in MATLAB \citep{MAT7.12}, adaptive Gauss-Kronrod quadrature based on {\tt quadva} by \cite{Sha08a}, and
 
-\item the {\tt chebfun} \citep{TrefEtal12} toolbox for MATLAB \citep{MAT7.12}, which approximates integrals by integrating interpolatory Chebyshev polynomial series for the integrands, 
+\item the {\tt chebfun} \citep{TrefEtal12} toolbox for MATLAB \citep{MAT7.12}, which approximates integrals by integrating interpolatory Chebyshev polynomial series for the integrands.
 
-\item {\tt NIntegrate} in Mathematica \citep{Mat8a}, which uses a number of adaptive rules for one dimensional integrals, 
+%\item {\tt NIntegrate} in Mathematica \citep{Mat8a}, which uses a number of adaptive rules for one dimensional integrals, 
 
 \end{itemize}
 
@@ -172,7 +170,7 @@ Accuracy and timing results have been recorded for the test function
 \begin{equation} \label{GaussianTestFun}
 f(\vx)=a_0 + b_0\prod_{j=1}^d\left[ 1 +b_j \exp \left(-\frac{(x_j-h_j)^2}{c_j^2}\right) \right].
 \end{equation}
-Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$ being are performed.  For each replication, the parameters determining $f$ are chosen as follows:
+Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$ being are performed.  For each instance of $f$, the parameters are chosen as follows:
 \begin{itemize} 
 \item $b_j \in [0.1,1]$ with $\log(b_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
 \item $c_j \in [10^{-6},1]$ with $\log(c_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
@@ -181,6 +179,23 @@ Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are para
 \item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
 \end{itemize}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+\begin{figure}
+\centering
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d. heavy \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\ {\tt sobol} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ {\tt sobolheavy} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadgkErrTime.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunErrTime.eps} \\ {\tt chebfun} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunheavyErrTime.eps} \\ {\tt chebfunheavy} \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
+\end{figure}
+>>>>>>> More changes
 
 Another example is illustrated in Figure \ref{GaussianTestFunFig} for the test function
 \begin{equation}
@@ -209,6 +224,7 @@ Algorithm parameters
 \item level of uncertainty $\alpha=5\%$
 \item $n_0=1024$ for the simple algorithm and $n_0=1024\cdot128$ for the heavy duty algorithm.
 \item For the iid sampling, kurtosis max  is 9.2085; for the iid heavy duty sampling ,it is 1051.9.
+<<<<<<< HEAD
 \end{itemize}\label{AlgorPara}
 \begin{figure}
 \centering
@@ -223,6 +239,34 @@ Algorithm parameters
 
 \caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
 \end{figure}
+=======
+<<<<<<< HEAD
+\end{itemize}
+=======
+These $500$ random constructions of $f$ with $d=1$ are integrated over $[0,1]$ with $\rho=1$ (the uniform density function), using {\tt quad},  {\tt quadgk}, and {\tt chebfun}.  For the first two of these algorithms, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} heavy duty'' displays the results of requiring chebfun to use at least $2^{10}+1=1025$ function values.  
+>>>>>>> More changes
+
+\begin{figure}
+\centering
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quad.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{quadgk.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfun.eps} \\ {\tt chebfun} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{chebfunheavy.eps} \\ {\tt chebfun} heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iid.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{iidheavy.eps} \\ {\tt cubMC} i.i.d. heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobol.eps} \\ {\tt cubMC} Sobol' \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{sobolheavy.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance. \label{GaussTestFunFig}}
+\end{figure}
+
+Figure \ref{GaussTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  
+%The {\tt cubMC} algorithm is described in the next section and the results displayed in Figure \ref{GaussTestFunFig} are described in Section \ref{numerexsec}.
+
+<<<<<<< HEAD
+=======
+\end{itemize}\label{AlgorPara}
+>>>>>>> add example of high dimension
+>>>>>>> More changes
 
 For the iid sampling, the successful rate is only 70\% whereas the heavy duty iid sampling, the successful 
 rate is above 95\%. in the graph, the diamond means it reaches the sample limit; the star means the kurtosis is less than the kurtosis maximum. the dot is the general case.
@@ -232,6 +276,11 @@ For the Sobol sampling the successful rate is around 70\% , the heavy duty case,
 
 
 \section{Simple Monte Carlo with Guaranteed Error Estimation}
+=======
+\section{Adaptive Monte Carlo with Guaranteed Error Estimation}
+
+This section describes an adaptive Monte Carlo algorithm based on i.i.d.\ sampling that has probabilistic guarantees on satisfying an absolute error tolerance.  A software implementation of this algorithm, {\tt cubMC}, is being developed by the authors and their collaborators.  Numerical experiments using {\tt cubMC} are shown in Figure \ref{GaussTestFunFig} above and in Section \ref{numerexsec} below.
+>>>>>>> More changes
 
 \subsection{Reliably Bounding the Variance} To estimate or bound the variance of $Y=f(\vX)$ one must have a finite fourth moment.  The definitions of the variance and kurtosis of $Y$ in Section \ref{statperspsec} may be extended naturally to $f \in \cl_4$ in terms of $\cl_p$ norms defined in \eqref{Lpnormdef} as follows:
 \begin{equation*}
@@ -264,7 +313,7 @@ As mentioned in \eqref{samplevar}, a practical upper bound on $\sigma^2$ may be 
 \end{subequations}
 \end{lemma}
 
-\begin{proof} It is known that the sample variance is an unbiased estimator of the variance, i.e., $E(\hv_n)=\sigma^2$.  It is also known from \cite{??} that the variance of the sample variance can be expressed in terms of $\sigma^2$ and $\kappa$ as
+\begin{proof} It is known that the sample variance is an unbiased estimator of the variance, i.e., $E(\hv_n)=\sigma^2$.  It is also known from \cite[(7.16)]{Mil86} that the variance of the sample variance can be expressed in terms of $\sigma^2$ and $\kappa$ as
 \[
 \var(\hv_n) = \frac{\sigma^4}{n} \left ( \kappa  - \frac{n-3}{n-1} \right).
 \]
@@ -413,7 +462,7 @@ where
 \]
 Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to derive the following upper bound on the cost of the adaptive Monte Carlo algorithm.
 
-\begin{theorem} \label{costtheorem} The adaptive Monte Carlo algorithm described in Theorem \ref{mainadaptthm}, denoted $\aMC$, has a probabilistic cost bounded above by 
+\begin{theorem} \label{costtheorem} The adaptive Monte Carlo algorithm based on i.i.d.\ sampling described in Theorem \ref{mainadaptthm}, denoted $\aMC$, has a probabilistic cost bounded above by 
 \begin{equation*}
 \cost(\aMC,\varepsilon,\alpha, \beta, \cc_{\kappa_{\max}}, \sigma_{\max})
 \le n_{\sigma} + N_{CB}(\varepsilon/(\sigma_{\max}\gamma(\talpha,\beta,\fudge)),\talpha,\kappa_{\max}^{3/4}).
@@ -422,6 +471,7 @@ Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to 
 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
 
+<<<<<<< HEAD
 \section{More Numerical Examples}
 We are using the function \ref{GaussianTestFun} and the parameters on page \pageref{FunPara} to test the higher dimension case, set the dimension $d$ be random between 2 to 8, then we have the graphs below:
 \begin{figure}
@@ -432,6 +482,26 @@ We are using the function \ref{GaussianTestFun} and the parameters on page \page
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolheavyErrTime.eps} \\ {\tt Sobolheavy} \end{minipage}
 \caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=7$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GausstianTestFunHDFig}}
 \end{figure}
+=======
+\section{Numerical Examples with $\aMC$} \label{numerexsec}
+
+Figure \ref{GaussTestFunFig} shows timing and observed errors for the adaptive algorithm, $\aMC$, with i.i.d.\ sampling, as described in the previous section.  The parameters chosen are $\epsilon=0.001$, $\alpha=5\%$, and  $\fudge=1.5$.  For the plot on the left, $n_\sigma=2^{10}=1024$, which corresponds to  $\kappa_{\max}=9.2$.  For the heavy duty plot on the right, $n_\sigma=2^{17}=131\ 072$, which corresponds to  $\kappa_{\max}=1052$. In both of these plots the points labeled with a * are those for which $\kappa(f) \le \kappa_{\max}$ and so Theorem \ref{mainadaptthm} guarantees that the answer is correct $1-\alpha= 95\%$ of the time.  For these plots all of the points labeled * fall within the prescribed error tolerance.  For $\aMC$ i.i.d.\ heavy duty plot $\kappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\kappa(f) > \kappa_{\max}$, and so no guarantee holds. The points labeled with a square are those for which \aMC attempts to exceed the cost budget, i.e., it wants to choose $n$ such that $(n_{\sigma}+n)d > N_{\max}=10^9$. 
+
+The {\tt cubMC} algorithm performs somewhat more robustly than {\tt quad}, {\tt quadgk}, and {\tt chebfun}, because \aMC does requires a very low degree of smoothness and makes a fairly large minimum sample.  The more important point is that \aMC has a guarantee, where to our knowledge, the other routines do not.
+
+Figure \ref{GaussTestFunFig} also exhibits the results of using \aMC with scrambled Sobol' sampling \citep{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}, i.e., the sample mean,  $\hmu_n$ is based on sampling the integrand on a Sobol' net with $n$ points.  Since the points of the Sobol' net are purposefully correlated, the error of $\hmu_n$ does not depend on $\var(f)$, but on some measure of variation of $f$ (see \citep{Owe95,Owe96,Owe97,DicPil10a}) that is difficult to estimate in practice.  Tony Warnock and John Halton proposed the following error bound estimate, called the quasi-standard error \citep{Hal05a,Owe06a}:
+\begin{equation} \label{qsedef}
+\qse(f;m) = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m  [\hmu^{(j)}_n - \hmu_n]^2}.
+\end{equation}
+where $\hmu^{(j)}$ corresponds to the sample mean of the function values for the $j^{\text{th}}$ partition out of the Sobol' net.  In \aMC the error of $\hmu_n$ is assumed to be no greater than  $\fudge \qse(f;m)$ with $m=8$ and $\fudge=1.5$.  The number of samples, $n$, is doubled until $\fudge \qse(f;m) \le \varepsilon$.  Unfortunately, there is no theory yet that intuitively describes the cone of integrands for which this stopping criterion guarantees that the error tolerance is met.  This is an area of ongoing research.
+
+For the iid sampling, the successful rate is only 70\% whereas the heavy duty iid sampling, the successful 
+rate is above 95\%. in the graph, the square means it reaches the sample limit; the star mean the kurtosis is less than the kurtosis maximum. the dot is the general case.
+For the Sobol sampling the successful rate is around 70\% , the heavy duty case, the successful rate is almost 100\%. Clearly, Sobol takes less time than iid sampling.For the quad,quadgk, chebfun and chebfun heavy duty, they take less time but could not reach a higher tolerance as we expected.
+
+
+
+>>>>>>> More changes
 
 
 \section{A General Error Criterion} \label{relerrsec}
